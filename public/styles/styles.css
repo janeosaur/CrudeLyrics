@@ -1,0 +1,39 @@
+
+h1 {
+  font-family: Ranga;
+  text-align: center;
+  letter-spacing: 4px;
+  color: #424242;
+  text-shadow: 2px 2px grey;
+  padding: 50px 0;
+}
+
+#e {
+  color: #0277bd;
+  font-family: Shadows Into Light;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#lyrics {
+  color: #424242;
+  font-family: Bad Script;
+  text-transform: lowercase;
+  font-size: 90px;
+}
+
+#y {
+  color: #0277bd;
+}
+
+.genre {
+  background-color: lightgrey;
+  border-style: solid;
+  border-width: 2px;
+  margin: 10px 10px 10px 10px;
+  font-family: Ranga;
+  text-align: center;
+  margin: 20px;
+  height: 100px;
+  align-items: center;
+}
