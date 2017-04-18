@@ -30,8 +30,7 @@ app.get('/', function (req, res) {
   res.sendFile('views/index.html' , { root : __dirname});
 });
 
-
-// testing
+//  GET api/songs index
 app.get('/api/songs', function (req, res) {
   // send all books as JSON response
   db.Song.find()
@@ -46,7 +45,14 @@ app.get('/api/songs', function (req, res) {
     });
   });
 
-
+// GET api/song/:id
+app.get('/api/songs/:id', function (req,res) {
+  var songId = req.params.id;
+  db.Song.findById(songId, function(err, foundSong) {
+    if(err) {console.log('songsShow error', err)}
+    res.json(foundSong);
+  });
+});
 
 ////////////////////
 //  LISTEN
