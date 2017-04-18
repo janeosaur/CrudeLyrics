@@ -37,3 +37,34 @@ h1 {
   height: 100px;
   align-items: center;
 }
+
+#songArtist {
+
+
+
+}
+
+#addLyrics {
+color: #424242;
+  font-family: Bad Script;
+  text-transform: lowercase;
+  font-size: 90px;
+}
+
+}
+
+#viewLyrics  {
+
+
+}
+.songs {
+font-family: ;
+  text-align: center;
+  letter-spacing: 4px;
+  color: #424242;
+  text-shadow: 1px 1px black;
+  padding: 0px, 0px, 0px, 0px;
+  margin: 0 auto;
+
+
+}
