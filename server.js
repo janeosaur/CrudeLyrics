@@ -35,7 +35,7 @@ app.get('/', function (req, res) {
 app.get('/api/songs', function (req, res) {
   // send all books as JSON response
   db.Song.find()
-    // .populate('lyrics')
+    .populate('lyric')
     .exec(function(err, songs){
       if (err) {
         console.log("error: " + err.message);
