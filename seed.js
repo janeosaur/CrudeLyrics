@@ -2,7 +2,7 @@ var db = require('./models');
 
 var songsList = [];
 songsList.push({
-        song: "I feel it coming",
+        name: "I feel it coming",
         artistName: "The Weeknd",
         releaseDate: 2016,
         genre: "r&b",
@@ -59,7 +59,7 @@ songsList.push({
               I feel it coming, babe"
       });
 songsList.push({
-        song: "Company",
+        name: "Company",
         artistName: "Tinashe",
         releaseDate: 2016,
         genre: "r&b",
@@ -123,7 +123,7 @@ songsList.push({
               I"
       });
 songsList.push({
-        song: "Gangsta",
+        name: "Gangsta",
         artistName: "Kehlani",
         releaseDate: 2016,
         genre: "r&b",
@@ -162,7 +162,7 @@ songsList.push({
               That's just what gangsters do"
       });
 songsList.push({
-        song: "With you",
+        name: "With you",
         artistName: "Feel Kim",
         releaseDate: 2017,
         genre: "kpop",
@@ -203,35 +203,35 @@ songsList.push({
               Like a miracle, we are in love with each other"
       });
 songsList.push({
-        song: "Someday",
+        name: "Someday",
         artistName: "BtoB",
         releaseDate: 2017,
         genre: "kpop",
         lyrics: [db.Lyric.schema]
       });
 songsList.push({
-        song: "I'll Be Yours",
+        name: "I'll Be Yours",
         artistName: "Girls Day",
         releaseDate: 2017,
         genre: "kpop",
         lyrics: [db.Lyric.schema]
       });
 songsList.push({
-        song: "Falling",
+        name: "Falling",
         artistName: "Alesso",
         releaseDate: 2016,
         genre: "edm",
         lyrics: [db.Lyric.schema]
       });
 songsList.push({
-        song: "Scared to be Lonely",
+        name: "Scared to be Lonely",
         artistName: "Dua Lipa",
         releaseDate: 2017,
         genre: "edm",
         lyrics: [db.Lyric.schema]
       });
 songsList.push({
-        song: "Party til the Daylight",
+        name: "Party til the Daylight",
         artistName: "Hardwell",
         releaseDate: 2017,
         genre: "edm",
@@ -242,5 +242,67 @@ db.Song.remove({}, function(err, songs) {
   db.Song.create(songsList, function(err, songs) {
     console.log('all songs', songs);
 
+  })
+})
+
+lyricsList = [];
+lyricsList.push({
+        verse: "Yeah, uh Tell me what you really like Baby I can take my time\
+            We don't ever have to fight\
+            Just take it step-by-step\
+            I can see it in your eyes\
+            'Cause they never tell me lies\
+            I can feel that body shake\
+            And the heat between your legs\
+            You've been scared of love and what it did to you\
+            You don't have to run, I know what you've been through\
+            Just a simple touch and it can set you free\
+            We don't have to rush when you're alone with me\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe\
+            You are not the single type\
+            So baby, this the perfect time\
+            I'm just trying to get you high\
+            And faded off this touch\
+            You don't need a lonely night\
+            So baby, I can make it right\
+            You just got to let me try\
+            To give you what you want\
+            You've been scared of love and what it did to you\
+            You don't have to run, I know what you've been through\
+            Just a simple touch and it can set you free\
+            We don't have to rush when you're alone with me\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe\
+            You've been scared of love and what it did to you\
+            You don't have to run, I know what you've been through\
+            Just a simple touch and it can set you free\
+            We don't have to rush when you're alone with me\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe (I know what you feel right now)\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe (I know what you feel right now)\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe (I know what you feel right now)\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, I feel it coming, babe\
+            I feel it coming, babe\
+            I feel it coming, babe\
+            I feel it coming, babe\
+            I feel it coming, babe",
+        language: 'English',
+        writers: 'Addy'
+      });
+
+db.Lyric.remove({}, function(err, lyrics) {
+  db.Lyric.create(lyricsList, function(err, lyrics) {
   })
 })

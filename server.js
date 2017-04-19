@@ -1,7 +1,7 @@
 var express = require('express'),
   bodyParser = require('body-parser');
 
-var db = require('./models');
+var db = require('./models')
 
 var app = express();
 
@@ -27,7 +27,7 @@ app.use(logRequestInfo);
 ///////////////////
 
 app.get('/', function (req, res) {
-  res.sendFile('views/index.html' , { root : __dirname});
+  res.sendFile('/views/index.html' , { root : __dirname});
 });
 
 //  GET api/songs index
@@ -49,35 +49,42 @@ app.get('/api/songs', function (req, res) {
 app.get('/api/songs/:id', function (req,res) {
   var songId = req.params.id;
   db.Song.findById(songId, function(err, foundSong) {
-    if(err) {console.log('songsShow error', err)}
+    if(err) {console.log('foundSong error', err)}
     res.json(foundSong);
   });
 });
 
 
-// GET list of R&B Songs
-app.get('/rnb', function(req,res) {
-  res.send('Future list of R&B Songs') // in the future... append HTML
+// i don't think this is the way to do it - jane
+// GET genre.html based on :genre
+app.get('/genre/:genre', function(req,res) {
+  var genre = req.params.genre;
+  if (genre === 'rnb') {
+    res.sendFile('views/songs.html' , { root : __dirname});
+    // manipulate html stuff?
+  } else if (genre === 'kpop') {
+    res.sendFile('views/songs.html' , { root : __dirname});
+    // manipulate html stuff?
+  } else if (genre === 'edm') {
+    res.sendFile('views/songs.html' , { root : __dirname});
+    // manipulate html stuff?
+  } else {
+    console.log('user has chosen invalid genre name')
+    // some sort of client facing error?
+  }
 })
 
-// GET list of R&B Songs
-app.get('/kpop', function(req,res) {
-  res.send('Future list of KPOP Songs') // in the future... append HTML
-})
 
-// GET list of R&B Songs
-app.get('/edm', function(req,res) {
-  res.send('Future list of EDM Songs') // in the future... append HTML
-})
-
-// GET genre.html
-app.get('/genre', function(req,res) {
-  res.sendFile('views/genre.html' , { root : __dirname});
-})
-
-// GET lyrics.html
+// GET lyrics landing page
 app.get('/lyrics', function(req,res) {
   res.sendFile('views/lyrics.html' , { root : __dirname});
+})
+
+app.get('/lyrics/:id', function (req, res) {
+  db.Lyric.find({_id: req.params.id})
+    .exec (function (err, foundLyric) {
+      console.log('found one lyric')
+  })
 })
 
 
