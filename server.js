@@ -1,7 +1,7 @@
 var express = require('express'),
   bodyParser = require('body-parser');
 
-var db = require('./models');
+
 
 var app = express();
 
@@ -70,9 +70,22 @@ app.get('/edm', function(req,res) {
   res.send('Future list of EDM Songs') // in the future... append HTML
 })
 
-// GET genre.html
-app.get('/genre', function(req,res) {
-  res.sendFile('views/genre.html' , { root : __dirname});
+// GET genre.html based on :genre
+app.get('/genre/:genre', function(req,res) {
+  var genre = req.params.genre;
+  if (genre === 'rnb') {
+    res.sendFile('views/genre.html' , { root : __dirname});
+    // manipulate html stuff?
+  } else if (genre === 'kpop') {
+    res.sendFile('views/genre.html' , { root : __dirname});
+    // manipulate html stuff?
+  } else if (genre === 'edm') {
+    res.sendFile('views/genre.html' , { root : __dirname});
+    // manipulate html stuff?
+  } else {
+    console.log('user has chosen invalid genre name')
+    // some sort of client facing error?
+  }
 })
 
 // GET lyrics.html
