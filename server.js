@@ -36,6 +36,8 @@ app.get('/api', controllers.api.index);
 app.get('/api/songs', controllers.songs.index);
 app.get('/api/songs/:id', controllers.songs.show);
 app.get('/api/lyrics', controllers.lyrics.index);
+app.get('/api/lyrics/:id', controllers.lyrics.show);
+
 
 
 // GET and send genre.html based on :genre
