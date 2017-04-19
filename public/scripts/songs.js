@@ -20,7 +20,8 @@ songs.forEach(function(song) {
   
   genre.songs.html = genre.songs.map(renderSong).join("");
 
-  var songshtml =(
+  var songshtml =
+  
 <div class="container">
   <div class="row">
     <div class="col s8 offset-s1 genre" id="songsNameOne"><span class="flow-text"><a href="#">Song Name</a></span></div>
@@ -46,7 +47,7 @@ songs.forEach(function(song) {
     </div>
 
    $('#songs').prepend(songshtml);
-   
+
    }	
 
 
