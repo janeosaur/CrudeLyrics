@@ -8,22 +8,16 @@ function index(req, res) {
   });
 }
 
-
-// function index(req, res) {
-//   res.json({
-//     db.Song.find()
-//       .populate('lyric')
-//       .exec(function(err, songs){
-//         if (err) {
-//           console.log("error: " + err.message);
-//           res.status(500).send();
-//         } else {
-//           res.json(songs);
-//         }
-//       });
-//     });
-//   }
+// GET api/songs/:id
+function show(req,res) {
+  var songId = req.params.id;
+  db.Song.findById(songId, function(err, foundSong) {
+    if(err) {console.log('foundSong error', err)}
+    res.json(foundSong);
+  });
+};
 
 module.exports = {
-  index: index
+  index: index,
+  show: show
 }

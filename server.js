@@ -34,6 +34,7 @@ app.get('/', function (req, res) {
 // JSON API Endpoints
 app.get('/api', controllers.api.index);
 app.get('/api/songs', controllers.songs.index);
+app.get('api/songs/:id', controllers.songs.show);
 
 
 // GET api/song/:id
