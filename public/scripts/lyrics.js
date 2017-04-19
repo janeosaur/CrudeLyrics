@@ -1,6 +1,10 @@
 $(document).ready(function() {
   console.log('lyrics.js loaded!');
 
+  var windowHref = window.location.href;
+  var splitHref = windowHref.split('/');
+  var genre = splitHref[splitHref.length-1];
+
   $.ajax({
     method: 'GET',
     url: '/api/lyrics',
