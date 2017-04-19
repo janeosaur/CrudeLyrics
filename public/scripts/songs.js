@@ -1,34 +1,36 @@
 $(document).ready(function() {
-  console.log('app.js loaded!');
+  console.log('songs.js loaded!');
 
-var express = require('express'),
-  bodyParser = require('body-parser');
+  $.ajax({
+    method: 'GET',
+    url: '/api/songs',
+    success: handleSuccess,
+    error: handleError
+  });
 
-var db = require('./models');
+  // when user clicks on edit lyrics
+  $('#edit').on('click', handleEditLyric);
 
-var app = express();
+  $('#delete').on('click', handleDeleteLyric);
 
-////////////////////
-//  MIDDLEWARE
-///////////////////
+});
 
-app.use(express.static('public'));
-
-app.use(bodyParser.urlencoded({ extended: true }));
-
-function logRequestInfo(req, res, next){
-  console.log(`\nRECEIVED REQUEST : ${req.method} ${req.url}`);
-  console.log('query params:', req.query);
-  console.log('body:', req.body);
-  next();
+function handleSuccess(res) {
+  console.log(res) // returns array of lyrics objects
 }
-app.use(logRequestInfo);
 
+function handleError(e) {
+  console.log('uh oh');
+}
 
-////////////////////
-//  ROUTES
-///////////////////
+function handleEditLyric(e) {
+  console.log('edit lyric clicked');
+  $('#editModal').modal();
+  // does it make sense for users to edit parts of a lyric?
+  // style the buttons so it's not touching side by side
+}
 
-app.get('/', function (req, res) {
-  res.sendFile('views/songs.html' , { root : __dirname});
-});  
+function handleDeleteLyric(e) {
+  console.log('delete lyric clicked');
+  $('#deleteModal').modal();
+}

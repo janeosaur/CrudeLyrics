@@ -15,7 +15,32 @@ function show(req,res) {
   });
 };
 
+// GET api/genre/rnb/songs
+function indexRnb(req,res) {
+  db.Song.find({genre: 'r&b'}, function(err, allRnbSongs) {
+    res.json(allRnbSongs);
+  });
+};
+
+// GET api/genre/kpop/songs
+function indexKpop(req,res) {
+  db.Song.find({genre: 'kpop'}, function(err, allKpopSongs) {
+    res.json(allKpopSongs);
+  });
+};
+
+// GET api/genre/edm/songs
+function indexEdm(req,res) {
+  db.Song.find({genre: 'edm'}, function(err, allEdmSongs) {
+    res.json(allEdmSongs);
+  });
+};
+
+
 module.exports = {
   index: index,
-  show: show
+  show: show,
+  indexRnb: indexRnb,
+  indexKpop: indexKpop,
+  indexEdm: indexEdm
 }

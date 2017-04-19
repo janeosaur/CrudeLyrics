@@ -4,7 +4,7 @@ $(document).ready(function() {
   $.ajax({
     method: 'GET',
     url: '/api/lyrics',
-    success: handleSuccess, // seems pointless
+    success: handleSuccess,
     error: handleError
   });
 
@@ -16,7 +16,7 @@ $(document).ready(function() {
 });
 
 function handleSuccess(res) {
-  console.log(res) // this logs html page...
+  console.log(res) // returns array of lyrics objects
 }
 
 function handleError(e) {
