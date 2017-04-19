@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   $.ajax({
     method: 'GET',
-    url: '/lyrics',
+    url: '/api/lyrics',
     success: handleSuccess, // seems pointless
     error: handleError
   });

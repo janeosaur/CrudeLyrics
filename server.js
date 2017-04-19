@@ -1,7 +1,8 @@
-var express = require('express'),
+var express = require('express');
   bodyParser = require('body-parser');
 
-var db = require('./models')
+var db = require('./models');
+var controllers = require('./controllers');
 
 var app = express();
 
@@ -30,20 +31,10 @@ app.get('/', function (req, res) {
   res.sendFile('/views/index.html' , { root : __dirname});
 });
 
-//  GET api/songs index
-app.get('/api/songs', function (req, res) {
-  // send all books as JSON response
-  db.Song.find()
-    .populate('lyric')
-    .exec(function(err, songs){
-      if (err) {
-        console.log("error: " + err.message);
-        res.status(500).send();
-      } else {
-        res.json(songs);
-      }
-    });
-  });
+// JSON API Endpoints
+app.get('/api', controllers.api.index);
+app.get('/api/songs', controllers.songs.index);
+
 
 // GET api/song/:id
 app.get('/api/songs/:id', function (req,res) {
@@ -80,7 +71,7 @@ app.get('/lyrics', function(req,res) {
   res.sendFile('views/lyrics.html' , { root : __dirname});
 })
 
-app.get('/lyrics/:id', function (req, res) {
+app.get('/api/lyrics/:id', function (req, res) {
   db.Lyric.find({_id: req.params.id})
     .exec (function (err, foundLyric) {
       console.log('found one lyric')
