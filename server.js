@@ -54,32 +54,25 @@ app.get('/api/songs/:id', function (req,res) {
   });
 });
 
-// GET api/song/:name
-app.get('/api/songs/:name', function (req,res) {
-  var songName = req.params.name;
-  db.Song.find({name: songName}), function(err, foundSong) {
-    if(err) {console.log('foundSong error', err)}
-    res.json(foundSong);
-  };
-});
 
-// GET genre.html based on :genre
-app.get('/genre/:genre', function(req,res) {
-  var genre = req.params.genre;
-  if (genre === 'rnb') {
-    res.sendFile('views/genre.html' , { root : __dirname});
-    // manipulate html stuff?
-  } else if (genre === 'kpop') {
-    res.sendFile('views/genre.html' , { root : __dirname});
-    // manipulate html stuff?
-  } else if (genre === 'edm') {
-    res.sendFile('views/genre.html' , { root : __dirname});
-    // manipulate html stuff?
-  } else {
-    console.log('user has chosen invalid genre name')
-    // some sort of client facing error?
-  }
-})
+// i don't think this is the way to do it - jane
+// // GET genre.html based on :genre
+// app.get('/genre/:genre', function(req,res) {
+//   var genre = req.params.genre;
+//   if (genre === 'rnb') {
+//     res.sendFile('views/songs.html' , { root : __dirname});
+//     // manipulate html stuff?
+//   } else if (genre === 'kpop') {
+//     res.sendFile('views/songs.html' , { root : __dirname});
+//     // manipulate html stuff?
+//   } else if (genre === 'edm') {
+//     res.sendFile('views/songs.html' , { root : __dirname});
+//     // manipulate html stuff?
+//   } else {
+//     console.log('user has chosen invalid genre name')
+//     // some sort of client facing error?
+//   }
+// })
 
 // GET lyrics.html
 app.get('/lyrics', function(req,res) {
