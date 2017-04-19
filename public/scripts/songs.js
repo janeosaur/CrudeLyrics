@@ -1,3 +1,5 @@
+
+
 $(document).ready(function() {
   console.log('songs.js loaded!');
 
@@ -98,3 +100,4 @@ function handleError(e) {
 //   console.log('delete lyric clicked');
 //   $('#deleteModal').modal();
 // }
+
