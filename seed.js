@@ -2,7 +2,7 @@ var db = require('./models');
 
 var songsList = [];
 songsList.push({
-        song: "I feel it coming",
+        name: "I feel it coming",
         artistName: "The Weeknd",
         releaseDate: 2016,
         genre: "r&b",
@@ -59,7 +59,7 @@ songsList.push({
               I feel it coming, babe"
       });
 songsList.push({
-        song: "Company",
+        name: "Company",
         artistName: "Tinashe",
         releaseDate: 2016,
         genre: "r&b",
@@ -123,7 +123,7 @@ songsList.push({
               I"
       });
 songsList.push({
-        song: "Gangsta",
+        name: "Gangsta",
         artistName: "Kehlani",
         releaseDate: 2016,
         genre: "r&b",
@@ -162,7 +162,7 @@ songsList.push({
               That's just what gangsters do"
       });
 songsList.push({
-        song: "With you",
+        name: "With you",
         artistName: "Feel Kim",
         releaseDate: 2017,
         genre: "kpop",
@@ -203,35 +203,35 @@ songsList.push({
               Like a miracle, we are in love with each other"
       });
 songsList.push({
-        song: "Someday",
+        name: "Someday",
         artistName: "BtoB",
         releaseDate: 2017,
         genre: "kpop",
         lyrics: [db.Lyric.schema]
       });
 songsList.push({
-        song: "I'll Be Yours",
+        name: "I'll Be Yours",
         artistName: "Girls Day",
         releaseDate: 2017,
         genre: "kpop",
         lyrics: [db.Lyric.schema]
       });
 songsList.push({
-        song: "Falling",
+        name: "Falling",
         artistName: "Alesso",
         releaseDate: 2016,
         genre: "edm",
         lyrics: [db.Lyric.schema]
       });
 songsList.push({
-        song: "Scared to be Lonely",
+        name: "Scared to be Lonely",
         artistName: "Dua Lipa",
         releaseDate: 2017,
         genre: "edm",
         lyrics: [db.Lyric.schema]
       });
 songsList.push({
-        song: "Party til the Daylight",
+        name: "Party til the Daylight",
         artistName: "Hardwell",
         releaseDate: 2017,
         genre: "edm",
