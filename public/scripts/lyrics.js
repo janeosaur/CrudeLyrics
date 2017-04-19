@@ -1,6 +1,8 @@
 $(document).ready(function() {
   console.log('lyrics.js loaded!');
 
+
+// to get the genre from URL of what user clicked.
   var windowHref = window.location.href;
   var splitHref = windowHref.split('/');
   var genre = splitHref[splitHref.length-1];
