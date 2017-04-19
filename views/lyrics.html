@@ -36,34 +36,48 @@
 
       <div class="lyrics-buttons">
         <a class="waves-effect waves-light btn light-blue darken-3" id="edit" href="#editModal">edit</a></div>
-        <a class="waves-effect waves-light btn light-blue darken-3" id="delete" href="deleteModal">delete</a></div>
+        <a class="waves-effect waves-light btn light-blue darken-3" id="delete" href="#deleteModal">delete</a></div>
       </div>
 
-      <!-- Modal Structure. Hidden until user clicks edit -->
+      <!-- Edit Modal Structure. Hidden until user clicks edit -->
       <div id="editModal" class="modal">
         <div class="modal-content">
           <h4>Edit</h4>
           <p> Please feel free to contribute any changes!</p>
 
-          <!-- Written by -->
+          <!-- Edit Writers -->
             <div class="form-group">
-              <label class="col m4 control-label" for="songName">Written By</label>
-              <div class="col-md-4">
+              <label>Written By</label>
+              <div class="col m4">
                 <input id="writtenBy" name="writers" type="text" placeholder="" class="form-control input-md" required="">
               </div>
             </div>
 
-            <!-- Number input-->
+            <!-- Edit Language -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="trackNumber">Langauge</label>
-              <div class="col-md-4">
-                <input id="language" name="language" type="number" placeholder="" class="form-control input-md">
+              <label>Language</label>
+              <div class="col m4">
+                <input id="language" name="language" type="text" placeholder="" class="form-control input-md">
               </div>
             </div>
 
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect grey btn-flat">Submit</a>
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Submit</a>
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Cancel</a>
+        </div> <!-- /.modal-content -->
+      </div> <!-- /.modal -->
+
+      <!-- Delete Modal Structure. Hidden until user clicks edit -->
+      <div id="deleteModal" class="modal">
+        <div class="modal-content">
+          <h4>Delete</h4>
+          <p> Are you sure? </p>
+
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Yes</a>
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">No</a>
         </div> <!-- /.modal-content -->
       </div> <!-- /.modal -->
 

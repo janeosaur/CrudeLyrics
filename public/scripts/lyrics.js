@@ -11,6 +11,8 @@ $(document).ready(function() {
   // when user clicks on edit lyrics
   $('#edit').on('click', handleEditLyric);
 
+  $('#delete').on('click', handleDeleteLyric);
+
 });
 
 function handleSuccess(res) {
@@ -24,6 +26,10 @@ function handleError(e) {
 function handleEditLyric(e) {
   console.log('edit lyric clicked');
   $('#editModal').modal();
-  // does it make sense for users to edit parts of a lyric? 
+  // does it make sense for users to edit parts of a lyric?
+}
 
+function handleDeleteLyric(e) {
+  console.log('delete lyric clicked');
+  $('#deleteModal').modal();
 }
