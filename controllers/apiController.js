@@ -1,3 +1,4 @@
+// to GET /api 
 
 function index(req, res) {
   res.json({
