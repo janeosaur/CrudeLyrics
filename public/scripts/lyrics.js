@@ -1,10 +1,16 @@
 $(document).ready(function() {
   console.log('lyrics.js loaded!');
 
+
+// to get the genre from URL of what user clicked.
+  var windowHref = window.location.href;
+  var splitHref = windowHref.split('/');
+  var genre = splitHref[splitHref.length-1];
+
   $.ajax({
     method: 'GET',
-    url: '/lyrics',
-    success: handleSuccess, // seems pointless
+    url: '/api/lyrics',
+    success: handleSuccess,
     error: handleError
   });
 
@@ -16,7 +22,7 @@ $(document).ready(function() {
 });
 
 function handleSuccess(res) {
-  console.log(res) // this logs html page...
+  console.log(res) // returns array of lyrics objects
 }
 
 function handleError(e) {
