@@ -1,7 +1,8 @@
-var express = require('express'),
+var express = require('express');
   bodyParser = require('body-parser');
 
-var db = require('./models')
+var db = require('./models');
+var controllers = require('./controllers');
 
 var app = express();
 
@@ -30,47 +31,28 @@ app.get('/', function (req, res) {
   res.sendFile('/views/index.html' , { root : __dirname});
 });
 
-//  GET api/songs index
-app.get('/api/songs', function (req, res) {
-  // send all books as JSON response
-  db.Song.find()
-    .populate('lyric')
-    .exec(function(err, songs){
-      if (err) {
-        console.log("error: " + err.message);
-        res.status(500).send();
-      } else {
-        res.json(songs);
-      }
-    });
-  });
-
-// GET api/song/:id
-app.get('/api/songs/:id', function (req,res) {
-  var songId = req.params.id;
-  db.Song.findById(songId, function(err, foundSong) {
-    if(err) {console.log('foundSong error', err)}
-    res.json(foundSong);
-  });
-});
+// JSON API Endpoints
+app.get('/api', controllers.api.index);
+app.get('/api/songs', controllers.songs.index);
+app.get('/api/songs/:id', controllers.songs.show);
+app.get('/api/lyrics', controllers.lyrics.index);
+app.get('/api/lyrics/:id', controllers.lyrics.show);
+app.get('/api/genre/rnb/songs', controllers.songs.indexRnb);
+app.get('/api/genre/kpop/songs', controllers.songs.indexKpop); // try to consolidate these
+app.get('/api/genre/edm/songs', controllers.songs.indexEdm);
 
 
-// i don't think this is the way to do it - jane
-// GET genre.html based on :genre
+// GET and send genre.html based on :genre
 app.get('/genre/:genre', function(req,res) {
   var genre = req.params.genre;
   if (genre === 'rnb') {
     res.sendFile('views/songs.html' , { root : __dirname});
-    // manipulate html stuff?
   } else if (genre === 'kpop') {
     res.sendFile('views/songs.html' , { root : __dirname});
-    // manipulate html stuff?
   } else if (genre === 'edm') {
     res.sendFile('views/songs.html' , { root : __dirname});
-    // manipulate html stuff?
   } else {
-    console.log('user has chosen invalid genre name')
-    // some sort of client facing error?
+    console.log('user has chosen invalid genre')
   }
 })
 
@@ -80,7 +62,7 @@ app.get('/lyrics', function(req,res) {
   res.sendFile('views/lyrics.html' , { root : __dirname});
 })
 
-app.get('/lyrics/:id', function (req, res) {
+app.get('/api/lyrics/:id', function (req, res) {
   db.Lyric.find({_id: req.params.id})
     .exec (function (err, foundLyric) {
       console.log('found one lyric')
