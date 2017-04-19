@@ -1,12 +1,8 @@
 $(document).ready(function() {
   console.log('app.js loaded!');
 
-
+// handle server response as HTML
 
 
 
 });
-
-
-// hard coded data
-var genres = ['r&b', 'kpop', 'edm'];

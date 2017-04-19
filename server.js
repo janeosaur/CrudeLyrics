@@ -54,6 +54,33 @@ app.get('/api/songs/:id', function (req,res) {
   });
 });
 
+
+// GET list of R&B Songs
+app.get('/rnb', function(req,res) {
+  res.send('Future list of R&B Songs') // in the future... append HTML
+})
+
+// GET list of R&B Songs
+app.get('/kpop', function(req,res) {
+  res.send('Future list of KPOP Songs') // in the future... append HTML
+})
+
+// GET list of R&B Songs
+app.get('/edm', function(req,res) {
+  res.send('Future list of EDM Songs') // in the future... append HTML
+})
+
+// GET genre.html
+app.get('/genre', function(req,res) {
+  res.sendFile('views/genre.html' , { root : __dirname});
+})
+
+// GET lyrics.html
+app.get('/lyrics', function(req,res) {
+  res.sendFile('views/lyrics.html' , { root : __dirname});
+})
+
+
 ////////////////////
 //  LISTEN
 ///////////////////
