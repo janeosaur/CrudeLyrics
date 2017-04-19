@@ -30,20 +30,11 @@ $(document).ready(function() {
 function handleSuccess(res) { // renderAlbum
   console.log(res); // logs array of song objects
   res.forEach(function(song) {
-    console.log(`${song.name}`);
-  })
-  // to add these elements to HTML...
-  // res.songsHtml = res.songs.map(renderSong).join('');
-
-// song.name song.artistName song.releaseDate
-
-// response is [obj, obj, obj]
-
-// to access A song.. song[0].name
+    console.log(`${song.name} ${song.artistName} ${song.releaseDate}`);
 
   var songsHtml =
         (`
-          <div class="row album" data-album-id="${album._id}">
+          <div class="row album" data-album-id="${song.name}">
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
                 <div class="panel-body">
@@ -56,19 +47,15 @@ function handleSuccess(res) { // renderAlbum
                       <ul class="list-group">
                         <li class="list-group-item">
                           <h4 class='inline-header'>Album Name:</h4>
-                          <span class='album-name'>${album.name}</span>
+                          <span class='album-name'>${song.name}</span>
                         </li>
                         <li class="list-group-item">
                           <h4 class='inline-header'>Artist Name:</h4>
-                          <span class='artist-name'>${album.artistName}</span>
+                          <span class='artist-name'>${song.artistName}</span>
                         </li>
                         <li class="list-group-item">
                           <h4 class='inline-header'>Released date:</h4>
-                          <span class='album-releaseDate'>${album.releaseDate}</span>
-                        </li>
-                        <li class="list-group-item">
-                          <h4 class="inline-header">Songs:</h4>
-                          ${album.songsHtml}
+                          <span class='album-releaseDate'>${song.releaseDate}</span>
                         </li>
                       </ul>
                     </div>
@@ -89,8 +76,9 @@ function handleSuccess(res) { // renderAlbum
           </div>
           <!-- end one album -->
         `);
-        $('#albums').prepend(albumHtml);
-      }
+        $('#SongArtist').prepend(songsHtml);
+      });
+    };
 
 function handleError(e) {
   console.log('uh oh');
