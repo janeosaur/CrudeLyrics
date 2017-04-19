@@ -34,35 +34,21 @@ app.get('/', function (req, res) {
 // JSON API Endpoints
 app.get('/api', controllers.api.index);
 app.get('/api/songs', controllers.songs.index);
-app.get('api/songs/:id', controllers.songs.show);
+app.get('/api/songs/:id', controllers.songs.show);
+app.get('/api/lyrics', controllers.lyrics.index);
 
 
-// GET api/song/:id
-app.get('/api/songs/:id', function (req,res) {
-  var songId = req.params.id;
-  db.Song.findById(songId, function(err, foundSong) {
-    if(err) {console.log('foundSong error', err)}
-    res.json(foundSong);
-  });
-});
-
-
-// i don't think this is the way to do it - jane
-// GET genre.html based on :genre
+// GET and send genre.html based on :genre
 app.get('/genre/:genre', function(req,res) {
   var genre = req.params.genre;
   if (genre === 'rnb') {
     res.sendFile('views/songs.html' , { root : __dirname});
-    // manipulate html stuff?
   } else if (genre === 'kpop') {
     res.sendFile('views/songs.html' , { root : __dirname});
-    // manipulate html stuff?
   } else if (genre === 'edm') {
     res.sendFile('views/songs.html' , { root : __dirname});
-    // manipulate html stuff?
   } else {
-    console.log('user has chosen invalid genre name')
-    // some sort of client facing error?
+    console.log('user has chosen invalid genre')
   }
 })
 

@@ -304,5 +304,5 @@ lyricsList.push({
 
 db.Lyric.remove({}, function(err, lyrics) {
   db.Lyric.create(lyricsList, function(err, lyrics) {
-  })
+  });
 })

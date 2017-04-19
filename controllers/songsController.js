@@ -2,7 +2,6 @@ var db = require('../models');
 
 // GET /api/songs
 function index(req, res) {
-  // send back all songs as JSON
   db.Song.find({}, function(err, allSongs) {
     res.json(allSongs);
   });
@@ -12,7 +11,6 @@ function index(req, res) {
 function show(req,res) {
   var songId = req.params.id;
   db.Song.findById(songId, function(err, foundSong) {
-    if(err) {console.log('foundSong error', err)}
     res.json(foundSong);
   });
 };
