@@ -1,5 +1,8 @@
 var db = require('./models');
 
+
+// make lyrics object thatlooks like the model
+
 var songsList = [];
 songsList.push({
         name: "I feel it coming",
@@ -465,7 +468,7 @@ db.Song.remove({}, function(err, songs) {
   })
 })
 
-lyricsList = [];
+var lyricsList = [];
 lyricsList.push({
         verse: "Yeah, uh Tell me what you really like Baby I can take my time\
             We don't ever have to fight\

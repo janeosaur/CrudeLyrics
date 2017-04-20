@@ -1,5 +1,6 @@
 $(document).ready(function() {
   console.log('songs.js loaded!');
+  $('select').material_select();
 
   // to get the genre from URL of what user clicked.
   var windowHref = window.location.href;
@@ -44,8 +45,7 @@ function handleSuccess(res) {
   console.log(res);
   res.forEach(function(song) {
     console.log(`${song.name} ${song.artistName} ${song.releaseDate}`);
-    var songsHtml =
-          (`
+    var songsHtml = (`
               <div class="col s4 song-output" data-name="${song.name}">
                 <span class="song-name">${song.name}</span>
                   <h5>By: <span class="artistname">${song.artistName}</span> </h5>
@@ -59,8 +59,7 @@ function handleSuccess(res) {
                 </div>
             </div>
             <!-- end one song -->
-          `);
-
+        `);
     $('div.songs-row').append(songsHtml);
     $('.view-lyrics').on('click', viewLyric);
   });

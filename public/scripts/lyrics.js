@@ -9,8 +9,8 @@ $(document).ready(function() {
   var genre = splitHref[splitHref.length-2];
   console.log('selected genre is', genre, 'and song is', song);
 
-  // sets title of song lyrics?
-  // $('.container').prepend(`<h1> ${genre} </h1>`);
+  // shows title of song on lyrics page - CSS may need to be edited
+  $('.lyrics-container').append(`<h5> ${song} </h5>`);
 
   $.ajax({
     method: 'GET',
@@ -18,7 +18,6 @@ $(document).ready(function() {
     success: handleSuccess,
     error: handleError
   });
-
 
 });
 
@@ -32,9 +31,23 @@ $(document).ready(function() {
 
 
 function handleSuccess(res) {
-  console.log(res)
-}
+  console.log(res);
+  // console.log(`${song.name} ${song.artistName} ${song.lyrics}`)
+    var lyricsHtml = (`
+        <div class="col s4 song-output" data-name="${res.name}">
+          <span class="song-name">${res.name}</span>
+          <h5>By: <span class="artistname">${res.artistName}</span> </h5>
+          <h5>Released: <span class="releaseDate">${res.releaseDate}</span> </h5>
+          <div id="lyrics"> ${res.lyrics} </div>
+      </div>
+      <!-- end one song -->
+      `);
+    $('.lyrics-output').append(lyricsHtml);
+  }
 
+function handleError(e) {
+  console.log('uh oh');
+}
 
 
 function handleEditLyric(e) {
