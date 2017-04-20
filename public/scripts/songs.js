@@ -20,65 +20,43 @@ $(document).ready(function() {
   //
   // $('#delete').on('click', handleDeleteLyric);
 
+
+  function handleSuccess(res) { // renderAlbum
+    console.log(res); // logs array of song objects
+    $('.container').prepend(`<h1> ${genre} <h1>`);
+    res.forEach(function(song) {
+      console.log(`${song.name} ${song.artistName} ${song.releaseDate}`);
+
+    var songsHtml =
+          (`
+              <div class="col s4 song-output">
+                <span class="songs">${song.name}</span>
+                <ul>
+                  <h5>By: <span class="artistname">${song.artistName}</span> </h5>
+                  <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
+                </ul>
+
+                <div class='panel-footer'>
+                    <button class='btn btn-info view'>View Lyrics </button>
+                    <button class='btn btn-info add'>Add Lyrics </button>
+                </div>
+            </div>
+            <!-- end one song -->
+          `);
+          $('.row').append(songsHtml);
+        });
+      };
+
+
+
 });
+
 
 // function renderSong(song) {
 //   console.log(`${song.name}`);
 //   return `<span> ${song.name} ${song.artistName} </span>`
 // }
 
-function handleSuccess(res) { // renderAlbum
-  console.log(res); // logs array of song objects
-  res.forEach(function(song) {
-    console.log(`${song.name} ${song.artistName} ${song.releaseDate}`);
-
-  var songsHtml =
-        (`
-          <div class="row album" data-album-id="${song.name}">
-            <div class="col-md-10 col-md-offset-1">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                <!-- begin album internal row -->
-                  <div class='row'>
-                    <div class="col-md-3 col-xs-12 thumbnail album-art">
-                      <img src="images/800x800.png" alt="album image">
-                    </div>
-                    <div class="col-md-9 col-xs-12">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Album Name:</h4>
-                          <span class='album-name'>${song.name}</span>
-                        </li>
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Artist Name:</h4>
-                          <span class='artist-name'>${song.artistName}</span>
-                        </li>
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Released date:</h4>
-                          <span class='album-releaseDate'>${song.releaseDate}</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- end of album internal row -->
-                  <div class='panel-footer'>
-                    <div class='panel-footer'>
-                      <button class='btn btn-primary add-song'>Add Song</button>
-                      <button class='btn btn-danger delete-album'>Delete Album</button>
-                      <button class='btn btn-info edit-album'>Edit Album</button>
-                      <button class='btn btn-success save-album hidden'>Save Changes</button>
-                      <button class='btn btn-info edit-songs'>Edit Songs</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end one album -->
-        `);
-        $('#SongArtist').prepend(songsHtml);
-      });
-    };
 
 function handleError(e) {
   console.log('uh oh');
