@@ -59,37 +59,38 @@
       </div> <!-- /.modal -->
 
 			<!-- Add/Edit/Delete Songs -->
-
-			 <div class="row songs-form">
-				 <h5> Submit your favorite songs! </h5>
-					 <form class="col m12">
-						 <div class="row">
-							 <div class="input-field col s6">
-								 <input id="songname" type="text" class="validate">
-								 <label for="songname"> Song Name </label>
-							 </div>
-							 <div class="input-field col s6">
-								 <input id="artistname" type="text" class="validate">
-								 <label for="artistname"> Arist Name </label>
-							 </div>
-							 <div class="input-field col s6">
-								<input id="releasedate" type="text" class="validate">
-								<label for="releasedate"> Release Date </label>
-							</div>
-							<div class="input-field col s6">
-							 <input id="genre" type="text" class="validate">
-							 <label for="genre"> Genre </label>
-						 </div>
-
-							 <!-- Button -->
-							 <div class="form-group">
-								 <div class="col m4">
-									 <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+			<section>
+				 <div class="row">
+					 <h5> Submit your favorite songs! </h5>
+						 <form class="col m12" id="song-form">
+							 <div class="row">
+								 <div class="input-field col s6">
+									 <input name="songname" type="text" class="validate">
+									 <label for="name"> Song Name </label>
 								 </div>
+								 <div class="input-field col s6">
+									 <input name="artistName" type="text" class="validate">
+									 <label for="artistname"> Arist Name </label>
+								 </div>
+								 <div class="input-field col s6">
+									<input name="releaseDate" type="text" class="validate">
+									<label for="releasedate"> Release Date </label>
+								</div>
+								<div class="input-field col s6">
+								 <input name="genre" type="text" class="validate">
+								 <label for="genre"> Genre </label>
 							 </div>
-				 	 </div>
-				 </form>
-			 </div>
+
+								 <!-- Button -->
+								 <div class="form-group">
+									 <div class="col m4">
+										 <button type="submit" class="btn btn-default" id="submit">Submit</button>
+									 </div>
+								 </div>
+					 	 </div>
+					 </form>
+				 </div>
+		 </section>
 
 		<!--   END FORM SAMPLE -->
 

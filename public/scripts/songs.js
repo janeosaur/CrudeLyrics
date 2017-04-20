@@ -1,12 +1,14 @@
 $(document).ready(function() {
   console.log('songs.js loaded!');
 
-  // to get the genre from URL of what user clicked.
-    var windowHref = window.location.href;
-    var splitHref = windowHref.split('/');
-    var genre = splitHref[splitHref.length-1];
+  var allSongs =[];
 
-    console.log('selected genre is', genre);
+  // to get the genre from URL of what user clicked.
+  var windowHref = window.location.href;
+  var splitHref = windowHref.split('/');
+  var genre = splitHref[splitHref.length-1];
+
+  console.log('selected genre is', genre);
 
   $.ajax({
     method: 'GET',
@@ -39,6 +41,20 @@ $(document).ready(function() {
           $('.songs-row').append(songsHtml);
         });
       };
+
+  $('#song-form').on('submit', function(e){
+    e.preventDefault();
+    var formData = $(this).serialize();
+    console.log('formData is', formData);
+    $.ajax({
+      method: 'POST',
+      url: '/api/songs',
+      data: formData,
+      success: newSongSuccess,
+      error: handleError
+    });
+  });
+
 });
 
 function handleError(e) {
@@ -56,4 +72,10 @@ function addLyric(e) {
   console.log('add lyric clicked');
   $('.addModal').modal();
   // modal doesn't open yet?
+}
+
+function newSongSuccess() {
+  $('#song-form input').val('');
+  allSongs.push(json);
+  render();
 }
