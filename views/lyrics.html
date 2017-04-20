@@ -17,22 +17,15 @@
 
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/lyrics.js"></script>
-
+  <header>
+   <div class="fixed-action-btn horizontal click-to-toggle">
+    <a class="btn-floating btn-large dark blue home" href="/">Home</a>
+  </header>
   </head>
   <body>
     <h1> L<span id="y">y</span>rics </h1>
 
       <div class="lyrics-container">
-
-        <div class="row">
-         <div class="col s8 offset-s2 song-details" id="song-name"><span class="flow-text">${song.name}</span></div>
-         <div class="col s4 offset-s6 song-details" id="artist-name"><span class="flow-text">By ${song.artistName}</span></div>
-       </div>
-
-       <div class="row">
-        <div class="col s8 offset-s2 song-details" id="lyrics-target"><span class="flow-text">${song.lyrics}</span></div>
-        <div class="col s4 offset-s6 song-details"><span class="flow-text">Contributed By ${lyrics.writers}</span></div>
-      </div>
 
       <div class="lyrics-buttons">
         <a class="waves-effect waves-light btn light-blue darken-3" id="edit" href="#editModal">edit</a></div>

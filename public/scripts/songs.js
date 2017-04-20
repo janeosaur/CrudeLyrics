@@ -31,27 +31,45 @@ $(document).ready(function() {
 
                 <div class='panel-footer valyrics'>
                     <button class='btn btn-info view-lyrics' onclick="ViewLyric()"> View Lyrics </button>
-                    <button class='btn btn-info' add-lyrics' onclick="AddLyric()""> Add Lyrics </button>
+                    <button class='btn btn-info add-lyrics' onclick="AddLyric()"> Add Lyrics </button>
                 </div>
             </div>
             <!-- end one song -->
           `);
           $('.row').append(songsHtml);
         });
-      };
+      }
+
+      function handleError(e) {
+        console.log('uh oh');
+      }
+
+
 });
 
-function handleError(e) {
-  console.log('uh oh');
-}
+
 
 // when user clicks on view lyrics
-function ViewLyric(e) {
+function ViewLyric() {
   console.log('view lyric clicked');
+  clickedbutton();
   $('#viewModal').modal();
 }
 // when user clicks on add lyrics
-function AddLyric(e) {
+function AddLyric() {
   console.log('add lyric clicked');
   $('#addModal').modal();
 }
+
+function clickedbutton () {
+ window.location = "/lyrics";
+}
+
+
+
+
+
+
+
+
+
