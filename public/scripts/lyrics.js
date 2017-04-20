@@ -27,17 +27,15 @@ $(document).ready(function() {
 
   // when user clicks on edit lyrics
   $('#edit').on('click', handleEditLyric);
-
   $('#delete').on('click', handleDeleteLyric);
+
 
 
 function handleSuccess(res) {
   console.log(res)
 }
 
-function handleError(e) {
-  console.log('uh oh');
-}
+
 
 function handleEditLyric(e) {
   console.log('edit lyric clicked');

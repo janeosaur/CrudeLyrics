@@ -48,12 +48,15 @@ function handleSuccess(res) {
                   <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
 
                 <div class='panel-footer valyrics'>
+
                     <button class='btn btn-info view-lyrics'> View Lyrics </button>
                     <button class='btn btn-info' add-lyrics'> Add Lyrics </button>
+
                 </div>
             </div>
             <!-- end one song -->
           `);
+    
     $('div.songs-row').append(songsHtml);
     $('.view-lyrics').on('click', viewLyric);
   });
@@ -80,7 +83,9 @@ function addSong(song) {
 
 
 
+
 // when user clicks on view lyrics
+
 function viewLyric(e) {
   console.log('view lyric clicked');
   var currentSong = $(this).closest('.song-output').data('name');
@@ -89,7 +94,21 @@ function viewLyric(e) {
 
 // when user clicks on add lyrics
 function addLyric(e) {
+
   console.log('add lyric clicked');
   $('.addModal').modal();
   // modal doesn't open yet?
 }
+
+function clickedbutton () {
+ window.location = "/lyrics";
+}
+
+
+
+
+
+
+
+
+
