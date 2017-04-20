@@ -29,6 +29,51 @@
 
 				</div>
 			<div class="response"> </div>
+
+<!-- edit below for songs page -->
+			<!-- Edit Modal Structure. Hidden until user clicks edit -->
+      <div id="editModal" class="modal">
+        <div class="modal-content">
+          <h4>Edit</h4>
+          <p> Please feel free to contribute any changes!</p>
+
+          <!-- Edit Writers -->
+            <div class="form-group">
+              <label>Written By</label>
+              <div class="col m4">
+                <input id="writtenBy" name="writers" type="text" placeholder="" class="form-control input-md" required="">
+              </div>
+            </div>
+
+            <!-- Edit Language -->
+            <div class="form-group">
+              <label>Language</label>
+              <div class="col m4">
+                <input id="language" name="language" type="text" placeholder="" class="form-control input-md">
+              </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Submit</a>
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Cancel</a>
+        </div> <!-- /.modal-content -->
+      </div> <!-- /.modal -->
+
+      <!-- Delete Modal Structure. Hidden until user clicks edit -->
+      <div id="deleteModal" class="modal">
+        <div class="modal-content">
+          <h4>Delete</h4>
+          <p> Are you sure? </p>
+
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Yes</a>
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">No</a>
+        </div> <!-- /.modal-content -->
+      </div> <!-- /.modal -->
+
+
 		</div>
 
 
