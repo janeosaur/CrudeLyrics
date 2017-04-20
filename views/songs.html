@@ -23,23 +23,21 @@
 
 </head>
 <body>
-		<!-- will be filled in from songs.js  -->
+
 		<div class="container">
-				<div class="row">
+			<div class="row songs-row">
+					<!-- will be filled in from songs.js  -->
+			</div>
 
-				</div>
-			<div class="response"> </div>
 
-<!-- edit below for songs page -->
-			<!-- Edit Modal Structure. Hidden until user clicks edit -->
-      <div id="editModal" class="modal">
+<!-- Keeping the modal in case we keep lyrics CRUD -->
+			<!-- Add Lyrics Modal Structure. Hidden until user clicks edit -->
+      <div id="addModal" class="modal">
         <div class="modal-content">
-          <h4>Edit</h4>
-          <p> Please feel free to contribute any changes!</p>
-
-          <!-- Edit Writers -->
+          <h4>Add your own lyrics!</h4>
+          <!-- Edit Text -->
             <div class="form-group">
-              <label>Written By</label>
+              <label>Have fun with it</label>
               <div class="col m4">
                 <input id="writtenBy" name="writers" type="text" placeholder="" class="form-control input-md" required="">
               </div>
@@ -52,30 +50,48 @@
                 <input id="language" name="language" type="text" placeholder="" class="form-control input-md">
               </div>
             </div>
-
         </div>
+
         <div class="modal-footer">
           <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Submit</a>
           <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Cancel</a>
         </div> <!-- /.modal-content -->
       </div> <!-- /.modal -->
 
-      <!-- Delete Modal Structure. Hidden until user clicks edit -->
-      <div id="deleteModal" class="modal">
-        <div class="modal-content">
-          <h4>Delete</h4>
-          <p> Are you sure? </p>
+			<!-- Add/Edit/Delete Songs -->
 
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Yes</a>
-          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">No</a>
-        </div> <!-- /.modal-content -->
-      </div> <!-- /.modal -->
+			 <div class="row songs-form">
+				 <h5> Submit your favorite songs! </h5>
+					 <form class="col m12">
+						 <div class="row">
+							 <div class="input-field col s6">
+								 <input id="songname" type="text" class="validate">
+								 <label for="songname"> Song Name </label>
+							 </div>
+							 <div class="input-field col s6">
+								 <input id="artistname" type="text" class="validate">
+								 <label for="artistname"> Arist Name </label>
+							 </div>
+							 <div class="input-field col s6">
+								<input id="releasedate" type="text" class="validate">
+								<label for="releasedate"> Release Date </label>
+							</div>
+							<div class="input-field col s6">
+							 <input id="genre" type="text" class="validate">
+							 <label for="genre"> Genre </label>
+						 </div>
 
+							 <!-- Button -->
+							 <div class="form-group">
+								 <div class="col m4">
+									 <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+								 </div>
+							 </div>
+				 	 </div>
+				 </form>
+			 </div>
 
-		</div>
-
+		<!--   END FORM SAMPLE -->
 
 </body>
 </html>

@@ -30,13 +30,13 @@ $(document).ready(function() {
                 </ul>
 
                 <div class='panel-footer valyrics'>
-                    <button class='btn btn-info view-lyrics' onclick="ViewLyric()"> View Lyrics </button>
-                    <button class='btn btn-info' add-lyrics' onclick="AddLyric()""> Add Lyrics </button>
+                    <button class='btn btn-info view-lyrics' onclick="viewLyric()"> View Lyrics </button>
+                    <button class='btn btn-info' add-lyrics' onclick="addLyric()""> Add Lyrics </button>
                 </div>
             </div>
             <!-- end one song -->
           `);
-          $('.row').append(songsHtml);
+          $('.songs-row').append(songsHtml);
         });
       };
 });
@@ -46,12 +46,14 @@ function handleError(e) {
 }
 
 // when user clicks on view lyrics
-function ViewLyric(e) {
+function viewLyric(e) {
   console.log('view lyric clicked');
-  $('#viewModal').modal();
+  // have this direct them to next page(corresponding lyric page);
 }
+
 // when user clicks on add lyrics
-function AddLyric(e) {
+function addLyric(e) {
   console.log('add lyric clicked');
-  $('#addModal').modal();
+  $('.addModal').modal();
+  // modal doesn't open yet?
 }

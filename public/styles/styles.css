@@ -73,3 +73,7 @@ h2 {
 .valyrics {
   font-family: Ranga;
 }
+
+div.songs-row {
+  margin-bottom: 80px;
+}

@@ -27,7 +27,6 @@ function handleError(e) {
 function handleEditLyric(e) {
   console.log('edit lyric clicked');
   $('#editModal').modal();
-  // does it make sense for users to edit parts of a lyric?
   // style the buttons so it's not touching side by side
 }
 
