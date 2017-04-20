@@ -17,7 +17,7 @@ function show(req,res) {
 
 // GET api/genre/rnb/songs
 function indexRnb(req,res) {
-  db.Song.find({genre: 'r&b'}, function(err, allRnbSongs) {
+  db.Song.find({genre: 'rnb'}, function(err, allRnbSongs) {
     res.json(allRnbSongs);
   });
 };
@@ -44,11 +44,21 @@ function create(req,res) {
   });
 };
 
+// GET api/genre/:genre/:song/lyrics
+function showOne(req,res) {
+  var genre=req.params.genre;
+  var song=req.params.song;
+  db.Song.findOne({genre:genre, name:song}, function(err, foundLyric) {
+    res.json(foundLyric);
+  });
+};
+
 module.exports = {
   index: index,
   show: show,
   indexRnb: indexRnb,
   indexKpop: indexKpop,
   indexEdm: indexEdm,
-  create: create
+  create: create,
+  showOne: showOne
 }

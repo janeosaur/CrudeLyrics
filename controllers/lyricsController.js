@@ -15,11 +15,22 @@ function show(req,res) {
   });
 };
 
+// GET api/genre/:genre/:song/lyrics
+function showOne(req,res) {
+  var genre=req.params.genre;
+  var song=req.params.song;
+  db.Song.findOne({genre:genre, name:song}, function(err, foundLyric) {
+    res.json(foundLyric);
+  });
+};
+
 
 module.exports = {
   index: index,
   show: show,
+  showOne: showOne,
   // create: create,
   // destroy: destroy,
   // update: update
+
 }

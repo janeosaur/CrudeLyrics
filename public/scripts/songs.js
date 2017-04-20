@@ -16,6 +16,7 @@ $(document).ready(function() {
     error: handleError
   });
 
+// post renders on page, shows up under api but when refreshed - newly submitted songs go missing?
   $('#song-form').on('submit', function(e){
     e.preventDefault();
     var formData = $(this).serialize();
@@ -24,10 +25,10 @@ $(document).ready(function() {
       method: 'POST',
       url: '/api/songs',
       data: formData,
-      success: newSongSuccess,
+      success: addSong,
       error: handleError
     });
-  }); $(this).trigger('reset');
+  }); $("song-form").trigger('reset'); // form still doesn't reset?
 
 }); // end of doc on ready
 
@@ -36,59 +37,59 @@ function handleError(e) {
 }
 
 function handleSuccess(res) {
+  console.log(res);
   res.forEach(function(song) {
     console.log(`${song.name} ${song.artistName} ${song.releaseDate}`);
+    var songsHtml =
+          (`
+              <div class="col s4 song-output" data-name="${song.name}">
+                <span class="song-name">${song.name}</span>
+                  <h5>By: <span class="artistname">${song.artistName}</span> </h5>
+                  <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
+
+                <div class='panel-footer valyrics'>
+                    <button class='btn btn-info view-lyrics'> View Lyrics </button>
+                    <button class='btn btn-info' add-lyrics'> Add Lyrics </button>
+                </div>
+            </div>
+            <!-- end one song -->
+          `);
+    $('div.songs-row').append(songsHtml);
+    $('.view-lyrics').on('click', viewLyric);
+  });
+};
+
+function addSong(song) {
   var songsHtml =
         (`
-            <div class="col s4 song-output">
-              <span class="songs">${song.name}</span>
-              <ul>
-                <h5>By: <span class="artistname">${song.artistName}</span> </h5>
-                <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
-              </ul>
+            <div class="col s4 song-output" data-name="${song.name}">
+              <span class="song-name">${song.name}</span>
+              <h5> By: <span class="artistname">${song.artistName}</span> </h5>
+              <h5> Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
 
               <div class='panel-footer valyrics'>
-                  <button class='btn btn-info view-lyrics' onclick="viewLyric()"> View Lyrics </button>
-                  <button class='btn btn-info' add-lyrics' onclick="addLyric()""> Add Lyrics </button>
+                  <button class='btn btn-info view-lyrics'> View Lyrics </button>
+                  <button class='btn btn-info' add-lyrics'> Add Lyrics </button>
               </div>
           </div>
           <!-- end one song -->
         `);
-        $('.songs-row').append(songsHtml);
-      });
-    };
+  $('div.songs-row').append(songsHtml);
+  $('.view-lyrics').on('click', viewLyric);
+}
+
 
 
 // when user clicks on view lyrics
 function viewLyric(e) {
   console.log('view lyric clicked');
-  // have this direct them to next page(corresponding lyric page);
-}
-
+  var currentSong = $(this).closest('.song-output').data('name');
+  console.log(currentSong); // undefined
+  }
+  
 // when user clicks on add lyrics
 function addLyric(e) {
   console.log('add lyric clicked');
   $('.addModal').modal();
   // modal doesn't open yet?
-}
-
-function newSongSuccess(song) {
-  console.log(`new song add request ${song.name} ${song.artistName} ${song.releaseDate}`);
-  var songsHtml =
-        (`
-            <div class="col s4 song-output">
-              <span class="songs">${song.name}</span>
-              <ul>
-                <h5>By: <span class="artistname">${song.artistName}</span> </h5>
-                <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
-              </ul>
-
-              <div class='panel-footer valyrics'>
-                  <button class='btn btn-info view-lyrics' onclick="viewLyric()"> View Lyrics </button>
-                  <button class='btn btn-info' add-lyrics' onclick="addLyric()""> Add Lyrics </button>
-              </div>
-          </div>
-          <!-- end one song -->
-        `);
-        $('.songs-row').append(songsHtml);
 }

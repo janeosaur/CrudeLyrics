@@ -5,7 +5,7 @@ songsList.push({
         name: "I feel it coming",
         artistName: "The Weeknd",
         releaseDate: 2016,
-        genre: "r&b",
+        genre: "rnb",
         lyrics: "Yeah, uh Tell me what you really like Baby I can take my time\
               We don't ever have to fight\
               Just take it step-by-step\
@@ -62,7 +62,7 @@ songsList.push({
         name: "Company",
         artistName: "Tinashe",
         releaseDate: 2016,
-        genre: "r&b",
+        genre: "rnb",
         lyrics: "Ay, ay, ay\
               Uh, ay what\
               I don't need the lovin' nope\
@@ -126,7 +126,7 @@ songsList.push({
         name: "Gangsta",
         artistName: "Kehlani",
         releaseDate: 2016,
-        genre: "r&b",
+        genre: "rnb",
         lyrics: "Lehani gangsta\
               need a gangsta\
               To love me better\
