@@ -1,56 +1,3 @@
-
-<<<<<<< HEAD
-//requesting lyrics from lyrics page
-$.ajax ({
-  method: 'GET',
-  url:'/api/songs',
-  success: renderAllGenreSongs
-});
-
-
-function renderAllGenreSongs (songs) {
-songs.forEach(function(song) {
-  renderSong(song);
-
- });
-}
- function renderSong(song) {
-  console.log('rendering all songs, song');
-  
-  genre.songs.html = genre.songs.map(renderSong).join("");
-
-  var songshtml =
-  
-<div class="container">
-  <div class="row">
-    <div class="col s8 offset-s1 genre" id="songsNameOne"><span class="flow-text"><a href="#">Song Name</a></span></div>
-    <ul>
-    <li><a.class="hover"></a></li>
-    <li><a class="waves-effect waves-purple btn" href="#">View Lyrics</a></li>
-    <li><a class="waves-effect waves-orange btn" href="#">Add Lyrics</a></li>
-    </ul>
-
-    <div class="col s8 offset-s1 genre" id="songsNameTwo"><span class="flow-text"><a href="#">Song Name</a></span></div>
-      <ul>
-      <li><a.class="hover"></a></li>
-      <li><a class="waves-effect waves-purple btn" href="#">View Lyrics</a></li>
-      <li><a class="waves-effect waves-orange btn" href="#">Add Lyrics</a></li>
-      </ul>
-
-    <div class="col s8 offset-s1 genre" id="songsNameThree"><span class="flow-text"><a href="#">Song Name</a></span></div>
-      <ul>
-      <li><a.class="hover"></a></li>
-      <li><a class="waves-effect waves-purple btn" href="#">View Lyrics</a></li>
-      <li><a class="waves-effect waves-orange btn" href="#">Add Lyrics</a></li>
-      </ul> 
-    </div>
-
-   $('#songs').prepend(songshtml);
-
-   }	
-=======
->>>>>>> 1aa137db82689b8696bc91431c14b6ecb3e78cee
-
 $(document).ready(function() {
   console.log('songs.js loaded!');
 
@@ -58,97 +5,53 @@ $(document).ready(function() {
     var windowHref = window.location.href;
     var splitHref = windowHref.split('/');
     var genre = splitHref[splitHref.length-1];
+
     console.log('selected genre is', genre);
 
   $.ajax({
     method: 'GET',
-    url: '/api/genre/' + genre + '/songs', // server provides the genre specific song
+    url: '/api/genre/' + genre + '/songs', // server provides the genre specific songs!
     success: handleSuccess,
     error: handleError
   });
 
-  // // when user clicks on edit lyrics - adjust this so it applies to songs page.
-  // $('#edit').on('click', handleEditLyric);
-  //
-  // $('#delete').on('click', handleDeleteLyric);
+  function handleSuccess(res) {
+    $('.container').prepend(`<h1> ${genre} </h1>`);
+    res.forEach(function(song) {
+      console.log(`${song.name} ${song.artistName} ${song.releaseDate}`);
 
+    var songsHtml =
+          (`
+              <div class="col s4 song-output">
+                <span class="songs">${song.name}</span>
+                <ul>
+                  <h5>By: <span class="artistname">${song.artistName}</span> </h5>
+                  <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
+                </ul>
+
+                <div class='panel-footer valyrics'>
+                    <button class='btn btn-info view-lyrics' onclick="ViewLyric()"> View Lyrics </button>
+                    <button class='btn btn-info' add-lyrics' onclick="AddLyric()""> Add Lyrics </button>
+                </div>
+            </div>
+            <!-- end one song -->
+          `);
+          $('.row').append(songsHtml);
+        });
+      };
 });
-
-function renderSong(song) {
-  return `<span>&ndash; (${song.name}) ${song.artistName} &ndash;</span>`
-}
-
-function handleSuccess(res) { // renderAlbum
-  console.log(res); // returns array of songs objects
-  // to add these elements to HTML...
-  // res.songsHtml = res.songs.map(renderSong).join('');
-  //
-  // var songsHtml =
-  //       (`
-  //         <div class="row album" data-album-id="${album._id}">
-  //           <div class="col-md-10 col-md-offset-1">
-  //             <div class="panel panel-default">
-  //               <div class="panel-body">
-  //               <!-- begin album internal row -->
-  //                 <div class='row'>
-  //                   <div class="col-md-3 col-xs-12 thumbnail album-art">
-  //                     <img src="images/800x800.png" alt="album image">
-  //                   </div>
-  //                   <div class="col-md-9 col-xs-12">
-  //                     <ul class="list-group">
-  //                       <li class="list-group-item">
-  //                         <h4 class='inline-header'>Album Name:</h4>
-  //                         <span class='album-name'>${album.name}</span>
-  //                       </li>
-  //                       <li class="list-group-item">
-  //                         <h4 class='inline-header'>Artist Name:</h4>
-  //                         <span class='artist-name'>${album.artistName}</span>
-  //                       </li>
-  //                       <li class="list-group-item">
-  //                         <h4 class='inline-header'>Released date:</h4>
-  //                         <span class='album-releaseDate'>${album.releaseDate}</span>
-  //                       </li>
-  //                       <li class="list-group-item">
-  //                         <h4 class="inline-header">Songs:</h4>
-  //                         ${album.songsHtml}
-  //                       </li>
-  //                     </ul>
-  //                   </div>
-  //                 </div>
-  //                 <!-- end of album internal row -->
-  //                 <div class='panel-footer'>
-  //                   <div class='panel-footer'>
-  //                     <button class='btn btn-primary add-song'>Add Song</button>
-  //                     <button class='btn btn-danger delete-album'>Delete Album</button>
-  //                     <button class='btn btn-info edit-album'>Edit Album</button>
-  //                     <button class='btn btn-success save-album hidden'>Save Changes</button>
-  //                     <button class='btn btn-info edit-songs'>Edit Songs</button>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </div>
-  //         <!-- end one album -->
-  //       `);
-  //       $('#albums').prepend(albumHtml);
-      }
 
 function handleError(e) {
   console.log('uh oh');
 }
 
-
-// adjust below so it applies to songs page
-// function handleEditLyric(e) {
-//   console.log('edit lyric clicked');
-//   $('#editModal').modal();
-//   // does it make sense for users to edit parts of a lyric?
-//   // style the buttons so it's not touching side by side
-// }
-//
-// function handleDeleteLyric(e) {
-//   console.log('delete lyric clicked');
-//   $('#deleteModal').modal();
-// }
-
+// when user clicks on view lyrics
+function ViewLyric(e) {
+  console.log('view lyric clicked');
+  $('#viewModal').modal();
+}
+// when user clicks on add lyrics
+function AddLyric(e) {
+  console.log('add lyric clicked');
+  $('#addModal').modal();
+}

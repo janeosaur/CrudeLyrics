@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var LyricSchema = new Schema ({
   verse: String,
   language: String,
-  writers: String,  
+  writers: String,
 });
 
 // Create model

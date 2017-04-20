@@ -38,8 +38,10 @@ app.get('/api/songs/:id', controllers.songs.show);
 app.get('/api/lyrics', controllers.lyrics.index);
 app.get('/api/lyrics/:id', controllers.lyrics.show);
 app.get('/api/genre/rnb/songs', controllers.songs.indexRnb);
-app.get('/api/genre/kpop/songs', controllers.songs.indexKpop); // try to consolidate these
+app.get('/api/genre/kpop/songs', controllers.songs.indexKpop);
 app.get('/api/genre/edm/songs', controllers.songs.indexEdm);
+// could we try to consolidate the above 3 into one? may have to change seed
+// data genre from r&b to rnb ...
 
 
 // GET and send genre.html based on :genre
@@ -56,17 +58,9 @@ app.get('/genre/:genre', function(req,res) {
   }
 })
 
-
-// GET lyrics landing page
+// GET lyrics landing page - will need to update path to be specific to a song...
 app.get('/lyrics', function(req,res) {
   res.sendFile('views/lyrics.html' , { root : __dirname});
-})
-
-app.get('/api/lyrics/:id', function (req, res) {
-  db.Lyric.find({_id: req.params.id})
-    .exec (function (err, foundLyric) {
-      console.log('found one lyric')
-  })
 })
 
 

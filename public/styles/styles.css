@@ -53,17 +53,26 @@ div.lyrics-buttons {
   margin-left: 200px;
 }
 
-
-
 h2 {
- font-family: Ranga;
+  font-family: Ranga;
   text-align: center;
   margin: 0;
   letter-spacing: 4px;
   color: #424242;
   text-shadow: 2px 2px white;
   padding: 50px 0;
+}
 
+
+.song-output {
+  font-size: 30px;
+  text-align: center;
+  text-transform: lowercase;
+  font-family: Shadows Into Light;
+}
+
+.valyrics {
+  font-family: Ranga;
 }
 
 .home {

@@ -1,13 +1,11 @@
 <html>
 <head>
-
-	<title> Songs list</title>
-
-
+	<title> Genre </title>
 
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>CrudeLyrics</title>
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Bad+Script|Ranga|Shadows+Into+Light" rel="stylesheet">
@@ -23,37 +21,61 @@
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/songs.js"></script>
 
-   
-   <h2>Songs</h2>
-
 </head>
 <body>
- 
- <div class="container">
-  <div class="row">
-   <div class="col s8 offset-s1 genre" id="songsNameOne"><span class="flow-text"><a href="#">Song Name</a></span></div>
-    <ul>
-    <li><a.class="hover"></a></li>
-    <li><a class="waves-effect waves-purple btn" href="#">View Lyrics</a></li>
-    <li><a class="waves-effect waves-orange btn" href="#">Add Lyrics</a></li>
-    </ul>
+		<!-- will be filled in from songs.js  -->
+		<div class="container">
+				<div class="row">
 
-    <div class="col s8 offset-s1 genre" id="songsNameTwo"><span class="flow-text"><a href="#">Song Name</a></span></div>
-      <ul>
-      <li><a.class="hover"></a></li>
-      <li><a class="waves-effect waves-purple btn" href="#">View Lyrics</a></li>
-      <li><a class="waves-effect waves-orange btn" href="#">Add Lyrics</a></li>
-      </ul>
+				</div>
+			<div class="response"> </div>
 
-    <div class="col s8 offset-s1 genre" id="songsNameThree"><span class="flow-text"><a href="#">Song Name</a></span></div>
-      <ul>
-      <li><a.class="hover"></a></li>
-      <li><a class="waves-effect waves-purple btn" href="#">View Lyrics</a></li>
-      <li><a class="waves-effect waves-orange btn" href="#">Add Lyrics</a></li>
-      </ul>
-      
-    </div>	
-  </div>
- </div>               
+<!-- edit below for songs page -->
+			<!-- Edit Modal Structure. Hidden until user clicks edit -->
+      <div id="editModal" class="modal">
+        <div class="modal-content">
+          <h4>Edit</h4>
+          <p> Please feel free to contribute any changes!</p>
+
+          <!-- Edit Writers -->
+            <div class="form-group">
+              <label>Written By</label>
+              <div class="col m4">
+                <input id="writtenBy" name="writers" type="text" placeholder="" class="form-control input-md" required="">
+              </div>
+            </div>
+
+            <!-- Edit Language -->
+            <div class="form-group">
+              <label>Language</label>
+              <div class="col m4">
+                <input id="language" name="language" type="text" placeholder="" class="form-control input-md">
+              </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Submit</a>
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Cancel</a>
+        </div> <!-- /.modal-content -->
+      </div> <!-- /.modal -->
+
+      <!-- Delete Modal Structure. Hidden until user clicks edit -->
+      <div id="deleteModal" class="modal">
+        <div class="modal-content">
+          <h4>Delete</h4>
+          <p> Are you sure? </p>
+
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Yes</a>
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">No</a>
+        </div> <!-- /.modal-content -->
+      </div> <!-- /.modal -->
+
+
+		</div>
+
+
 </body>
 </html>
