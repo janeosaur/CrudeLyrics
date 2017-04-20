@@ -36,7 +36,7 @@ $(document).ready(function() {
                   <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
                 </ul>
 
-                <div class='panel-footer'>
+                <div class='panel-footer valyrics'>
                     <button class='btn btn-info view'>View Lyrics </button>
                     <button class='btn btn-info add'>Add Lyrics </button>
                 </div>
