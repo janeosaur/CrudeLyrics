@@ -32,13 +32,12 @@ $(document).ready(function() {
 
 function handleSuccess(res) {
   console.log(res);
-  // console.log(`${song.name} ${song.artistName} ${song.lyrics}`)
     var lyricsHtml = (`
         <div class="col s4 song-output" data-name="${res.name}">
           <span class="song-name">${res.name}</span>
           <h5>By: <span class="artistname">${res.artistName}</span> </h5>
           <h5>Released: <span class="releaseDate">${res.releaseDate}</span> </h5>
-          <div id="lyrics"> ${res.lyrics} </div>
+          <div id="lyrics"> ${res.lyrics.verse} </div>
       </div>
       <!-- end one song -->
       `);
