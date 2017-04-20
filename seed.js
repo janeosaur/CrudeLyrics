@@ -320,7 +320,7 @@ songsList.push({
                   Poke it and take it\
                   To your lips\
                   Tell me whatchu doing? I’ll be yours"
-                  
+
       });
 songsList.push({
         name: "Falling",
@@ -438,7 +438,7 @@ songsList.push({
         artistName: "Hardwell",
         releaseDate: 2017,
         genre: "edm",
-        lyrics: "Party till the daylight\                
+        lyrics: "Party till the daylight\
                 Party till the daylight\
                 Light, light, light, light\
                 Party till the daylight\
@@ -455,10 +455,7 @@ songsList.push({
                 Party till the daylight\
                 Light, light, light, light, light\
                 Party till the day"
-
-
       });
-
 
 
 db.Song.remove({}, function(err, songs) {
@@ -909,8 +906,6 @@ lyricsList.push({
         language: 'English',
         writers: 'Addy'
       });
-
-
 
 
 db.Lyric.remove({}, function(err, lyrics) {

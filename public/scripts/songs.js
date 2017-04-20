@@ -32,6 +32,10 @@ $(document).ready(function() {
 
 }); // end of doc on ready
 
+var windowHref = window.location.href;
+var splitHref = windowHref.split('/');
+var genre = splitHref[splitHref.length-1]; // to make it available to below functions
+
 function handleError(e) {
   console.log('uh oh');
 }
@@ -56,7 +60,7 @@ function handleSuccess(res) {
             </div>
             <!-- end one song -->
           `);
-    
+
     $('div.songs-row').append(songsHtml);
     $('.view-lyrics').on('click', viewLyric);
   });
@@ -88,8 +92,11 @@ function addSong(song) {
 
 function viewLyric(e) {
   console.log('view lyric clicked');
+  console.log(genre);
   var currentSong = $(this).closest('.song-output').data('name');
-  console.log(currentSong); // undefined
+  console.log(currentSong);
+  window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
+
   }
 
 // when user clicks on add lyrics
@@ -103,12 +110,3 @@ function addLyric(e) {
 function clickedbutton () {
  window.location = "/lyrics";
 }
-
-
-
-
-
-
-
-
-
