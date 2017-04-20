@@ -80,15 +80,18 @@ function addSong(song) {
           </div>
           <!-- end one song -->
         `);
-  $('div.songs-row').append(songsHtml);
+        console.log(song.genre);
+  if (genre === song.genre){
+    $('div.songs-row').append(songsHtml);
+  } else {
+    // make this modal instead of alert
+    alert('please choose correct genre');
+  };
   $('.view-lyrics').on('click', viewLyric);
 }
 
 
-
-
 // when user clicks on view lyrics
-
 function viewLyric(e) {
   console.log('view lyric clicked');
   console.log(genre);
