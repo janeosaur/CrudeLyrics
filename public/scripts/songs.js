@@ -74,7 +74,6 @@ function addSong(song) {
               <h5> Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
 
               <div class='panel-footer valyrics'>
-                  <button class='btn btn-info view-lyrics'> View Lyrics </button>
                   <button class='btn btn-info' add-lyrics'> Add Lyrics </button>
               </div>
           </div>
@@ -87,7 +86,7 @@ function addSong(song) {
     // make this modal instead of alert
     alert('please choose correct genre');
   };
-  $('.view-lyrics').on('click', viewLyric);
+  // $('.view-lyrics').on('click', viewLyric);
 }
 
 
