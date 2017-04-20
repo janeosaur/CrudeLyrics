@@ -9,9 +9,6 @@ $(document).ready(function() {
   var genre = splitHref[splitHref.length-2];
   console.log('selected genre is', genre, 'and song is', song);
 
-  // shows title of song on lyrics page - CSS may need to be edited
-  $('.lyrics-container').append(`<h5> ${song} </h5>`);
-
   $.ajax({
     method: 'GET',
     url: '/api/genre/' + genre + '/' + song + '/lyrics',
@@ -29,15 +26,14 @@ $(document).ready(function() {
   $('#delete').on('click', handleDeleteLyric);
 
 
-
 function handleSuccess(res) {
   console.log(res);
     var lyricsHtml = (`
-        <div class="col s4 song-output" data-name="${res.name}">
+        <div class="song-output" data-name="${res.name}">
           <span class="song-name">${res.name}</span>
           <h5>By: <span class="artistname">${res.artistName}</span> </h5>
           <h5>Released: <span class="releaseDate">${res.releaseDate}</span> </h5>
-          <div id="lyrics"> ${res.lyrics.verse} </div>
+          <div class="lyrics-output"> ${res.lyrics.verse} </div>
       </div>
       <!-- end one song -->
       `);
