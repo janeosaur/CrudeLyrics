@@ -36,11 +36,19 @@ function indexEdm(req,res) {
   });
 };
 
+// POST api/songs
+function create(req,res) {
+  console.log('body', req.body);
+  db.Song.create(req.body, function(err, newSong) {
+    res.json(newSong);
+  });
+};
 
 module.exports = {
   index: index,
   show: show,
   indexRnb: indexRnb,
   indexKpop: indexKpop,
-  indexEdm: indexEdm
+  indexEdm: indexEdm,
+  create: create
 }

@@ -43,6 +43,8 @@ app.get('/api/genre/edm/songs', controllers.songs.indexEdm);
 // could we try to consolidate the above 3 into one? may have to change seed
 // data genre from r&b to rnb ...
 
+app.post('/api/songs', controllers.songs.create);
+
 
 // GET and send genre.html based on :genre
 app.get('/genre/:genre', function(req,res) {
