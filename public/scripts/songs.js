@@ -86,7 +86,7 @@ function viewLyric(e) {
   var currentSong = $(this).closest('.song-output').data('name');
   console.log(currentSong); // undefined
   }
-  
+
 // when user clicks on add lyrics
 function addLyric(e) {
   console.log('add lyric clicked');
