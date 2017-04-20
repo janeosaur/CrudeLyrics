@@ -69,10 +69,24 @@ h2 {
   text-align: center;
   text-transform: lowercase;
   font-family: Shadows Into Light;
+  border-radius: 25px;
+  border: 1px solid;
+  margin: 0px;
+  margin-bottom: 40px;
 }
 
 .valyrics {
   font-family: Ranga;
+  margin-bottom: 25px;
+}
+
+div.songs-row {
+  margin-bottom: 80px;
+}
+
+div.submit-songs {
+  width: 60%;
+  float: right;
 }
 
 

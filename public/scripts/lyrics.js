@@ -1,48 +1,45 @@
 $(document).ready(function() {
   console.log('lyrics.js loaded!');
 
-   var windowHref = window.location.href;
-   var params = "";
-   //var songDetails = params.split("&");
+  // to get the genre from URL of what user clicked.
+  var windowHref = window.location.href;
+  var splitHref = windowHref.split('/');
+  splitHref.pop();
+  var song = splitHref[splitHref.length-1];
+  var genre = splitHref[splitHref.length-2];
+  console.log('selected genre is', genre, 'and song is', song);
 
+  // sets title of song lyrics?
+  // $('.container').prepend(`<h1> ${genre} </h1>`);
 
   $.ajax({
     method: 'GET',
-    url: '/api/lyrics',
+    url: '/api/genre/' + genre + '/' + song + '/lyrics',
     success: handleSuccess,
     error: handleError
   });
+
+
+});
+
+
+// original below
 
   // when user clicks on edit lyrics
   $('#edit').on('click', handleEditLyric);
   $('#delete').on('click', handleDeleteLyric);
 
-  function handleSuccess(res) {
-    var lyricsHtml =
-    (`<div class="row">
-         <div class="col s8 offset-s2 song-details" id="song-name"><span class="flow-text">${params}</span></div>
-         <div class="col s4 offset-s6 song-details" id="artist-name"><span class="flow-text">By ${params}</span></div>
-       </div>
 
-       <div class="row">
-        <div class="col s8 offset-s2 song-details" id="lyrics-target"><span class="flow-text">${params}</span></div>
-        <div class="col s4 offset-s6 song-details"><span class="flow-text">Contributed By ${params}</span></div>
-      </div>`);
-          $('.lyrics-container').prepend(lyricsHtml);
-      }
 
-  function handleError(e) {
-    console.log('uh oh');
-  }
-
-});
+function handleSuccess(res) {
+  console.log(res)
+}
 
 
 
 function handleEditLyric(e) {
   console.log('edit lyric clicked');
   $('#editModal').modal();
-  // does it make sense for users to edit parts of a lyric?
   // style the buttons so it's not touching side by side
 }
 
