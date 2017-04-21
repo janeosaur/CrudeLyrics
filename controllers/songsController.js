@@ -52,6 +52,34 @@ function showOne(req,res) {
     res.json(foundLyric);
   });
 };
+//Delete the api/genre/:genre/:song/lyrics
+function destroy(req, res) {
+  var genre=req.params.genre;
+  var song=req.params.song;
+  db.Song.findOneAndRemove({genre:genre,name:song}, function(err, foundlyric){
+    res.json(foundlyric);
+  });
+};
+
+// Editig/updating the song details
+function update(req, res) {
+  console.log('updating with songlyric', req.body);
+   var genre=req.params.genre;
+  var song=req.params.song;
+  db.Song.findById({genre:genre, name:song}, function(err, foundlyric) {
+    if(err) { console.log('Songscontoller.update error', err); 
+  }
+   foundSong.name = genre.song.name;
+   foundSong.artistName = genre.song.artistName;
+   foundSong.releaseDate = genre.song.releaseDate;
+   foundSong.save(function(err,savedlyric) {
+     if (err) {
+      console.log('editing songlyrics failed');
+     } 
+     res.json(savedlyric);
+    })
+  });
+}
 
 module.exports = {
   index: index,
@@ -60,5 +88,7 @@ module.exports = {
   indexKpop: indexKpop,
   indexEdm: indexEdm,
   create: create,
-  showOne: showOne
+  showOne: showOne,
+  destroy: destroy,
+  update: update
 }

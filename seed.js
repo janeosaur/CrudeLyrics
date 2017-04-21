@@ -127,8 +127,7 @@ songsList.push({
         artistName: "Kehlani",
         releaseDate: 2016,
         genre: "rnb",
-        lyrics: "Lehani gangsta\
-              need a gangsta\
+        lyrics: "need a gangsta\
               To love me better\
               Than all the others do\
               To always forgive me\
@@ -201,6 +200,7 @@ songsList.push({
               Become days I long for\
               On the corner of that vanishing star\
               Like a miracle, we are in love with each other"
+
       });
 songsList.push({
         name: "Someday",
@@ -438,8 +438,7 @@ songsList.push({
         artistName: "Hardwell",
         releaseDate: 2017,
         genre: "edm",
-        lyrics: "Party till the daylight\                
-                Party till the daylight\
+        lyrics: "Party till the daylight x2\
                 Light, light, light, light\
                 Party till the daylight\
                 Party till the daylight\
@@ -522,7 +521,7 @@ lyricsList.push({
             I feel it coming, babe\
             I feel it coming, babe",
         language: 'English',
-        writers: 'Addy'
+        writers: 'The Weekend'
       });
 
 
@@ -585,7 +584,7 @@ lyricsList.push({
             I just need some company, company\
             I just need some company",
         language: 'English',
-        writers: 'Addy'
+        writers: 'Terius Nash'
     });
 
 lyricsList.push({
@@ -622,7 +621,7 @@ lyricsList.push({
             Ride or die with me\
             That's just what gangsters do",
         language: 'English',
-        writers: 'Addy'
+        writers: 'Kehlani'
     });
 
 lyricsList.push({
@@ -662,7 +661,7 @@ lyricsList.push({
               On the corner of that vanishing star\
               Like a miracle, we are in love with each other",
         language: 'English',
-        writers: 'Addy'
+        writers: 'Feel Kim'
       });
 
 lyricsList.push({
@@ -717,7 +716,7 @@ lyricsList.push({
                 Let’s be more happy, more calm\
                 Some day, under the heart fluttering sunlight",
         language: 'English',
-        writers: 'Addy'
+        writers: 'Im chon Shin'
       });
 
 lyricsList.push({
@@ -779,7 +778,7 @@ lyricsList.push({
                   To your lips\
                   Tell me whatchu doing? I’ll be yours",
         language: 'English',
-        writers: 'Addy'
+        writers: 'Ryan Jhun'
       });
 
 lyricsList.push({
@@ -825,7 +824,7 @@ lyricsList.push({
                 Look at me I'm fall\
                 Look at me I'm fall",
         language: 'English',
-        writers: 'Addy'
+        writers: 'Alessandro Lindblad'
       });
 
 lyricsList.push({
@@ -885,7 +884,7 @@ lyricsList.push({
                 Scared to be lonely\
                 Eh, eh, scared to be lonely",
         language: 'English',
-        writers: 'Addy'
+        writers: 'Martijn Garristen'
       });
 
 lyricsList.push({
@@ -907,7 +906,7 @@ lyricsList.push({
                 Light, light, light, light, light\
                Party till the day",
         language: 'English',
-        writers: 'Addy'
+        writers: 'Hardwell'
       });
 
 
