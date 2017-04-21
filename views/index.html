@@ -8,7 +8,7 @@
     <title>CrudeLyrics</title>
 
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Ranga|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Ranga|Shadows+Into+Light|Righteous|Fredoka+One" rel="stylesheet">
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="/styles/styles.css">
@@ -23,37 +23,28 @@
 
 </head>
 <body>
-  <h1> CRUD<span id="e">E</span> <span id="lyrics">L<span id="y">y</span>rics </span> </h1>
-
-<!-- search bar -->
-  <!-- <nav>
-    <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
-    </div>
-  </nav> -->
 
   <div class="fixed-action-btn toolbar">
-    <a class="btn-floating btn-large blue-grey homebutton">+</a>
+    <a class="btn-floating btn-large grey homebutton">+</a>
     <ul>
       <li class="waves-effect waves-light"><a href="/">Home</a></li>
       <li class="waves-effect waves-light"><a href="/api">API</a></li>
-      <li class="waves-effect waves-light"><a href="/api/songs">Songs</i></a></li>
-      <li class="waves-effect waves-light"><a href="https://github.com/janeosaur/CrudeLyrics">Github</i></a></li>
+      <li class="waves-effect waves-light"><a href="/api/songs">Songs</a></li>
+      <li class="waves-effect waves-light"><a href="https://github.com/janeosaur/CrudeLyrics">Github</a></li>
     </ul>
   </div>
 
-  <div class="row">
-    <div class="genres">
-        <div class="col s10 offset-s1 genre" id="rnb"><a href="/genre/rnb"><img src="/images/rnb.jpg"></span></div>
-        <div class="col s10 offset-s1 genre" id="kpop"><a href="/genre/kpop"><img src="/images/kpop.jpg"></span></div>
-        <div class="col s10 offset-s1 genre" id="edm"><a href="/genre/edm"><img src="/images/edm.png"></a></div>
-    </div>
+   <div> <img id="sf-banner" src="/images/sfcity.jpg">
+     <h1 class="header-main"> CRUDe </h1>
+     <div id="lyrics"> Lyrics </div>
+     <p class="header-main-intro"> Select a genre to CRUD songs and lyrics!</p>
+  </div>
+
+  <div class="row genre">
+    <div class="col s5 offset-s1 genre" id="rnb"><a href="/genre/rnb"><img class="tile" src="/images/rnb.jpg"></span></div>
+    <div class="col s5 genre" id="edm"><a href="/genre/edm"><img class="tile" src="/images/edm.jpg"></a></div>
+    <div class="col s5 offset-s1 genre" id="hiphop"><a href="/genre/hiphop"><img src="/images/hiphop.jpg"></a></div>
+    <div class="col s5 genre" id="kpop"><a href="/genre/kpop"><img src="/images/kpop.jpg"></span></div>
   </div>
 
 </body>
