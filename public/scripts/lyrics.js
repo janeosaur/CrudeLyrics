@@ -59,18 +59,36 @@ function handleEditLyric(e) {
       method: 'put',
       url: '/api/lyrics/' + song,
       data: newLyric,
-      success: handleLyricEdit,
+      success: lyricEditSucccess,
       error: handleError
     });
   });
 };
 
-function handleLyricEdit(data) {
+function lyricEditSuccess(data) {
   console.log(data);
   window.location.reload();
-}
+};
 
-// if we want a lyrics delete option..
+// function handleDeleteLyric(e) { // this will need a button to work - 
+//   console.log('clicked delete for ', genre, song);
+//    var currentSong = $(this).closest('.song-output').data('name');
+// //    window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
+//   $('#deleteModal').modal();
+//   // when submit from modal is clicked.. fun function
+//   $('.delete').on('click', function () {
+//     console.log('delete on modal clicked');
+//     $.ajax({
+//       method: 'delete',
+//       url: '/api/lyrics/' + currentSong,
+// //       data: newLyric,
+//       success: deleteLyricSuccess,
+//       error: handleError
+//     });
+//   });
+// };
+
+
 // function deleteLyricSuccess(json) {
 //   $('.lyrics-output').html('<p class="deleted"> Deleted! </p>');
 //   // css animation?

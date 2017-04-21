@@ -41,6 +41,7 @@ function handleError(e) {
 
 function handleSuccess(res) {
   res.forEach(function(song) {
+
     var songsHtml = (
       `<div class="col s4 row song" data-song-id="${song._id}">
           <div class= "song-output" data-name="${song.name}">
@@ -51,6 +52,7 @@ function handleSuccess(res) {
                 <button class='btn btn-info view-lyrics'> View </button>
                 <a class="modal-trigger waves-effect waves-light btn edit-song" href="#editModal">Edit</a>
                 <a class="modal-trigger waves-effect waves-light btn delete-song" href="#deleteModal">Delete</a>
+
             </div>
         </div>
       </div>
@@ -60,6 +62,7 @@ function handleSuccess(res) {
     $('.view-lyrics').on('click', viewLyric);
     $('.delete-song').on('click', deleteSong);
     $('.edit-song').on('click', editSong);
+//     $('#delete').on('click', handleDeleteSong);
   });
 };
 
@@ -83,23 +86,32 @@ function addSong(song) {
     $('.add-lyrics').on('click', addLyric);
     $('.delete-song').on('click', deleteSong);
     $('.edit-song').on('click', editSong);
-}
+};
 
-// when user clicks on view lyrics
+// below is if they choose wrong genre
+//   if (genre === song.genre){
+//     $('div.songs-row').append(songsHtml);
+//   } else {
+//     // make this modal instead of alert
+//     alert('please choose correct genre');
+//   };
+//   $('.view-lyrics').on('click', viewLyric);
+//   $('#delete').on('click', handleDeleteSong);
+
 function viewLyric(e) {
   console.log('view lyric clicked');
   console.log(genre);
   var currentSong = $(this).closest('.song-output').data('name');
   console.log(currentSong);
   window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
-  }
+};
 
 // when user clicks on add lyrics
 function addLyric(e) {
   console.log('add lyric clicked');
   $('.addModal').modal();
-  // modal doesn't open yet?
-}
+  // modal doesn't open yet - not set up
+};
 
 function editSong() {
   console.log('edit song was clicked');
