@@ -51,8 +51,8 @@ function handleEditLyric(e) {
 
 function handleDeleteLyric(e) {
   console.log('clicked delete for ', genre, song);
-  // var currentSong = $(this).closest('.song-output').data('name');
-  // window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
+   var currentSong = $(this).closest('.song-output').data('name');
+   window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
   $('#deleteModal').modal();
   // when submit from modal is clicked.. fun function
   $('.delete').on('click', function () {
