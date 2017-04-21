@@ -15,6 +15,8 @@ $(document).ready(function() {
     success: handleSuccess,
     error: handleError
   });
+
+  $('#edit-lyrics').on('click', handleEditLyric);
 }); // end of on ready
 
 var windowHref = window.location.href;
@@ -38,7 +40,6 @@ function handleSuccess(res) {
       <!-- end one song -->
       `);
     $('.lyrics-output').append(lyricsHtml);
-    $('#edit').on('click', handleEditLyric);
   }
 
 function handleError(e) {
@@ -51,13 +52,13 @@ function handleEditLyric(e) {
   $('#editModal').modal();
   $('.edit-submit').on('click', function() {
     console.log('submit on edit song clicked');
-    // update function goes here
-    var newWriter = { writers: $('#writtenBy').val() };
-    console.log('PUTing data for new writer', newWriter);
+    var newWriter = $('#submittedBy').val()
+    var newVerse = $('#verse').val();
+    var newLyric = {writers: newWriter, verse: newVerse};
     $.ajax({
       method: 'put',
       url: '/api/lyrics/' + song,
-      data: newWriter,
+      data: newLyric,
       success: handleLyricEdit,
       error: handleError
     });
@@ -67,8 +68,6 @@ function handleEditLyric(e) {
 function handleLyricEdit(data) {
   console.log(data);
   window.location.reload();
-  // var updateWriter = data.writers;
-  // $('.writtenby').html(`Edited By: ${updateWriter}`);
 }
 
 // if we want a lyrics delete option..

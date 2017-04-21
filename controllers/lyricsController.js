@@ -18,10 +18,12 @@ function show(req,res) {
 // app.put('/api/lyrics/:song, controllers.lyrics.update);
 function update(req,res) {
   var newWriter = req.body.writers;
+  var newVerse = req.body.verse;
   console.log('server side', newWriter);
   db.Song.findOne({name:req.params.song}, function(err, updateSong) {
-    console.log(updateSong); 
+    console.log(updateSong);
     updateSong.lyrics.writers = newWriter;
+    updateSong.lyrics.verse = newVerse;
     updateSong.save(function(err, savedLyric) {
       res.json(savedLyric);
     });
@@ -31,7 +33,6 @@ function update(req,res) {
 module.exports = {
   index: index,
   show: show,
-  // create: create,
   update: update
-
+  // create: create,
 }
