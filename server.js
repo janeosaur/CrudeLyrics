@@ -54,7 +54,8 @@ app.get('/api/genre/:genre/songs', controllers.songs.indexG);
 app.post('/api/songs', controllers.songs.create);
 
 
-app.delete('/api/lyrics/:genre/:song', controllers.lyrics.destroy);
+app.delete('/api/genre/:genre/:song', controllers.songs.destroy);
+
 
 app.put('/api/lyrics/:song', controllers.lyrics.update);
 

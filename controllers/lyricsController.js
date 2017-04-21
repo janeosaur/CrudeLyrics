@@ -19,7 +19,7 @@ function destroy(req,res) {
   var song = req.params.song;
   console.log(song);
   db.Lyric.findOneAndRemove({name: song}, function(err, deletedLyric) {
-    res.json(deletedLyric)
+    res.json(deletedLyric);
   });
 };
 

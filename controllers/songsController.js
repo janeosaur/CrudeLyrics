@@ -22,6 +22,7 @@ function indexG(req,res) {
     res.json(allGenreSongs);
   })
 }
+
 // POST api/songs
 function create(req,res) {
   console.log('body', req.body);
@@ -39,12 +40,13 @@ function showOne(req,res) {
       res.json(foundLyric);
     });
 };
-//Delete the api/genre/:genre/:song/lyrics
-function destroy(req, res) {
-  var genre=req.params.genre;
-  var song=req.params.song;
-  db.Song.findOneAndRemove({genre:genre,name:song}, function(err, foundlyric){
-    res.json(foundlyric);
+
+// DELETE api/genre/:genre/:song/lyrics
+function destroy(req,res) {
+  var song = req.params.song;
+  console.log(song);
+  db.Song.findOneAndRemove({name: song}, function(err, deletedSong) {
+    res.json(deletedSong);
   });
 };
 

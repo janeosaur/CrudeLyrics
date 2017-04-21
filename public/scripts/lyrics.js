@@ -21,7 +21,7 @@ var windowHref = window.location.href;
 var splitHref = windowHref.split('/');
 splitHref.pop();
 var song = splitHref[splitHref.length-1];
-var genre = spitHref[splitHref.length-2];// making this available to below
+var genre = splitHref[splitHref.length-2];// making this available to below
 
 function handleSuccess(res) {
   console.log(res);
@@ -37,40 +37,13 @@ function handleSuccess(res) {
       `);
     $('.lyrics-output').append(lyricsHtml);
     $('#edit').on('click', handleEditLyric);
-    $('#delete').on('click', handleDeleteLyric);
   }
 
 function handleError(e) {
   console.log('uh oh');
 }
 
-function handleDeleteLyric(e) {
-  e.preventDefault();
-  console.log('clicked delete for ', genre, song);
-  $('#deleteModal').modal();
-  $('.delete').on('click', function () {
-    console.log('delete on modal clicked');
-    $.ajax({
-      method: 'delete',
-      url: '/api/lyrics/' + genre + '/' + song,
-      success: deleteLyricSuccess,
-      error: handleError
-    })
-  }); // end of modal delete button
-} // end of handleDeleteLyric
 
-function deleteLyricSuccess(json) {
-  $('.lyrics-output').html('<p class="deleted"> Deleted! </p>');
-  // css animation?
-  $('#delete').remove();
-  $('#edit').remove();
-  if ($('#edit')) {
-    window.setTimeout(function(){
-      window.location.href = '/';
-    }, 2000); // have page go back to homepage 
-  };
-  // make them go back to homepage after few seconds...
-}
 
 function handleEditLyric(e) {
   e.preventDefault();
@@ -97,3 +70,17 @@ function handleLyricEdit(data) {
   // var updateWriter = data.writers;
   // $('.writtenby').html(`Edited By: ${updateWriter}`);
 }
+
+// if we want a lyrics delete option.. 
+// function deleteLyricSuccess(json) {
+//   $('.lyrics-output').html('<p class="deleted"> Deleted! </p>');
+//   // css animation?
+//   $('#delete').remove();
+//   $('#edit').remove();
+//   if ($('#edit')) {
+//     window.setTimeout(function(){
+//       window.location.href = '/';
+//     }, 2000); // have page go back to homepage
+//   };
+//   // make them go back to homepage after few seconds...
+// }

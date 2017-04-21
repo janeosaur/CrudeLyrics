@@ -23,7 +23,7 @@
 
 </head>
 
-<!-- 
+<!--
 	   <div class="fixed-action-btn horizontal click-to-toggle" id= "homebutton">
 	    <a class="btn-floating btn-large dark blue home" href="/">Home</a>
 		</div> -->
@@ -36,8 +36,6 @@
 					<!-- will be filled in from songs.js  -->
 			</div>
 
-
-			<!-- Keeping the modal in case we keep lyrics CRUD -->
 
 			<!-- Add Lyrics Modal Structure. Hidden until user clicks edit -->
       <div id="addModal" class="modal">
@@ -66,6 +64,48 @@
           <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Cancel</a>
         </div> <!-- /.modal-content -->
       </div> <!-- /.modal -->
+
+
+			<!-- Edit Modal Structure. Hidden until user clicks edit -->
+      <div id="editModal" class="modal">
+        <div class="modal-content">
+          <p> Please feel free to contribute any changes!</p>
+          <!-- Edit Song Details -->
+            <div class="form-group">
+              <label>Song Name</label>
+              <div class="col m4">
+                <input ="song-name" name="name" type="text" class="form-control input-md">
+              </div>
+							<label>Artist Name</label>
+              <div class="col m4">
+                <input id="artistName" name="artistName" type="text" class="form-control input-md">
+              </div>
+							<label>Released in: </label>
+              <div class="col m4">
+                <input id="releaseDate" name="releaseDate" type="text" class="form-control input-md">
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat edit-submit">Submit</a>
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat submit-cancel">Cancel</a>
+        </div> <!-- /.modal-content -->
+      </div> <!-- /.modal -->
+
+
+			<!-- Delete Modal Structure. Hidden until user clicks edit -->
+			<div id="deleteModal" class="modal">
+				<div class="modal-content">
+					<h4>Delete</h4>
+					<p> Are you sure? </p>
+
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat delete">Yes</a>
+					<a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">No</a>
+				</div> <!-- /.modal-content -->
+			</div> <!-- /.modal -->
+
 
 			<!-- Add/Edit/Delete Songs -->
 			<section>

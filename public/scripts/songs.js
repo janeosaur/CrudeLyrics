@@ -41,46 +41,55 @@ function handleError(e) {
 
 function handleSuccess(res) {
   res.forEach(function(song) {
-    var songsHtml = (`
-              <div class="col s4 song-output" data-name="${song.name}">
-                <span class="song-name">${song.name}</span>
-                  <h5>By: <span class="artistname">${song.artistName}</span> </h5>
-                  <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
-                <div class='panel-footer valyrics'>
-                    <button class='btn btn-info view-lyrics'> View Lyrics </button>
-                    <button class='btn btn-info' add-lyrics'> Add Lyrics </button>
-                </div>
+    var songsHtml = (
+      `<div class="row song" data-song-id="${song._id}">
+          <div class="col s4 song-output" data-name="${song.name}">
+            <span class="song-name">${song.name}</span>
+              <h5>By: <span class="artistname">${song.artistName}</span> </h5>
+              <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
+            <div class='panel-footer valyrics'>
+                <button class='btn btn-info view-lyrics'> View Lyrics </button>
+                <button class='btn btn-info edit-song'> Edit </button>
+                <button class='btn btn-info delete-song'> Delete </button>
             </div>
-            <!-- end one song -->
-        `);
+        </div>
+      </div>
+      <!-- end one song -->
+      `);
     $('div.songs-row').append(songsHtml);
     $('.view-lyrics').on('click', viewLyric);
+    $('.delete-song').on('click', deleteSong);
+    $('.edit-song').on('click', editSong);
   });
 };
 
 function addSong(song) {
   var songsHtml =
-        (`
-            <div class="col s4 song-output" data-name="${song.name}">
-              <span class="song-name">${song.name}</span>
-              <h5> By: <span class="artistname">${song.artistName}</span> </h5>
-              <h5> Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
-              <div class='panel-footer valyrics'>
-                  <button class='btn btn-info' add-lyrics'> Add Lyrics </button>
-              </div>
-          </div>
-          <!-- end one song -->
-        `);
-        console.log(song.genre);
+      (`<div class="row song" data-song-id="${song._id}">
+          <div class="col s4 song-output" data-name="${song.name}">
+            <span class="song-name">${song.name}</span>
+            <h5> By: <span class="artistname">${song.artistName}</span> </h5>
+            <h5> Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
+            <div class='panel-footer valyrics'>
+                <button class='btn btn-info add-lyrics'> Add Lyrics </button>
+                <button class='btn btn-info edit-song'> Edit </button>
+                <button class='btn btn-info delete-song'> Delete </button>
+            </div>
+        </div>
+      </div>
+      <!-- end one song -->
+      `);
+      console.log(song.genre);
   if (genre === song.genre){
     $('div.songs-row').append(songsHtml);
   } else {
     // make this modal instead of alert
     alert('please choose correct genre');
   };
-  $('.view-lyrics').on('click', viewLyric);
+  $('.add-lyrics').on('click', addLyric);
+  $('.delete-song').on('click', deleteSong);
+  $('.edit-song').on('click', editSong);
 }
-
 
 // when user clicks on view lyrics
 function viewLyric(e) {
@@ -96,4 +105,42 @@ function addLyric(e) {
   console.log('add lyric clicked');
   $('.addModal').modal();
   // modal doesn't open yet?
+}
+
+function editSong() {
+  console.log('edit song was clicked');
+  $('#editModal').modal();
+  // $('.edit-submit').on('click', function() {
+  //   console.log('submit on edit song clicked');
+  //   // update function goes here
+  //   var newWriter = { writers: $('#writtenBy').val() };
+  //   console.log('PUTing data for new writer', newWriter);
+  //   $.ajax({
+  //     method: 'put',
+  //     url: '/api/lyrics/' + song,
+  //     data: newWriter,
+  //     success: handleLyricEdit,
+  //     error: handleError
+  //   });
+  // });
+}
+
+function deleteSong(e) {
+  var currentSong = $(this).closest('.song-output').data('name');
+  console.log('delete song was clicked', currentSong, genre);
+  // $('#deleteModal').modal();
+  // $('.delete').on('click', function () {
+    // console.log('delete on modal clicked');
+    $.ajax({
+      method: 'delete',
+      url: '/api/genre/' + genre + '/' + currentSong,
+      success: deleteSongSuccess,
+      error: handleError
+    });
+  // }); // end of modal delete button - modal isn't working
+}
+
+function deleteSongSuccess(data) {
+  var deletedSongId = data._id;
+  $('div[data-song-id=' + deletedSongId + ']').remove();
 }
