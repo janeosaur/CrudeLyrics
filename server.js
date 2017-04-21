@@ -58,6 +58,7 @@ app.delete('/api/genre/:genre/:song', controllers.songs.destroy);
 
 
 app.put('/api/lyrics/:song', controllers.lyrics.update);
+app.put('/api/genre/:genre/:song', controllers.songs.update);
 
 
 // GET and send genre.html based on :genre

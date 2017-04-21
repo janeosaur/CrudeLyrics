@@ -50,25 +50,41 @@ function destroy(req,res) {
   });
 };
 
-// Editig/updating the song details
-function update(req, res) {
-  console.log('updating with songlyric', req.body);
-   var genre=req.params.genre;
-  var song=req.params.song;
-  db.Song.findById({genre:genre, name:song}, function(err, foundlyric) {
-    if(err) { console.log('Songscontoller.update error', err);
-  }
-   foundSong.name = genre.song.name;
-   foundSong.artistName = genre.song.artistName;
-   foundSong.releaseDate = genre.song.releaseDate;
-   foundSong.save(function(err,savedlyric) {
-     if (err) {
-      console.log('editing songlyrics failed');
-     }
-     res.json(savedlyric);
-    })
+// EDIT api/genre/:genre/:song
+function update (req, res) {
+  // var updateSong = req.params.song;
+  // var genre = req.params.genre;
+  // console.log('server side', updateSong, genre);
+  db.Song.findOne({name:req.params.song, genre: req.params.genre}, function(err, updateSong) {
+    updateSong.name = req.body.name;
+    updateSong.releaseDate = req.body.releaseDate;
+    updateSong.artistName = req.body.artistName;
+    updateSong.save(function(err, savedSong) {
+      res.json(savedSong);
+    });
   });
-}
+};
+
+
+// Editig/updating the song details
+// function update(req, res) {
+//   console.log('updating with songlyric', req.body);
+//    var genre=req.params.genre;
+//   var song=req.params.song;
+//   db.Song.findById({genre:genre, name:song}, function(err, foundlyric) {
+//     if(err) { console.log('Songscontoller.update error', err);
+//   }
+//    foundSong.name = genre.song.name;
+//    foundSong.artistName = genre.song.artistName;
+//    foundSong.releaseDate = genre.song.releaseDate;
+//    foundSong.save(function(err,savedlyric) {
+//      if (err) {
+//       console.log('editing songlyrics failed');
+//      }
+//      res.json(savedlyric);
+//     })
+//   });
+// }
 
 module.exports = {
   index: index,

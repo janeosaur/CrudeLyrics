@@ -103,20 +103,24 @@ function addLyric(e) {
 
 function editSong() {
   console.log('edit song was clicked');
+  var currentSong = $(this).closest('.song-output').data('name');
   $('#editModal').modal();
-  // $('.edit-submit').on('click', function() {
-  //   console.log('submit on edit song clicked');
+  $('.edit-submit').on('click', function() {
+    console.log('submit on edit song clicked');
   //   // update function goes here
-  //   var newWriter = { writers: $('#writtenBy').val() };
-  //   console.log('PUTing data for new writer', newWriter);
-  //   $.ajax({
-  //     method: 'put',
-  //     url: '/api/lyrics/' + song,
-  //     data: newWriter,
-  //     success: handleLyricEdit,
-  //     error: handleError
-  //   });
-  // });
+    var newName = $('#song-name').val();
+    var newArtist = $('#artistName').val();
+    var newRelease = $('#releaseDate').val();
+    var editedSong = {name: newName, artistName: newArtist, releaseDate: newRelease}
+    console.log(editedSong);
+    $.ajax({
+      method: 'put',
+      url: '/api/genre/' + genre + '/' + currentSong,
+      data: editedSong,
+      success: handleSongEdit,
+      error: handleError
+    });
+  });
 }
 
 function deleteSong(e) {
@@ -137,4 +141,9 @@ function deleteSong(e) {
 function deleteSongSuccess(data) {
   var deletedSongId = data._id;
   $('div[data-song-id=' + deletedSongId + ']').remove();
+}
+
+function handleSongEdit(data) {
+  console.log('handle song edit');
+  window.location.reload();
 }

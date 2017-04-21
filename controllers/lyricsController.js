@@ -15,21 +15,12 @@ function show(req,res) {
   });
 };
 
-function destroy(req,res) {
-  var song = req.params.song;
-  console.log(song);
-  db.Lyric.findOneAndRemove({name: song}, function(err, deletedLyric) {
-    res.json(deletedLyric);
-  });
-};
-
 // app.put('/api/lyrics/:song, controllers.lyrics.update);
 function update(req,res) {
   var newWriter = req.body.writers;
   console.log('server side', newWriter);
-  // findbyIdandupdate
   db.Song.findOne({name:req.params.song}, function(err, updateSong) {
-    console.log(updateSong); // null - not finding anything.
+    console.log(updateSong); 
     updateSong.lyrics.writers = newWriter;
     updateSong.save(function(err, savedLyric) {
       res.json(savedLyric);
@@ -41,7 +32,6 @@ module.exports = {
   index: index,
   show: show,
   // create: create,
-  destroy: destroy,
   update: update
 
 }
