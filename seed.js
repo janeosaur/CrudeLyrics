@@ -238,6 +238,7 @@ lyricsList.push({
   name: "Gangsta",
   verse: "Lehani gangsta\
               need a gangsta\
+
               To love me better\
               Than all the others do\
               To always forgive me\
@@ -315,6 +316,7 @@ lyricsList.push({
 lyricsList.push({
   name: "Someday",
   verse: "Your hands that touched me\
+
               Your voice that called me It’s still so clear\
                it still lingers around me\
                Why didn’t I try my best\
@@ -424,10 +426,12 @@ lyricsList.push({
                   Baby I’ll be yours\
                   Poke it and take it\
                   To your lips\
+
                   Tell me whatchu doing? I’ll be yours",
   language: 'English',
   writers: 'Addy'
 });
+
 lyricsList.push({
   name: "Falling",
   verse: "Right here, right now, it's all we need\
@@ -474,6 +478,7 @@ lyricsList.push({
   language: 'English',
   writers: 'Addy'
 });
+
 lyricsList.push({
   name: "Scared to be Lonely",
   verse: "It was great at the very start\
@@ -531,6 +536,7 @@ lyricsList.push({
                 Scared to be lonely\
                 Scared to be lonely\
                 Eh, eh, scared to be lonely",
+
   language: 'English',
   writers: 'Addy'
 });
@@ -556,6 +562,7 @@ lyricsList.push({
   language: 'English',
   writers: 'Addy'
 });
+
 
 db.Lyric.remove({}, function(err, lyrics) {
   console.log('removed all lyrics');
