@@ -36,12 +36,12 @@
 			</ul>
 		</div>
 
-   
+
     <div class="container">
        <div class="row songs-row">
 <!--          will be filled in from song data -->
       </div>
-        
+
 			<!-- Add Lyrics Modal Structure. Hidden until user clicks edit -->
       <div id="addModal" class="modal">
 
@@ -75,26 +75,27 @@
 
       <div id="editModal" class="modal" >
         <div class="modal-content">
-          <p> Please feel free to contribute any changes!</p>
+          <p class="modal-instructions"> Edit song details below</p>
+
           <!-- Edit Song Details -->
             <div class="form-group">
-              <label>Song Name</label>
+              <label class="formq">Song Name</label>
               <div class="col m4">
                 <input id="song-name" name="name" type="text" required="" class="form-control input-md validate">
               </div>
-							<label>Artist Name</label>
+							<label class="formq">Artist Name</label>
               <div class="col m4">
                 <input id="artistName" name="artistName" type="text" required="" class="form-control input-md validate">
               </div>
-							<label>Released in: </label>
+							<label class="formq">Released in: </label>
               <div class="col m4">
                 <input id="releaseDate" name="releaseDate" type="text" required="" class="form-control input-md validate">
               </div>
             </div>
         </div>
         <div class="modal-footer">
-          <a class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat edit-submit">Submit</a>
-          <a class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat submit-cancel">Cancel</a>
+          <a class="modal-action modal-close waves-effect btn-flat" class="edit-songs">Submit</a>
+          <a class="modal-action modal-close waves-effect btn-flat" class="edit-songs">Cancel</a>
         </div> <!-- /.modal-content -->
       </div> <!-- /.modal -->
 

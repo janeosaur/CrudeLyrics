@@ -1,8 +1,5 @@
 /*applies to all pages*/
 
-
-
-
 /*applies to index.html*/
 img#sf-banner {
   position: relative;
@@ -46,16 +43,29 @@ p.header-main-intro {
   opacity: 0.8;
   font-size: 40px;
   position: absolute;
-  top: 700px;
+  top: 680px;
   left: 300px;
-  font-family: Shadows Into Light;
-  font-weight: bold;
+  font-family: Fredoka One;
 }
 
 img.tile {
   padding-top: 80px;
 }
 
+/*applies to songs.html*/
+p.modal-instructions {
+  font-size: 40px;
+  text-align: center;
+  color: #009688;
+  font-family: Bad Script;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+label.formq {
+  font-size: 20px;
+  color: black;
+}
 
 /**/
 img {
