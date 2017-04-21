@@ -22,9 +22,6 @@ $(document).ready(function() {
 // original below
 
   // when user clicks on edit lyrics
-  $('#edit').on('click', handleEditLyric);
-  $('#delete').on('click', handleDeleteLyric);
-
 
 function handleSuccess(res) {
   console.log(res);
@@ -34,21 +31,22 @@ function handleSuccess(res) {
           <h5>By: <span class="artistname">${res.artistName}</span> </h5>
           <h5>Released: <span class="releaseDate">${res.releaseDate}</span> </h5>
           <div class="lyrics-output"> ${res.lyrics.verse} </div>
+          <div class="writtenby"> Submitted By: ${res.lyrics.writers} </div>
       </div>
       <!-- end one song -->
       `);
     $('.lyrics-output').append(lyricsHtml);
+    $('#edit').on('click', handleEditLyric);
+    $('#delete').on('click', handleDeleteLyric);
   }
 
 function handleError(e) {
   console.log('uh oh');
 }
 
-
 function handleEditLyric(e) {
   console.log('edit lyric clicked');
   $('#editModal').modal();
-  // style the buttons so it's not touching side by side
 }
 
 function handleDeleteLyric(e) {

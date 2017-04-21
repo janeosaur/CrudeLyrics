@@ -17,7 +17,6 @@ $(document).ready(function() {
     error: handleError
   });
 
-// post renders on page, shows up under api but when refreshed - newly submitted songs go missing?
   $('#song-form').on('submit', function(e){
     e.preventDefault();
     var formData = $(this).serialize();
@@ -86,7 +85,7 @@ function addSong(song) {
     // make this modal instead of alert
     alert('please choose correct genre');
   };
-  // $('.view-lyrics').on('click', viewLyric);
+  $('.view-lyrics').on('click', viewLyric);
 }
 
 
