@@ -10,7 +10,7 @@ h1 {
   letter-spacing: 4px;
   color: #424242;
   text-shadow: 2px 2px grey;
-  padding: 50px 0;
+  padding: 80px 0 0 0;
 }
 
 #e {
@@ -18,6 +18,10 @@ h1 {
   font-family: Shadows Into Light;
   font-size: 50px;
   font-weight: bold;
+}
+
+span#lyrics {
+  font-size: 80px;
 }
 
 #lyrics {
@@ -42,9 +46,10 @@ div.genre {
 
 div.song-details {
   font-family: Shadows Into Light;
-  background-color: lightgrey;
+  background-color: white;
   align-items: center;
   margin: 5px;
+  text-transform: none;
 }
 
 div.lyrics-buttons {
@@ -67,12 +72,13 @@ h2 {
 .song-output {
   font-size: 30px;
   text-align: center;
-  text-transform: lowercase;
   font-family: Shadows Into Light;
   border-radius: 25px;
   border: 1px solid;
   margin: 0px;
+  padding: 0px;
   margin-bottom: 40px;
+  background-color: lightgrey;
 }
 
 .valyrics {
@@ -84,6 +90,7 @@ div.songs-row {
   margin-bottom: 80px;
 }
 
+
 div.submit-songs {
   width: 60%;
   float: right;
@@ -93,17 +100,31 @@ div.lyrics-output {
   width: 75%;
   margin: 0 auto;
   padding: 10px 0;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-transform: none;
 }
 
+span.song-name {
+  text-shadow: 1px 1px grey;
+}
+
+div.writtenby {
+  font-family: Ranga;
+  color: #0089ec;
+}
+
+.toolbar {
+  left: 60px;
+  top: 30px;
+}
 
 .deleted {
   text-align: center;
 }
-#homebutton {
-  left: 60px;
-  top:50px;
+
+#edit-lyrics {
+  width: 40%;
+  margin-left: 30%;
+  margin-bottom: 40px;
 }
-
-
-
-

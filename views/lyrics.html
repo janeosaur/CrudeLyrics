@@ -17,9 +17,20 @@
 
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/lyrics.js"></script>
-  
+    
   </head>
+
   <body>
+
+    <div class="fixed-action-btn toolbar">
+			<a class="btn-floating btn-large blue-grey homebutton">+</a>
+			<ul>
+				<li class="waves-effect waves-light"><a href="/">Home</a></li>
+				<li class="waves-effect waves-light"><a href="/api">API</a></li>
+				<li class="waves-effect waves-light"><a href="/api/songs">Songs</i></a></li>
+				<li class="waves-effect waves-light"><a href="https://github.com/janeosaur/CrudeLyrics">Github</i></a></li>
+			</ul>
+		</div>
 
     <div class="lyrics-container">
 
@@ -31,9 +42,8 @@
 
       </div>
 
-      <div class="lyrics-buttons">
-        <a class="waves-effect waves-light btn light-blue darken-3" id="edit" href="#editModal">edit</a></div>
-        <a class="waves-effect waves-light btn light-blue darken-3" id="delete" href="#deleteModal">delete</a></div>
+      <div class="lyrics-button">
+        <a class="waves-effect waves-light btn light-blue darken-3" id="edit-lyrics" href="#editModal">edit</a></div>
       </div>
 
       <!-- Edit Modal Structure. Hidden until user clicks edit -->
@@ -43,32 +53,23 @@
 
           <!-- Edit Writers -->
             <div class="form-group">
-              <label>Written By</label>
+              <label>Add your own lyrical spin!</label>
               <div class="col m4">
-                <input id="writtenBy" name="writers" type="text" placeholder="" class="form-control input-md" required="">
+                <input id="verse" name="verse" type="text" class="form-control input-md">
+              </div>
+              <label>Submitted By</label>
+              <div class="col m4">
+                <input id="submittedBy" name="writers" type="text" class="form-control input-md">
               </div>
             </div>
+          </div>
 
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat submit-cancel">Submit</a>
-          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat submit-cancel">Cancel</a>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat edit-submit">Submit</a>
+            <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat submit-cancel">Cancel</a>
+          <div>
         </div> <!-- /.modal-content -->
       </div> <!-- /.modal -->
-
-      <!-- Delete Modal Structure. Hidden until user clicks edit -->
-      <div id="deleteModal" class="modal">
-        <div class="modal-content">
-          <h4>Delete</h4>
-          <p> Are you sure? </p>
-
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat delete">Yes</a>
-          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">No</a>
-        </div> <!-- /.modal-content -->
-      </div> <!-- /.modal -->
-
 
 
     </div>

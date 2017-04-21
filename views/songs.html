@@ -21,20 +21,27 @@
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/songs.js"></script>
 
-
 </head>
+
+
 <body>
+
+		<div class="fixed-action-btn toolbar">
+			<a class="btn-floating btn-large blue-grey homebutton">+</a>
+			<ul>
+				<li class="waves-effect waves-light"><a href="/">Home</a></li>
+				<li class="waves-effect waves-light"><a href="/api">API</a></li>
+				<li class="waves-effect waves-light"><a href="/api/songs">Songs</i></a></li>
+				<li class="waves-effect waves-light"><a href="https://github.com/janeosaur/CrudeLyrics">Github</i></a></li>
+			</ul>
+		</div>
+
    
-      	<div class="container">
-
-		<div class="row songs-row">
-		
-	    </div>
-        
-      <div class="song-output">
-
+    <div class="container">
+       <div class="row songs-row">
+<!--          will be filled in from song data -->
       </div>
-<!-- Keeping the modal in case we keep lyrics CRUD -->
+        
 			<!-- Add Lyrics Modal Structure. Hidden until user clicks edit -->
       <div id="addModal" class="modal">
 
@@ -62,6 +69,48 @@
           <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">Cancel</a>
         </div> <!-- /.modal-content -->
       </div> <!-- /.modal -->
+
+
+			<!-- Edit Modal Structure. Hidden until user clicks edit -->
+
+      <div id="editModal" class="modal" >
+        <div class="modal-content">
+          <p> Please feel free to contribute any changes!</p>
+          <!-- Edit Song Details -->
+            <div class="form-group">
+              <label>Song Name</label>
+              <div class="col m4">
+                <input id="song-name" name="name" type="text" required="" class="form-control input-md validate">
+              </div>
+							<label>Artist Name</label>
+              <div class="col m4">
+                <input id="artistName" name="artistName" type="text" required="" class="form-control input-md validate">
+              </div>
+							<label>Released in: </label>
+              <div class="col m4">
+                <input id="releaseDate" name="releaseDate" type="text" required="" class="form-control input-md validate">
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <a class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat edit-submit">Submit</a>
+          <a class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat submit-cancel">Cancel</a>
+        </div> <!-- /.modal-content -->
+      </div> <!-- /.modal -->
+
+
+			<!-- Delete Modal Structure. Hidden until user clicks edit -->
+			<div id="deleteModal" class="modal">
+				<div class="modal-content">
+					<h4>Delete</h4>
+					<p> Are you sure? </p>
+				</div>
+				<div class="modal-footer">
+					<a class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat delete">Yes</a>
+					<a class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">No</a>
+				</div> <!-- /.modal-content -->
+			</div> <!-- /.modal -->
+
 
 			<!-- Add/Edit/Delete Songs -->
 			<section>

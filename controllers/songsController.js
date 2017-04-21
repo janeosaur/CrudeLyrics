@@ -15,26 +15,13 @@ function show(req,res) {
   });
 };
 
-// GET api/genre/rnb/songs
-function indexRnb(req,res) {
-  db.Song.find({genre: 'rnb'}, function(err, allRnbSongs) {
-    res.json(allRnbSongs);
-  });
-};
-
-// GET api/genre/kpop/songs
-function indexKpop(req,res) {
-  db.Song.find({genre: 'kpop'}, function(err, allKpopSongs) {
-    res.json(allKpopSongs);
-  });
-};
-
-// GET api/genre/edm/songs
-function indexEdm(req,res) {
-  db.Song.find({genre: 'edm'}, function(err, allEdmSongs) {
-    res.json(allEdmSongs);
-  });
-};
+// GET /api/genre/:genre/songs (to remove indexrnb, indexedm, indexkpop)
+function indexG(req,res) {
+  var genre = req.params.genre;
+  db.Song.find({genre:genre}, function(err, allGenreSongs) {
+    res.json(allGenreSongs);
+  })
+}
 
 // POST api/songs
 function create(req,res) {
@@ -53,41 +40,32 @@ function showOne(req,res) {
       res.json(foundLyric);
     });
 };
-//Delete the api/genre/:genre/:song/lyrics
-function destroy(req, res) {
-  var genre=req.params.genre;
-  var song=req.params.song;
-  db.Song.findOneAndRemove({genre:genre,name:song}, function(err, foundlyric){
-    res.json(foundlyric);
+
+// DELETE api/genre/:genre/:song/lyrics
+function destroy(req,res) {
+  var song = req.params.song;
+  console.log(song);
+  db.Song.findOneAndRemove({name: song}, function(err, deletedSong) {
+    res.json(deletedSong);
   });
 };
 
-// Editig/updating the song details
-function update(req, res) {
-  console.log('updating with songlyric', req.body);
-   var genre=req.params.genre;
-  var song=req.params.song;
-  db.Song.findById({genre:genre, name:song}, function(err, foundlyric) {
-    if(err) { console.log('Songscontoller.update error', err); 
-  }
-   foundSong.name = genre.song.name;
-   foundSong.artistName = genre.song.artistName;
-   foundSong.releaseDate = genre.song.releaseDate;
-   foundSong.save(function(err,savedlyric) {
-     if (err) {
-      console.log('editing songlyrics failed');
-     } 
-     res.json(savedlyric);
-    })
+// EDIT api/genre/:genre/:song
+function update (req, res) {
+  db.Song.findOne({name:req.params.song, genre: req.params.genre}, function(err, updateSong) {
+    updateSong.name = req.body.name;
+    updateSong.releaseDate = req.body.releaseDate;
+    updateSong.artistName = req.body.artistName;
+    updateSong.save(function(err, savedSong) {
+      res.json(savedSong);
+    });
   });
-}
+};
 
 module.exports = {
   index: index,
   show: show,
-  indexRnb: indexRnb,
-  indexKpop: indexKpop,
-  indexEdm: indexEdm,
+  indexG: indexG,
   create: create,
   showOne: showOne,
   destroy: destroy,
