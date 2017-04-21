@@ -94,3 +94,7 @@ div.lyrics-output {
   margin: 0 auto;
   padding: 10px 0;
 }
+
+.deleted {
+  text-align: center;
+}

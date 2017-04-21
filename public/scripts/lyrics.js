@@ -15,13 +15,13 @@ $(document).ready(function() {
     success: handleSuccess,
     error: handleError
   });
+}); // end of on ready
 
-});
-
-
-// original below
-
-  // when user clicks on edit lyrics
+var windowHref = window.location.href;
+var splitHref = windowHref.split('/');
+splitHref.pop();
+var song = splitHref[splitHref.length-1];
+var genre = splitHref[splitHref.length-2]; // making this available to below
 
 function handleSuccess(res) {
   console.log(res);
@@ -50,6 +50,25 @@ function handleEditLyric(e) {
 }
 
 function handleDeleteLyric(e) {
-  console.log('delete lyric clicked');
+  console.log('clicked delete for ', genre, song);
+  // var currentSong = $(this).closest('.song-output').data('name');
+  // window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
   $('#deleteModal').modal();
+  // when submit from modal is clicked.. fun function
+  $('.delete').on('click', function () {
+    console.log('delete on modal clicked');
+    $.ajax({
+      method: 'delete',
+      url: '/api/lyrics/' + genre + '/' + song,
+      success: deleteLyricSuccess,
+      error: handleError
+    })
+  }); // end of modal delete button
+} // end of handleDeleteLyric
+
+function deleteLyricSuccess(json) {
+  var lyric = json;
+  console.log(lyric);
+  $('.lyrics-output').html('<p class="deleted"> Deleted! </p>');
+  $('#delete').remove();
 }

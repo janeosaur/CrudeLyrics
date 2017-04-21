@@ -15,6 +15,13 @@ function show(req,res) {
   });
 };
 
+function destroy(req,res) {
+  var song = req.params.song;
+  console.log(song);
+  db.Lyric.findOneAndRemove({name: song}, function(err, deletedLyric) {
+    res.json(deletedLyric)
+  });
+};
 
 
 
@@ -22,7 +29,7 @@ module.exports = {
   index: index,
   show: show,
   // create: create,
-  // destroy: destroy,
+  destroy: destroy,
   // update: update
 
 }
