@@ -20,6 +20,10 @@ h1 {
   font-weight: bold;
 }
 
+span#lyrics {
+  font-size: 80px;
+}
+
 #lyrics {
   color: #424242;
   font-family: Bad Script;
@@ -103,7 +107,3 @@ div.lyrics-output {
   left: 60px;
   top:50px;
 }
-
-
-
-

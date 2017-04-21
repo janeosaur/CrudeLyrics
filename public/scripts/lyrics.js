@@ -21,7 +21,7 @@ var windowHref = window.location.href;
 var splitHref = windowHref.split('/');
 splitHref.pop();
 var song = splitHref[splitHref.length-1];
-var genre = splitHref[splitHref.length-2]; // making this available to below
+var genre = spitHref[splitHref.length-2];// making this available to below
 
 function handleSuccess(res) {
   console.log(res);
@@ -44,17 +44,10 @@ function handleError(e) {
   console.log('uh oh');
 }
 
-function handleEditLyric(e) {
-  console.log('edit lyric clicked');
-  $('#editModal').modal();
-}
-
 function handleDeleteLyric(e) {
+  e.preventDefault();
   console.log('clicked delete for ', genre, song);
-  // var currentSong = $(this).closest('.song-output').data('name');
-  // window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
   $('#deleteModal').modal();
-  // when submit from modal is clicked.. fun function
   $('.delete').on('click', function () {
     console.log('delete on modal clicked');
     $.ajax({
@@ -67,8 +60,40 @@ function handleDeleteLyric(e) {
 } // end of handleDeleteLyric
 
 function deleteLyricSuccess(json) {
-  var lyric = json;
-  console.log(lyric);
   $('.lyrics-output').html('<p class="deleted"> Deleted! </p>');
+  // css animation?
   $('#delete').remove();
+  $('#edit').remove();
+  if ($('#edit')) {
+    window.setTimeout(function(){
+      window.location.href = '/';
+    }, 2000); // have page go back to homepage 
+  };
+  // make them go back to homepage after few seconds...
+}
+
+function handleEditLyric(e) {
+  e.preventDefault();
+  console.log('edit lyric clicked ', song);
+  $('#editModal').modal();
+  $('.edit-submit').on('click', function() {
+    console.log('submit on edit song clicked');
+    // update function goes here
+    var newWriter = { writers: $('#writtenBy').val() };
+    console.log('PUTing data for new writer', newWriter);
+    $.ajax({
+      method: 'put',
+      url: '/api/lyrics/' + song,
+      data: newWriter,
+      success: handleLyricEdit,
+      error: handleError
+    });
+  });
+};
+
+function handleLyricEdit(data) {
+  console.log(data);
+  window.location.reload();
+  // var updateWriter = data.writers;
+  // $('.writtenby').html(`Edited By: ${updateWriter}`);
 }
