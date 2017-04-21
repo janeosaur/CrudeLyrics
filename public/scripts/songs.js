@@ -42,15 +42,15 @@ function handleError(e) {
 function handleSuccess(res) {
   res.forEach(function(song) {
     var songsHtml = (
-      `<div class="row song" data-song-id="${song._id}">
-          <div class="col s4 song-output" data-name="${song.name}">
+      `<div class="col s4 row song" data-song-id="${song._id}">
+          <div class= "song-output" data-name="${song.name}">
             <span class="song-name">${song.name}</span>
               <h5>By: <span class="artistname">${song.artistName}</span> </h5>
               <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
             <div class='panel-footer valyrics'>
-                <button class='btn btn-info view-lyrics'> View Lyrics </button>
-                <button class='btn btn-info edit-song' href="#editModal"> Edit </button>
-                <button class='btn btn-info delete-song'> Delete </button>
+                <button class='btn btn-info view-lyrics'> View </button>
+                <a class="modal-trigger waves-effect waves-light btn edit-song" href="#editModal">Edit</a>
+                <a class="modal-trigger waves-effect waves-light btn delete-song" href="#deleteModal">Delete</a>
             </div>
         </div>
       </div>
@@ -65,30 +65,24 @@ function handleSuccess(res) {
 
 function addSong(song) {
   var songsHtml =
-      (`<div class="row song" data-song-id="${song._id}">
-          <div class="col s4 song-output" data-name="${song.name}">
+      (`<div class="col s4 row song" data-song-id="${song._id}">
+          <div class="song-output" data-name="${song.name}">
             <span class="song-name">${song.name}</span>
             <h5> By: <span class="artistname">${song.artistName}</span> </h5>
             <h5> Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
             <div class='panel-footer valyrics'>
-                <button class='btn btn-info add-lyrics'> Add Lyrics </button>
-                <button class='btn btn-info edit-song' href="#editModal"> Edit </button>
-                <button class='btn btn-info delete-song'> Delete </button>
+                <a class="modal-trigger waves-effect waves-light btn add-lyrics" href="#addLyricsModal">Add Lyrics</a>
+          		  <a class="modal-trigger waves-effect waves-light btn edit-song" href="#editModal">Edit</a>
+                <a class="modal-trigger waves-effect waves-light btn delete-song" href="#deleteModal">Delete</a>
             </div>
         </div>
       </div>
       <!-- end one song -->
       `);
-      console.log(song.genre);
-  if (genre === song.genre){
     $('div.songs-row').append(songsHtml);
-  } else {
-    // make this modal instead of alert
-    alert('please choose correct genre');
-  };
-  $('.add-lyrics').on('click', addLyric);
-  $('.delete-song').on('click', deleteSong);
-  $('.edit-song').on('click', editSong);
+    $('.add-lyrics').on('click', addLyric);
+    $('.delete-song').on('click', deleteSong);
+    $('.edit-song').on('click', editSong);
 }
 
 // when user clicks on view lyrics
@@ -128,16 +122,16 @@ function editSong() {
 function deleteSong(e) {
   var currentSong = $(this).closest('.song-output').data('name');
   console.log('delete song was clicked', currentSong, genre);
-  // $('#deleteModal').modal();
-  // $('.delete').on('click', function () {
-    // console.log('delete on modal clicked');
+  $('#deleteModal').modal();
+  $('.delete').on('click', function () {
+    console.log('delete on modal clicked');
     $.ajax({
       method: 'delete',
       url: '/api/genre/' + genre + '/' + currentSong,
       success: deleteSongSuccess,
       error: handleError
     });
-  // }); // end of modal delete button - modal isn't working
+  });
 }
 
 function deleteSongSuccess(data) {
