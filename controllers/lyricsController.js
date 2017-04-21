@@ -15,22 +15,21 @@ function show(req,res) {
   });
 };
 
-// GET api/genre/:genre/:song/lyrics
-function showOne(req,res) {
-  var genre=req.params.genre;
-  var song=req.params.song;
-  db.Song.findOne({genre:genre, name:song}, function(err, foundLyric) {
-    res.json(foundLyric);
+function destroy(req,res) {
+  var song = req.params.song;
+  console.log(song);
+  db.Lyric.findOneAndRemove({name: song}, function(err, deletedLyric) {
+    res.json(deletedLyric)
   });
 };
+
 
 
 module.exports = {
   index: index,
   show: show,
-  showOne: showOne,
   // create: create,
-  // destroy: destroy,
+  destroy: destroy,
   // update: update
 
 }

@@ -48,9 +48,10 @@ function create(req,res) {
 function showOne(req,res) {
   var genre=req.params.genre;
   var song=req.params.song;
-  db.Song.findOne({genre:genre, name:song}, function(err, foundLyric) {
-    res.json(foundLyric);
-  });
+  db.Song.findOne({genre:genre, name:song})
+    .exec(function(err, foundLyric) {
+      res.json(foundLyric);
+    });
 };
 //Delete the api/genre/:genre/:song/lyrics
 function destroy(req, res) {

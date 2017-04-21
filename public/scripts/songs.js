@@ -1,5 +1,6 @@
 $(document).ready(function() {
   console.log('songs.js loaded!');
+  $('select').material_select();
 
   // to get the genre from URL of what user clicked.
   var windowHref = window.location.href;
@@ -16,7 +17,6 @@ $(document).ready(function() {
     error: handleError
   });
 
-// post renders on page, shows up under api but when refreshed - newly submitted songs go missing?
   $('#song-form').on('submit', function(e){
     e.preventDefault();
     var formData = $(this).serialize();
@@ -33,6 +33,9 @@ $(document).ready(function() {
 }); // end of doc on ready
 
 
+var windowHref = window.location.href;
+var splitHref = windowHref.split('/');
+var genre = splitHref[splitHref.length-1]; // to make it available to below functions
 
 function handleError(e) {
   console.log('uh oh');
@@ -42,8 +45,7 @@ function handleSuccess(res) {
   console.log(res);
   res.forEach(function(song) {
     console.log(`${song.name} ${song.artistName} ${song.releaseDate}`);
-    var songsHtml =
-          (`
+    var songsHtml = (`
               <div class="col s4 song-output" data-name="${song.name}">
                 <span class="song-name">${song.name}</span>
                   <h5>By: <span class="artistname">${song.artistName}</span> </h5>
@@ -60,8 +62,7 @@ function handleSuccess(res) {
                 </div>
             </div>
             <!-- end one song -->
-          `);
-    
+        `);
     $('div.songs-row').append(songsHtml);
     $('.view-lyrics').on('click', viewLyric);
   });
@@ -76,21 +77,31 @@ function addSong(song) {
               <h5> Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
 
               <div class='panel-footer valyrics'>
-                  <button class='btn btn-info view-lyrics'> View Lyrics </button>
-                  <button class='btn btn-info add-lyrics'> Add Lyrics </button>
+
+                  <button class='btn btn-info' add-lyrics'> Add Lyrics </button>
 
               </div>
           </div>
 
         `);
-  $('div.songs-row').append(songsHtml);
+        console.log(song.genre);
+  if (genre === song.genre){
+    $('div.songs-row').append(songsHtml);
+  } else {
+    // make this modal instead of alert
+    alert('please choose correct genre');
+  };
   $('.view-lyrics').on('click', viewLyric);
 }
 
+
+// when user clicks on view lyrics
 function viewLyric(e) {
- //clickedbutton();
-  //var currentSong = $(this).closest('.song-output').data('name');
-  console.log(currentSong); // undefined
+  console.log('view lyric clicked');
+  console.log(genre);
+  var currentSong = $(this).closest('.song-output').data('name');
+  console.log(currentSong);
+  window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
   }
 
 
@@ -109,6 +120,8 @@ function deleteLyric(e) {
 function clickedbutton () {
  window.location = "/lyrics";
 }
+
+
 
   //delete song when its delete button is clicked
   //$('#').on('click', '.delete-song', handleDeleteSongClick);
@@ -190,11 +203,6 @@ function clickedbutton () {
 
 
 //})
-
-
-
-
-
 
 
 

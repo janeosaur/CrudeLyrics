@@ -62,6 +62,9 @@ app.delete('/api/genre/edm/songs', controllers.songs.indexEdm);
 
 app.post('/api/songs', controllers.songs.create);
 
+// /api/lyrics/' + genre + '/' + song,
+app.delete('/api/lyrics/:genre/:song', controllers.lyrics.destroy);
+
 
 // GET and send genre.html based on :genre
 app.get('/genre/:genre', function(req,res) {
