@@ -15,27 +15,13 @@ function show(req,res) {
   });
 };
 
-// GET api/genre/rnb/songs
-function indexRnb(req,res) {
-  db.Song.find({genre: 'rnb'}, function(err, allRnbSongs) {
-    res.json(allRnbSongs);
-  });
-};
-
-// GET api/genre/kpop/songs
-function indexKpop(req,res) {
-  db.Song.find({genre: 'kpop'}, function(err, allKpopSongs) {
-    res.json(allKpopSongs);
-  });
-};
-
-// GET api/genre/edm/songs
-function indexEdm(req,res) {
-  db.Song.find({genre: 'edm'}, function(err, allEdmSongs) {
-    res.json(allEdmSongs);
-  });
-};
-
+// GET /api/genre/:genre/songs (to remove indexrnb, indexedm, indexkpop)
+function indexG(req,res) {
+  var genre = req.params.genre;
+  db.Song.find({genre:genre}, function(err, allGenreSongs) {
+    res.json(allGenreSongs);
+  })
+}
 // POST api/songs
 function create(req,res) {
   console.log('body', req.body);
@@ -68,7 +54,7 @@ function update(req, res) {
    var genre=req.params.genre;
   var song=req.params.song;
   db.Song.findById({genre:genre, name:song}, function(err, foundlyric) {
-    if(err) { console.log('Songscontoller.update error', err); 
+    if(err) { console.log('Songscontoller.update error', err);
   }
    foundSong.name = genre.song.name;
    foundSong.artistName = genre.song.artistName;
@@ -76,7 +62,7 @@ function update(req, res) {
    foundSong.save(function(err,savedlyric) {
      if (err) {
       console.log('editing songlyrics failed');
-     } 
+     }
      res.json(savedlyric);
     })
   });
@@ -85,9 +71,7 @@ function update(req, res) {
 module.exports = {
   index: index,
   show: show,
-  indexRnb: indexRnb,
-  indexKpop: indexKpop,
-  indexEdm: indexEdm,
+  indexG: indexG,
   create: create,
   showOne: showOne,
   destroy: destroy,
