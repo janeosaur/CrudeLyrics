@@ -49,7 +49,7 @@ function handleSuccess(res) {
               <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
             <div class='panel-footer valyrics'>
                 <button class='btn btn-info view-lyrics'> View Lyrics </button>
-                <button class='btn btn-info edit-song'> Edit </button>
+                <button class='btn btn-info edit-song' href="#editModal"> Edit </button>
                 <button class='btn btn-info delete-song'> Delete </button>
             </div>
         </div>
@@ -72,7 +72,7 @@ function addSong(song) {
             <h5> Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
             <div class='panel-footer valyrics'>
                 <button class='btn btn-info add-lyrics'> Add Lyrics </button>
-                <button class='btn btn-info edit-song'> Edit </button>
+                <button class='btn btn-info edit-song' href="#editModal"> Edit </button>
                 <button class='btn btn-info delete-song'> Delete </button>
             </div>
         </div>

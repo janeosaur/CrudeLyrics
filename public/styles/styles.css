@@ -46,9 +46,10 @@ div.genre {
 
 div.song-details {
   font-family: Shadows Into Light;
-  background-color: lightgrey;
+  background-color: white;
   align-items: center;
   margin: 5px;
+  text-transform: none;
 }
 
 div.lyrics-buttons {
@@ -77,6 +78,7 @@ h2 {
   border: 1px solid;
   margin: 0px;
   margin-bottom: 40px;
+  background-color: lightgrey;
 }
 
 .valyrics {
@@ -97,13 +99,30 @@ div.lyrics-output {
   width: 75%;
   margin: 0 auto;
   padding: 10px 0;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-transform: none;
 }
 
+span.song-name {
+  text-shadow: 1px 1px grey;
+}
+
+div.writtenby {
+  font-family: Ranga;
+  color: #0089ec;
+}
+
+#homebutton {
+  left: 60px;
+  top:50px;
+}
 
 .deleted {
   text-align: center;
 }
-#homebutton {
-  left: 60px;
-  top:50px;
+
+#edit-lyrics {
+  width: 40%;
+  margin-left: 30%;
 }

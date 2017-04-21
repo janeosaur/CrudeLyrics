@@ -28,8 +28,10 @@ function handleSuccess(res) {
     var lyricsHtml = (`
         <div class="song-output" data-name="${res.name}">
           <span class="song-name">${res.name}</span>
-          <h5>By: <span class="artistname">${res.artistName}</span> </h5>
-          <h5>Released: <span class="releaseDate">${res.releaseDate}</span> </h5>
+          <div class="song-details">
+            <span class="song-details">${res.artistName}</span>
+            <span class="song-details">, ${res.releaseDate}</span>
+          </div>
           <div class="lyrics-output"> ${res.lyrics.verse} </div>
           <div class="writtenby"> Submitted By: ${res.lyrics.writers} </div>
       </div>
@@ -42,8 +44,6 @@ function handleSuccess(res) {
 function handleError(e) {
   console.log('uh oh');
 }
-
-
 
 function handleEditLyric(e) {
   e.preventDefault();
@@ -71,7 +71,7 @@ function handleLyricEdit(data) {
   // $('.writtenby').html(`Edited By: ${updateWriter}`);
 }
 
-// if we want a lyrics delete option.. 
+// if we want a lyrics delete option..
 // function deleteLyricSuccess(json) {
 //   $('.lyrics-output').html('<p class="deleted"> Deleted! </p>');
 //   // css animation?
