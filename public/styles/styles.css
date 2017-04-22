@@ -9,6 +9,7 @@ div.nav-wrapper {
 
 .nav-text {
   color: black;
+  opacity: .80
   font-size: 20px;
   font-family: Righteous;
 }
@@ -22,7 +23,6 @@ a.brand-logo.nav-text {
 
 
 
-
 /*applies to index.html*/
 img#sf-banner {
   position: relative;
@@ -31,7 +31,7 @@ img#sf-banner {
   margin-bottom: 50px;
 }
 
-h1.header-main {
+h1.header-home {
   opacity: 0.8;
   color: white;
   font-size: 100px;
@@ -42,6 +42,7 @@ h1.header-main {
   font-family: Righteous;
   font-weight: bold;
 }
+
 
 span#e {
   opacity: 0.8;
@@ -61,14 +62,14 @@ div#lyrics {
   font-weight: bold;
 }
 
-p.header-main-intro {
+div.header-main-intro {
   color: white;
   opacity: 0.8;
   font-size: 40px;
   position: absolute;
-  top: 680px;
-  left: 300px;
   font-family: Fredoka One;
+  top: 600px;
+  right: 40px;
 }
 
 img.tile {
@@ -81,6 +82,18 @@ div.row.genre {
 
 
 /*applies to songs.html*/
+h1.header-main {
+  opacity: 0.8;
+  color: white;
+  font-size: 100px;
+  letter-spacing: 20px;
+  /*top: 100px;*/
+  /*right: 100px;*/
+  font-family: Righteous;
+  font-weight: bold;
+  padding-bottom: 50px;
+}
+
 p.modal-instructions {
   font-size: 40px;
   text-align: center;
@@ -101,12 +114,12 @@ label.formq {
 }
 
 a#add-songs-button {
-  color: white;
+  color: black;
   font: 20px;
   font-weight: bold;
-  position: relative;
-  left: 30px;
-  top: 300px;
+  position: absolute;
+  right: 30px;
+  top: 100px;
   /*width: 10%;*/
   /*make this part of nav bar*/
 }
@@ -114,41 +127,49 @@ a#add-songs-button {
 h1#genrename {
   font-family: Righteous;
   text-transform: uppercase;
+  text-decoration: underline;
   font-weight: bold;
-  color: black;
+  color: white;
   opacity: 0.6;
   margin: 20px 0;
   padding-top: 30px;
   padding-bottom: 40px;
 }
 
-.lyrics-options {
-  font-size: 20px;
+a.lyrics-options {
+  font-size: 15px;
   font-weight: bold;
   font-family: Righteous;
+  color: black;
 }
 
-.song-output {
+button.lyrics-options {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Righteous;
+  color: black;
+}
+
+div.song-output {
   font-size: 30px;
   text-align: center;
   font-family: Quicksand;
-  border-radius: 25px;
-  border: 1px solid;
   margin: 0px;
   padding: 0px;
   margin-bottom: 40px;
-  background-color: lightgrey;
   min-height: 220px;
   max-height: 220px;
+  color: white;
 }
 
 .btn.btn-default {
   color: black;
 }
 
-span.song-name {
+span.song-title {
   font-family: Bad Script;
   font-size: 25px;
+  color: white;
 }
 
 span.artistname {
@@ -156,22 +177,30 @@ span.artistname {
   font-size: 20px;
 }
 
-p.song-details {
+p#song-details {
   margin: 5px;
   font-size: 15px;
   font-weight: bold;
   text-shadow: 1px 1px grey;
-  opacity: 0.5;
+  opacity: 0.8;
+  color: white;
 }
 
 div.valyrics {
   margin-top: 10px;
 }
 
-
+div#genre-banner {
+  background-image: url('/images/darkwood.jpg');
+  background-repeat: repeat-x;
+}
 
 
 /*lyrics html*/
+div.lyrics-container {
+  background-image: url('/images/lightwood.jpg');
+  background-repeat: repeat-x;
+}
 .song-lyrics-output {
   font-size: 30px;
   text-align: center;

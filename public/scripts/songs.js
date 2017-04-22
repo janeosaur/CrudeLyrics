@@ -9,11 +9,7 @@ $(document).ready(function() {
   console.log('selected genre is', genre);
 
   // sets title of genre to page
-  if(genre==='rnb') {
-    $('.container').prepend(`<h1 id="genrename"> R&B Songs </h1>`);
-  } else {
-    $('.container').prepend(`<h1 id="genrename"> ${genre} Songs </h1>`);
-  };
+  $('.header-main').html(`${genre}`);
 
   $.ajax({
     method: 'GET',
@@ -39,13 +35,13 @@ function handleSuccess(res) {
     var songsHtml = (
       `<div class="col s4 row song" data-song-id="${song._id}">
           <div class= "song-output" data-name="${song.name}">
-            <span class="song-name">${song.name}</span>
-              <p class="song-details">By: <span class="artistname">${song.artistName}</span> </p>
-              <p class="song-details">Released: <span class="releaseDate">${song.releaseDate}</span> </p>
+            <span class="song-title">${song.name}</span>
+              <p id="song-details">By: <span class="artistname">${song.artistName}</span> </p>
+              <p id="song-details">Released: <span class="releaseDate">${song.releaseDate}</span> </p>
             <div class='panel-footer valyrics'>
-                <button class='btn btn-info cyan darken-2 lyrics-options view-lyrics'> View </button>
-                <a class="modal-trigger waves-effect waves-light btn cyan darken-2 lyrics-options edit-song" href="#editModal">Edit</a>
-                <a class="modal-trigger waves-effect waves-light btn cyan darken-2 lyrics-options delete-song" href="#deleteModal">Delete</a>
+                <button class='btn btn-info blue-grey lighten-5 lyrics-options view-lyrics'> View </button>
+                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options edit-song" href="#editModal">Edit</a>
+                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options delete-song" href="#deleteModal">Delete</a>
             </div>
         </div>
       </div>
@@ -53,7 +49,7 @@ function handleSuccess(res) {
       `);
     $('div.songs-row').append(songsHtml);
     // allows user to click on view button, song name & artist name text on song card to view lyrics
-    $('.view-lyrics, .song-name, .artistname').on('click', viewLyric);
+    $('.view-lyrics, .song-title, .artistname').on('click', viewLyric);
     $('.delete-song').on('click', deleteSong);
     $('.edit-song').on('click', editSong);
     // $('#delete').on('click', handleDeleteSong);
@@ -64,14 +60,14 @@ function addSong(song) {
   var songsHtml =
       (`<div class="col s4 row song" data-song-id="${song._id}">
           <div class="song-output" data-name="${song.name}">
-            <span class="song-name">${song.name}</span>
-            <h5> By: <span class="artistname">${song.artistName}</span> </h5>
-            <h5> Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
+            <span class="song-title">${song.name}</span>
+            <p id="song-details">By: <span class="artistname">${song.artistName}</span> </p>
+            <p id="song-details">Released: <span class="releaseDate">${song.releaseDate}</span> </p>
             <div class='panel-footer valyrics'>
-                <a class="modal-trigger waves-effect waves-light btn cyan darken-2 lyrics-options delete-song" href="#deleteModal">Delete</a>
+                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options delete-song" href="#deleteModal">Delete</a>
                 <!-- buggy features
-                <a class="modal-trigger waves-effect waves-light btn cyan darken-2 lyrics-options add-lyrics" href="#addLyricsModal">Add Lyrics</a>
-          		  <a class="modal-trigger waves-effect waves-light btn cyan darken-2 lyrics-options edit-song" href="#editModal">Edit</a> -->
+                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options add-lyrics" href="#addLyricsModal">Add Lyrics</a>
+          		  <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options edit-song" href="#editModal">Edit</a> -->
             </div>
         </div>
       </div>
@@ -104,7 +100,7 @@ function editSong() {
   $('#editModal').modal();
   $('#edit-submit').on('click', function() {
     console.log('submit on edit song clicked');
-    var newName = $('#song-name').val();
+    var newName = $('#song-tile').val();
     var newArtist = $('#artistName').val();
     var newRelease = $('#releaseDate').val();
     var editedSong = {name: newName, artistName: newArtist, releaseDate: newRelease}
