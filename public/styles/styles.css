@@ -1,5 +1,7 @@
 /*applies to all pages*/
-
+.fixed-action-btn.toolbar {
+  font-size: 20px;
+}
 /*applies to index.html*/
 img#sf-banner {
   position: relative;
@@ -67,6 +69,50 @@ label.formq {
   color: black;
 }
 
+.delete-warning {
+  color: #c62828;
+  font-size: 25px;
+}
+
+a#add-songs-button {
+  color: white;
+  font: 20px;
+  font-weight: bold;
+  position: relative;
+  /*make this part of nav bar*/
+}
+
+h1#genrename {
+  font-family: Righteous;
+  text-transform: uppercase;
+  color: black;
+  opacity: 0.6;
+}
+
+.lyrics-options {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Righteous;
+}
+
+.song-output {
+  font-size: 30px;
+  text-align: center;
+  font-family: Quicksand;
+  border-radius: 25px;
+  border: 1px solid;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 40px;
+  background-color: lightgrey;
+}
+
+.btn.btn-default {
+  color: black;
+}
+
+
+
 /**/
 img {
   max-width: 100%;
@@ -124,17 +170,6 @@ h2 {
 }
 
 
-.song-output {
-  font-size: 30px;
-  text-align: center;
-  font-family: Shadows Into Light;
-  border-radius: 25px;
-  border: 1px solid;
-  margin: 0px;
-  padding: 0px;
-  margin-bottom: 40px;
-  background-color: lightgrey;
-}
 
 .valyrics {
   font-family: Ranga;
@@ -169,7 +204,7 @@ div.writtenby {
   color: #0089ec;
 }
 
-.toolbar {
+div.toolbar {
   left: 60px;
   top: 30px;
 }
