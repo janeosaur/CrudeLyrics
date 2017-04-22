@@ -57,6 +57,8 @@ app.get('/genre/:genre', function(req,res) {
     res.sendFile('views/songs.html' , { root : __dirname});
   } else if (genre === 'edm') {
     res.sendFile('views/songs.html' , { root : __dirname});
+  } else if (genre === 'hiphop') {
+    res.sendFile('views/songs.html' , { root : __dirname});
   } else {
     console.log('user has chosen invalid genre')
   };
