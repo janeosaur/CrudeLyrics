@@ -2,11 +2,32 @@
 .fixed-action-btn.toolbar {
   font-size: 20px;
 }
+
+div.nav-wrapper {
+  margin-top: 5px;
+}
+
+.nav-text {
+  color: black;
+  font-size: 20px;
+  font-family: Righteous;
+}
+
+a.brand-logo.nav-text {
+  color: black;
+  font-size: 30px;
+  left: 30px;
+  font-family: Righteous;
+}
+
+
+
+
 /*applies to index.html*/
 img#sf-banner {
   position: relative;
   width: 100%;
-  top: 110px;
+  /*top: 110px;*/
   margin-bottom: 50px;
 }
 
@@ -51,8 +72,13 @@ p.header-main-intro {
 }
 
 img.tile {
-  padding-top: 80px;
+  padding-top: 20px;
 }
+
+div.row.genre {
+  margin-bottom: 80px;
+}
+
 
 /*applies to songs.html*/
 p.modal-instructions {
@@ -79,14 +105,21 @@ a#add-songs-button {
   font: 20px;
   font-weight: bold;
   position: relative;
+  left: 30px;
+  top: 300px;
+  /*width: 10%;*/
   /*make this part of nav bar*/
 }
 
 h1#genrename {
   font-family: Righteous;
   text-transform: uppercase;
+  font-weight: bold;
   color: black;
   opacity: 0.6;
+  margin: 20px 0;
+  padding-top: 30px;
+  padding-bottom: 40px;
 }
 
 .lyrics-options {
@@ -105,11 +138,89 @@ h1#genrename {
   padding: 0px;
   margin-bottom: 40px;
   background-color: lightgrey;
+  min-height: 220px;
+  max-height: 220px;
 }
 
 .btn.btn-default {
   color: black;
 }
+
+span.song-name {
+  font-family: Bad Script;
+  font-size: 25px;
+}
+
+span.artistname {
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+p.song-details {
+  margin: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 1px 1px grey;
+  opacity: 0.5;
+}
+
+div.valyrics {
+  margin-top: 10px;
+}
+
+
+
+
+/*lyrics html*/
+.song-lyrics-output {
+  font-size: 30px;
+  text-align: center;
+  font-family: Quicksand;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+
+div.lyrics-output {
+  width: 75%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-transform: none;
+}
+
+span.song-name {
+  text-shadow: 1px 1px grey;
+  font-family: Shadows Into Light;
+  font-size: 30px;
+  color: #0089ec;
+  letter-spacing: 5px;
+}
+
+span.writtenby {
+  font-family: Ranga;
+  color: #0089ec;
+  font-size: 30px;
+  letter-spacing: 5px;
+  margin-left: 10px;
+}
+
+div.song-details {
+  font-family: Shadows Into Light;
+  background-color: white;
+  align-items: center;
+  margin: 5px;
+  text-transform: none;
+}
+
+div#submittedby {
+  font-size: 20px;
+}
+
+
 
 
 
@@ -145,18 +256,9 @@ h1 {
   position: relative;
 }*/
 
-div.song-details {
-  font-family: Shadows Into Light;
-  background-color: white;
-  align-items: center;
-  margin: 5px;
-  text-transform: none;
-}
-
 div.lyrics-buttons {
   display: inline-block;
-  max-width: 50%;
-  margin-left: 200px;
+  max-width: 100%;
 }
 
 h2 {
@@ -186,23 +288,7 @@ div.submit-songs {
   float: right;
 }
 
-div.lyrics-output {
-  width: 75%;
-  margin: 0 auto;
-  padding: 10px 0;
-  font-size: 20px;
-  font-family: sans-serif;
-  text-transform: none;
-}
 
-span.song-name {
-  text-shadow: 1px 1px grey;
-}
-
-div.writtenby {
-  font-family: Ranga;
-  color: #0089ec;
-}
 
 div.toolbar {
   left: 60px;
@@ -217,4 +303,7 @@ div.toolbar {
   width: 40%;
   margin-left: 30%;
   margin-bottom: 40px;
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
 }

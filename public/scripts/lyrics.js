@@ -28,14 +28,14 @@ var genre = splitHref[splitHref.length-2];// making this available to below
 function handleSuccess(res) {
   console.log(res);
     var lyricsHtml = (`
-        <div class="song-output" data-name="${res.name}">
+        <div class="song-lyrics-output" data-name="${res.name}">
           <span class="song-name">${res.name}</span>
           <div class="song-details">
             <span class="song-details">${res.artistName}</span>
             <span class="song-details">, ${res.releaseDate}</span>
           </div>
           <div class="lyrics-output"> ${res.lyrics.verse} </div>
-          <div class="writtenby"> Submitted By: ${res.lyrics.writers} </div>
+          <div id="submittedby"> Submitted By: <span class="writtenby"> ${res.lyrics.writers} </span></div>
       </div>
       <!-- end one song -->
       `);
@@ -65,30 +65,12 @@ function handleEditLyric(e) {
   });
 };
 
-function lyricEditSuccess(data) {
+function lyricEditSucccess(data) {
   console.log(data);
   window.location.reload();
-};
+}
 
-// function handleDeleteLyric(e) { // this will need a button to work - 
-//   console.log('clicked delete for ', genre, song);
-//    var currentSong = $(this).closest('.song-output').data('name');
-// //    window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
-//   $('#deleteModal').modal();
-//   // when submit from modal is clicked.. fun function
-//   $('.delete').on('click', function () {
-//     console.log('delete on modal clicked');
-//     $.ajax({
-//       method: 'delete',
-//       url: '/api/lyrics/' + currentSong,
-// //       data: newLyric,
-//       success: deleteLyricSuccess,
-//       error: handleError
-//     });
-//   });
-// };
-
-
+// if we want a lyrics delete option..
 // function deleteLyricSuccess(json) {
 //   $('.lyrics-output').html('<p class="deleted"> Deleted! </p>');
 //   // css animation?

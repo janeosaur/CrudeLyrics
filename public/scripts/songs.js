@@ -40,10 +40,10 @@ function handleSuccess(res) {
       `<div class="col s4 row song" data-song-id="${song._id}">
           <div class= "song-output" data-name="${song.name}">
             <span class="song-name">${song.name}</span>
-              <h5 class="artistname">By: <span class="artistname">${song.artistName}</span> </h5>
-              <h5 class="releaseDate">Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
+              <p class="song-details">By: <span class="artistname">${song.artistName}</span> </p>
+              <p class="song-details">Released: <span class="releaseDate">${song.releaseDate}</span> </p>
             <div class='panel-footer valyrics'>
-                <button class='btn btn-info cyan darken-2 lyrics-options'> View </button>
+                <button class='btn btn-info cyan darken-2 lyrics-options view-lyrics'> View </button>
                 <a class="modal-trigger waves-effect waves-light btn cyan darken-2 lyrics-options edit-song" href="#editModal">Edit</a>
                 <a class="modal-trigger waves-effect waves-light btn cyan darken-2 lyrics-options delete-song" href="#deleteModal">Delete</a>
             </div>
@@ -56,7 +56,7 @@ function handleSuccess(res) {
     $('.view-lyrics, .song-name, .artistname').on('click', viewLyric);
     $('.delete-song').on('click', deleteSong);
     $('.edit-song').on('click', editSong);
-//     $('#delete').on('click', handleDeleteSong);
+    // $('#delete').on('click', handleDeleteSong);
   });
 };
 
