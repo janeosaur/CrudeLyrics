@@ -40,19 +40,7 @@ app.get('/api/lyrics/:id', controllers.lyrics.show);
 app.get('/api/genre/:genre/:song/lyrics', controllers.songs.showOne);
 app.get('/api/genre/:genre/songs', controllers.songs.indexG);
 
-// app.put('/api/genre/rnb/songs', controllers.songs.indexRnb);
-// app.put('/api/genre/kpop/songs', controllers.songs.indexKpop);
-// app.put('/api/genre/edm/songs', controllers.songs.indexEdm);
-//
-// app.delete('/api/genre/rnb/songs', controllers.songs.indexRnb);
-// app.delete('/api/genre/kpop/songs', controllers.songs.indexKpop);
-// app.delete('/api/genre/edm/songs', controllers.songs.indexEdm);
-
-
-
-
 app.post('/api/songs', controllers.songs.create);
-
 
 app.delete('/api/genre/:genre/:song', controllers.songs.destroy);
 
@@ -68,6 +56,8 @@ app.get('/genre/:genre', function(req,res) {
   } else if (genre === 'kpop') {
     res.sendFile('views/songs.html' , { root : __dirname});
   } else if (genre === 'edm') {
+    res.sendFile('views/songs.html' , { root : __dirname});
+  } else if (genre === 'hiphop') {
     res.sendFile('views/songs.html' , { root : __dirname});
   } else {
     console.log('user has chosen invalid genre')

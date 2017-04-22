@@ -1,14 +1,37 @@
 /*applies to all pages*/
+.fixed-action-btn.toolbar {
+  font-size: 20px;
+}
+
+div.nav-wrapper {
+  margin-top: 5px;
+}
+
+.nav-text {
+  color: black;
+  opacity: .80
+  font-size: 20px;
+  font-family: Righteous;
+}
+
+a.brand-logo.nav-text {
+  color: black;
+  font-size: 30px;
+  left: 30px;
+  font-family: Righteous;
+}
+
+
 
 /*applies to index.html*/
 img#sf-banner {
   position: relative;
   width: 100%;
-  top: 110px;
+  /*top: 110px;*/
   margin-bottom: 50px;
 }
 
-h1.header-main {
+h1.header-home {
   opacity: 0.8;
   color: white;
   font-size: 100px;
@@ -19,6 +42,7 @@ h1.header-main {
   font-family: Righteous;
   font-weight: bold;
 }
+
 
 span#e {
   opacity: 0.8;
@@ -38,21 +62,38 @@ div#lyrics {
   font-weight: bold;
 }
 
-p.header-main-intro {
+div.header-main-intro {
   color: white;
   opacity: 0.8;
   font-size: 40px;
   position: absolute;
-  top: 680px;
-  left: 300px;
   font-family: Fredoka One;
+  top: 600px;
+  right: 40px;
 }
 
 img.tile {
-  padding-top: 80px;
+  padding-top: 20px;
 }
 
+div.row.genre {
+  margin-bottom: 80px;
+}
+
+
 /*applies to songs.html*/
+h1.header-main {
+  opacity: 0.8;
+  color: white;
+  font-size: 100px;
+  letter-spacing: 20px;
+  /*top: 100px;*/
+  /*right: 100px;*/
+  font-family: Righteous;
+  font-weight: bold;
+  padding-bottom: 50px;
+}
+
 p.modal-instructions {
   font-size: 40px;
   text-align: center;
@@ -66,6 +107,151 @@ label.formq {
   font-size: 20px;
   color: black;
 }
+
+.delete-warning {
+  color: #c62828;
+  font-size: 25px;
+}
+
+a#add-songs-button {
+  color: black;
+  font: 20px;
+  font-weight: bold;
+  position: absolute;
+  right: 30px;
+  top: 100px;
+  /*width: 10%;*/
+  /*make this part of nav bar*/
+}
+
+h1#genrename {
+  font-family: Righteous;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: bold;
+  color: white;
+  opacity: 0.6;
+  margin: 20px 0;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+a.lyrics-options {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Righteous;
+  color: black;
+}
+
+button.lyrics-options {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Righteous;
+  color: black;
+}
+
+div.song-output {
+  font-size: 30px;
+  text-align: center;
+  font-family: Quicksand;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 40px;
+  min-height: 220px;
+  max-height: 220px;
+  color: white;
+}
+
+.btn.btn-default {
+  color: black;
+}
+
+span.song-title {
+  font-family: Bad Script;
+  font-size: 25px;
+  color: white;
+}
+
+span.artistname {
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+p#song-details {
+  margin: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 1px 1px grey;
+  opacity: 0.8;
+  color: white;
+}
+
+div.valyrics {
+  margin-top: 10px;
+}
+
+div#genre-banner {
+  background-image: url('/images/darkwood.jpg');
+  background-repeat: repeat-x;
+}
+
+
+/*lyrics html*/
+div.lyrics-container {
+  background-image: url('/images/lightwood.jpg');
+  background-repeat: repeat-x;
+}
+.song-lyrics-output {
+  font-size: 30px;
+  text-align: center;
+  font-family: Quicksand;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+
+div.lyrics-output {
+  width: 75%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-transform: none;
+}
+
+span.song-name {
+  text-shadow: 1px 1px grey;
+  font-family: Shadows Into Light;
+  font-size: 30px;
+  color: #0089ec;
+  letter-spacing: 5px;
+}
+
+span.writtenby {
+  font-family: Ranga;
+  color: #0089ec;
+  font-size: 30px;
+  letter-spacing: 5px;
+  margin-left: 10px;
+}
+
+div.song-details {
+  font-family: Shadows Into Light;
+  background-color: white;
+  align-items: center;
+  margin: 5px;
+  text-transform: none;
+}
+
+div#submittedby {
+  font-size: 20px;
+}
+
+
+
+
 
 /**/
 img {
@@ -99,18 +285,9 @@ h1 {
   position: relative;
 }*/
 
-div.song-details {
-  font-family: Shadows Into Light;
-  background-color: white;
-  align-items: center;
-  margin: 5px;
-  text-transform: none;
-}
-
 div.lyrics-buttons {
   display: inline-block;
-  max-width: 50%;
-  margin-left: 200px;
+  max-width: 100%;
 }
 
 h2 {
@@ -124,17 +301,6 @@ h2 {
 }
 
 
-.song-output {
-  font-size: 30px;
-  text-align: center;
-  font-family: Shadows Into Light;
-  border-radius: 25px;
-  border: 1px solid;
-  margin: 0px;
-  padding: 0px;
-  margin-bottom: 40px;
-  background-color: lightgrey;
-}
 
 .valyrics {
   font-family: Ranga;
@@ -151,25 +317,9 @@ div.submit-songs {
   float: right;
 }
 
-div.lyrics-output {
-  width: 75%;
-  margin: 0 auto;
-  padding: 10px 0;
-  font-size: 20px;
-  font-family: sans-serif;
-  text-transform: none;
-}
 
-span.song-name {
-  text-shadow: 1px 1px grey;
-}
 
-div.writtenby {
-  font-family: Ranga;
-  color: #0089ec;
-}
-
-.toolbar {
+div.toolbar {
   left: 60px;
   top: 30px;
 }
@@ -182,4 +332,7 @@ div.writtenby {
   width: 40%;
   margin-left: 30%;
   margin-bottom: 40px;
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
 }

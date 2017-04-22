@@ -7,8 +7,9 @@ $(document).ready(function() {
   var splitHref = windowHref.split('/');
   var genre = splitHref[splitHref.length-1];
   console.log('selected genre is', genre);
-  // sets title of genre
-  $('.container').prepend(`<h1> ${genre} </h1>`);
+
+  // sets title of genre to page
+  $('.header-main').html(`${genre}`);
 
   $.ajax({
     method: 'GET',
@@ -17,18 +18,8 @@ $(document).ready(function() {
     error: handleError
   });
 
-  $('#song-form').on('submit', function(e){
-    e.preventDefault();
-    var formData = $(this).serialize();
-    console.log('formData is', formData);
-    $.ajax({
-      method: 'POST',
-      url: '/api/songs',
-      data: formData,
-      success: addSong,
-      error: handleError
-    });
-  }); $("song-form").trigger('reset'); // form still doesn't reset?
+  $('#add-songs-button').on('click', addSongFromModal);
+
 }); // end of doc on ready
 
 var windowHref = window.location.href;
@@ -37,32 +28,31 @@ var genre = splitHref[splitHref.length-1]; // to make it available to below func
 
 function handleError(e) {
   console.log('uh oh');
-}
+};
 
 function handleSuccess(res) {
   res.forEach(function(song) {
-
     var songsHtml = (
       `<div class="col s4 row song" data-song-id="${song._id}">
           <div class= "song-output" data-name="${song.name}">
-            <span class="song-name">${song.name}</span>
-              <h5>By: <span class="artistname">${song.artistName}</span> </h5>
-              <h5>Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
+            <span class="song-title">${song.name}</span>
+              <p id="song-details">By: <span class="artistname">${song.artistName}</span> </p>
+              <p id="song-details">Released: <span class="releaseDate">${song.releaseDate}</span> </p>
             <div class='panel-footer valyrics'>
-                <button class='btn btn-info view-lyrics'> View </button>
-                <a class="modal-trigger waves-effect waves-light btn edit-song" href="#editModal">Edit</a>
-                <a class="modal-trigger waves-effect waves-light btn delete-song" href="#deleteModal">Delete</a>
-
+                <button class='btn btn-info blue-grey lighten-5 lyrics-options view-lyrics'> View </button>
+                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options edit-song" href="#editModal">Edit</a>
+                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options delete-song" href="#deleteModal">Delete</a>
             </div>
         </div>
       </div>
       <!-- end one song -->
       `);
     $('div.songs-row').append(songsHtml);
-    $('.view-lyrics').on('click', viewLyric);
+    // allows user to click on view button, song name & artist name text on song card to view lyrics
+    $('.view-lyrics, .song-title, .artistname').on('click', viewLyric);
     $('.delete-song').on('click', deleteSong);
     $('.edit-song').on('click', editSong);
-//     $('#delete').on('click', handleDeleteSong);
+    // $('#delete').on('click', handleDeleteSong);
   });
 };
 
@@ -70,33 +60,24 @@ function addSong(song) {
   var songsHtml =
       (`<div class="col s4 row song" data-song-id="${song._id}">
           <div class="song-output" data-name="${song.name}">
-            <span class="song-name">${song.name}</span>
-            <h5> By: <span class="artistname">${song.artistName}</span> </h5>
-            <h5> Released: <span class="releaseDate">${song.releaseDate}</span> </h5>
+            <span class="song-title">${song.name}</span>
+            <p id="song-details">By: <span class="artistname">${song.artistName}</span> </p>
+            <p id="song-details">Released: <span class="releaseDate">${song.releaseDate}</span> </p>
             <div class='panel-footer valyrics'>
-                <a class="modal-trigger waves-effect waves-light btn add-lyrics" href="#addLyricsModal">Add Lyrics</a>
-          		  <a class="modal-trigger waves-effect waves-light btn edit-song" href="#editModal">Edit</a>
-                <a class="modal-trigger waves-effect waves-light btn delete-song" href="#deleteModal">Delete</a>
+                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options delete-song" href="#deleteModal">Delete</a>
+                <!-- buggy features
+                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options add-lyrics" href="#addLyricsModal">Add Lyrics</a>
+          		  <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options edit-song" href="#editModal">Edit</a> -->
             </div>
         </div>
       </div>
       <!-- end one song -->
       `);
     $('div.songs-row').append(songsHtml);
-    $('.add-lyrics').on('click', addLyric);
     $('.delete-song').on('click', deleteSong);
-    $('.edit-song').on('click', editSong);
+    // $('.edit-song').on('click', editSong); // buggy
+    // $('.add-lyrics').on('click', addLyric);
 };
-
-// below is if they choose wrong genre
-//   if (genre === song.genre){
-//     $('div.songs-row').append(songsHtml);
-//   } else {
-//     // make this modal instead of alert
-//     alert('please choose correct genre');
-//   };
-//   $('.view-lyrics').on('click', viewLyric);
-//   $('#delete').on('click', handleDeleteSong);
 
 function viewLyric(e) {
   console.log('view lyric clicked');
@@ -117,10 +98,9 @@ function editSong() {
   console.log('edit song was clicked');
   var currentSong = $(this).closest('.song-output').data('name');
   $('#editModal').modal();
-  $('.edit-submit').on('click', function() {
+  $('#edit-submit').on('click', function() {
     console.log('submit on edit song clicked');
-  //   // update function goes here
-    var newName = $('#song-name').val();
+    var newName = $('#song-tile').val();
     var newArtist = $('#artistName').val();
     var newRelease = $('#releaseDate').val();
     var editedSong = {name: newName, artistName: newArtist, releaseDate: newRelease}
@@ -159,3 +139,36 @@ function handleSongEdit(data) {
   console.log('handle song edit');
   window.location.reload();
 }
+
+function addSongFromModal(e) {
+  e.preventDefault();
+  console.log('add song was clicked');
+  $('#addSongModal').modal();
+  $('#song-form').on('submit', function(e){
+    e.preventDefault();
+    var formData = $(this).serialize();
+    console.log('formData is', formData);
+    $.ajax({
+      method: 'POST',
+      url: '/api/songs',
+      data: formData,
+      success: addSong,
+      error: handleError
+    });
+    $('#addSongModal').modal('close');
+  });
+  $("song-form").trigger('reset'); // form still doesn't reset?
+}
+
+
+// below is for when user adds new song but chooses incorrect genre
+// it prevents from loading on the page, however it'll still register as a post
+// on the specified genre. - seems a bit buggy at the moment.
+//   if (genre === song.genre){
+//     $('div.songs-row').append(songsHtml);
+//   } else {
+//     // make this modal instead of alert
+//     alert('please choose correct genre');
+//   };
+//   $('.view-lyrics').on('click', viewLyric);
+//   $('#delete').on('click', handleDeleteSong);
