@@ -1,10 +1,10 @@
-# CRUDE Lyrics - [Link to Deployed version of the project](https://github.com/sf-wdi-labs/readme-example)
+# CRUDE Lyrics - [Link to Deployed version of the project](https://github.com/janeosaur/CrudeLyrics) - update with heroku link
 
 <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="100">
 
 Our site allows users to browse the songs and lyrics of WDI-37's favorite genres. Users can also create, update and delete their own favorite songs and lyrics!
 
-See the published project at [github.com/sf-wdi-labs/readme-example](https://github.com/janeosaur/CrudeLyrics)!
+See the published project at [github.com/janeosaur/CrudeLyrics] (https://github.com/janeosaur/CrudeLyrics)!
 
 ## Technologies Used
 
