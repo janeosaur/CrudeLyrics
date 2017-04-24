@@ -5,11 +5,13 @@
     <title>Lyrics</title>
 
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Ranga|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Ranga|Shadows+Into+Light|Righteous|Fredoka+One|Quicksand" rel="stylesheet">
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -17,13 +19,36 @@
 
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/lyrics.js"></script>
-  
+
   </head>
+
   <body>
+
+      <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a class="menulink" href="/genre/edm">EDM</a></li>
+      <li class="divider"></li>
+      <li><a class="menulink" href="/genre/rnb">R&B</a></li>
+      <li class="divider"></li>
+      <li><a class="menulink" href="/genre/kpop">K-POP</a></li>
+      <li class="divider"></li>
+      <li><a class="menulink" href="/genre/hiphop">HIP-HOP</a></li>
+    </ul>
+    <nav>
+      <div class="nav-wrapper blue-grey lighten-5">
+        <a href="/" class="brand-logo nav-text">Home</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/api" class="nav-text">API</a></li>
+          <li><a href="https://github.com/janeosaur/CrudeLyrics" class="nav-text">Github</a></li>
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-button nav-text" data-activates="dropdown1">Genres<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      </div>
+    </nav>
 
     <div class="lyrics-container">
 
-      <h1> L<span id="y">y</span>rics </h1>
+      <!-- <h1> L<span id="y">y</span>rics </h1> -->
 
       <div class="lyrics-output">
 
@@ -31,9 +56,8 @@
 
       </div>
 
-      <div class="lyrics-buttons">
-        <a class="waves-effect waves-light btn light-blue darken-3" id="edit" href="#editModal">edit</a></div>
-        <a class="waves-effect waves-light btn light-blue darken-3" id="delete" href="#deleteModal">delete</a></div>
+      <div class="lyrics-button">
+        <a class="waves-effect waves-light btn blue-grey lighten-4" id="edit-lyrics" href="#editModal">edit</a></div>
       </div>
 
       <!-- Edit Modal Structure. Hidden until user clicks edit -->
@@ -43,32 +67,23 @@
 
           <!-- Edit Writers -->
             <div class="form-group">
-              <label>Written By</label>
+              <label>Add your own lyrical spin!</label>
               <div class="col m4">
-                <input id="writtenBy" name="writers" type="text" placeholder="" class="form-control input-md" required="">
+                <input id="verse" name="verse" type="text" class="form-control input-md">
+              </div>
+              <label>Submitted By</label>
+              <div class="col m4">
+                <input id="submittedBy" name="writers" type="text" class="form-control input-md">
               </div>
             </div>
+          </div>
 
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat submit-cancel">Submit</a>
-          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat submit-cancel">Cancel</a>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat edit-submit">Submit</a>
+            <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat submit-cancel">Cancel</a>
+          <div>
         </div> <!-- /.modal-content -->
       </div> <!-- /.modal -->
-
-      <!-- Delete Modal Structure. Hidden until user clicks edit -->
-      <div id="deleteModal" class="modal">
-        <div class="modal-content">
-          <h4>Delete</h4>
-          <p> Are you sure? </p>
-
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat delete">Yes</a>
-          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat">No</a>
-        </div> <!-- /.modal-content -->
-      </div> <!-- /.modal -->
-
 
 
     </div>

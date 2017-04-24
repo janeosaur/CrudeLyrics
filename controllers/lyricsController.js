@@ -15,21 +15,24 @@ function show(req,res) {
   });
 };
 
-function destroy(req,res) {
-  var song = req.params.song;
-  console.log(song);
-  db.Lyric.findOneAndRemove({name: song}, function(err, deletedLyric) {
-    res.json(deletedLyric)
+// app.put('/api/lyrics/:song, controllers.lyrics.update);
+function update(req,res) {
+  var newWriter = req.body.writers;
+  var newVerse = req.body.verse;
+  console.log('server side', newWriter);
+  db.Song.findOne({name:req.params.song}, function(err, updateSong) {
+    console.log(updateSong);
+    updateSong.lyrics.writers = newWriter;
+    updateSong.lyrics.verse = newVerse;
+    updateSong.save(function(err, savedLyric) {
+      res.json(savedLyric);
+    });
   });
 };
-
-
 
 module.exports = {
   index: index,
   show: show,
+  update: update
   // create: create,
-  destroy: destroy,
-  // update: update
-
 }

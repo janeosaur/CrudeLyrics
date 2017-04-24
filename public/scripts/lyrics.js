@@ -15,29 +15,31 @@ $(document).ready(function() {
     success: handleSuccess,
     error: handleError
   });
+
+  $('#edit-lyrics').on('click', handleEditLyric);
 }); // end of on ready
 
 var windowHref = window.location.href;
 var splitHref = windowHref.split('/');
 splitHref.pop();
 var song = splitHref[splitHref.length-1];
-var genre = splitHref[splitHref.length-2]; // making this available to below
+var genre = splitHref[splitHref.length-2];// making this available to below
 
 function handleSuccess(res) {
   console.log(res);
     var lyricsHtml = (`
-        <div class="song-output" data-name="${res.name}">
+        <div class="song-lyrics-output" data-name="${res.name}">
           <span class="song-name">${res.name}</span>
-          <h5>By: <span class="artistname">${res.artistName}</span> </h5>
-          <h5>Released: <span class="releaseDate">${res.releaseDate}</span> </h5>
+          <div class="song-details">
+            <span class="song-details">${res.artistName}</span>
+            <span class="song-details">, ${res.releaseDate}</span>
+          </div>
           <div class="lyrics-output"> ${res.lyrics.verse} </div>
-          <div class="writtenby"> Submitted By: ${res.lyrics.writers} </div>
+          <div id="submittedby"> Submitted By: <span class="writtenby"> ${res.lyrics.writers} </span></div>
       </div>
       <!-- end one song -->
       `);
     $('.lyrics-output').append(lyricsHtml);
-    $('#edit').on('click', handleEditLyric);
-    $('#delete').on('click', handleDeleteLyric);
   }
 
 function handleError(e) {
@@ -45,30 +47,39 @@ function handleError(e) {
 }
 
 function handleEditLyric(e) {
-  console.log('edit lyric clicked');
+  e.preventDefault();
+  console.log('edit lyric clicked ', song);
   $('#editModal').modal();
-}
-
-function handleDeleteLyric(e) {
-  console.log('clicked delete for ', genre, song);
-   var currentSong = $(this).closest('.song-output').data('name');
-   window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
-  $('#deleteModal').modal();
-  // when submit from modal is clicked.. fun function
-  $('.delete').on('click', function () {
-    console.log('delete on modal clicked');
+  $('.edit-submit').on('click', function() {
+    console.log('submit on edit song clicked');
+    var newWriter = $('#submittedBy').val()
+    var newVerse = $('#verse').val();
+    var newLyric = {writers: newWriter, verse: newVerse};
     $.ajax({
-      method: 'delete',
-      url: '/api/lyrics/' + genre + '/' + song,
-      success: deleteLyricSuccess,
+      method: 'put',
+      url: '/api/lyrics/' + song,
+      data: newLyric,
+      success: lyricEditSucccess,
       error: handleError
-    })
-  }); // end of modal delete button
-} // end of handleDeleteLyric
+    });
+  });
+};
 
-function deleteLyricSuccess(json) {
-  var lyric = json;
-  console.log(lyric);
-  $('.lyrics-output').html('<p class="deleted"> Deleted! </p>');
-  $('#delete').remove();
+function lyricEditSucccess(data) {
+  console.log(data);
+  window.location.reload();
 }
+
+// if we want a lyrics delete option..
+// function deleteLyricSuccess(json) {
+//   $('.lyrics-output').html('<p class="deleted"> Deleted! </p>');
+//   // css animation?
+//   $('#delete').remove();
+//   $('#edit').remove();
+//   if ($('#edit')) {
+//     window.setTimeout(function(){
+//       window.location.href = '/';
+//     }, 2000); // have page go back to homepage
+//   };
+//   // make them go back to homepage after few seconds...
+// }

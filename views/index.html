@@ -8,11 +8,13 @@
     <title>CrudeLyrics</title>
 
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Ranga|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Ranga|Shadows+Into+Light|Righteous|Fredoka+One|Quicksand" rel="stylesheet">
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -23,15 +25,40 @@
 
 </head>
 <body>
-  <h1> CRUD<span id="e">E</span> <span id="lyrics">L<span id="y">y</span>rics </span> </h1>
-  <!-- <a class="btn btn-floating pulse"><i class="material-icons">menu</i></a> -->
 
-  <div class="row">
-    <div class="genres">
-        <div class="col s10 offset-s1 genre" id="rnb"><a href="/genre/rnb"><img src="/images/rnb.jpg"></span></div>
-        <div class="col s10 offset-s1 genre" id="kpop"><a href="/genre/kpop"><img src="/images/kpop.jpg"></span></div>
-        <div class="col s10 offset-s1 genre" id="edm"><a href="/genre/edm"><img src="/images/edm.png"></a></div>
+    <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a class="menulink" href="/genre/edm">EDM</a></li>
+    <li class="divider"></li>
+    <li><a class="menulink" href="/genre/rnb">R&B</a></li>
+    <li class="divider"></li>
+    <li><a class="menulink" href="/genre/kpop">K-POP</a></li>
+    <li class="divider"></li>
+    <li><a class="menulink" href="/genre/hiphop">HIP-HOP</a></li>
+  </ul>
+  <nav>
+    <div class="nav-wrapper blue-grey lighten-5">
+      <a href="/" class="brand-logo nav-text">Home</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/api" class="nav-text">API</a></li>
+        <li><a href="https://github.com/janeosaur/CrudeLyrics" class="nav-text">Github</a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button nav-text" data-activates="dropdown1">Genres<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
     </div>
+  </nav>
+
+   <div> <img id="sf-banner" src="/images/sfcitycopy2.jpg">
+     <h1 class="header-home"> CRUDe </h1>
+     <div id="lyrics"> Lyrics </div>
+     <div class="header-main-intro"> Select a genre to CRUD songs and lyrics!</div>
+   </div>
+
+  <div class="row genre">
+    <div class="col s5 offset-s1 genre" id="rnb"><a href="/genre/rnb"><img class="tile" src="/images/rnb.jpg"></span></div>
+    <div class="col s5 genre" id="edm"><a href="/genre/edm"><img class="tile" src="/images/edm.jpg"></a></div>
+    <div class="col s5 offset-s1 genre" id="hiphop"><a href="/genre/hiphop"><img src="/images/hiphop.jpg"></a></div>
+    <div class="col s5 genre" id="kpop"><a href="/genre/kpop"><img src="/images/kpop.jpg"></span></div>
   </div>
 
 </body>
