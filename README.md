@@ -2,7 +2,7 @@
 
 <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="100">
 
-Our site allows users to browse the songs and lyrics of WDI-37's favorite genres. Users can also create, update and delete their own favorite songs and lyrics!
+Our site allows users to browse the songs and lyrics of WDI-37's favorite genres. Users can also create, update and delete their own favorite songs and lyrics! There are four genres of music which the millenials can relate to and if they need to sing along to it, they have our website where they can get the lyrics and do so. we have also kept the user in mind while developing our website.
 
 See the published project at [github.com/janeosaur/CrudeLyrics] (https://github.com/janeosaur/CrudeLyrics)!
 
