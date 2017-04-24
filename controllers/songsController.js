@@ -64,7 +64,7 @@ function destroy(req, res) {
 
 // Editig/updating the song details
 function update(req, res) {
-  console.log('updating with songlyric', req.body);
+  console.log('updating with song', req.body);
    var genre=req.params.genre;
   var song=req.params.song;
   db.Song.findById({genre:genre, name:song}, function(err, foundlyric) {

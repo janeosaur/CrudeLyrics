@@ -33,6 +33,13 @@ $(document).ready(function() {
 }); // end of doc on ready
 
 
+ // $.ajax({
+ //    method: 'DELETE',
+ //    url: '/api/genre/' + genre + '/songs'  // server provides the genre specific songs!
+ //    success: handleSuccess,
+ //    error: handleError
+ //  });
+
 var windowHref = window.location.href;
 var splitHref = windowHref.split('/');
 var genre = splitHref[splitHref.length-1]; // to make it available to below functions
@@ -54,8 +61,8 @@ function handleSuccess(res) {
                 <div class='panel-footer valyrics'>
 
                     <button class='btn btn-info view-lyrics'>View Lyrics</button>
-                    <button class='btn btn-info edit-lyrics'>Edit Song</button>
-                    <button class='btn btn-info delete-lyrics'>Delete Song</button>
+                    <button class='btn btn-info edit-song'>Edit Song</button>
+                    <button class='btn btn-info delete-song'>Delete Song</button>
 
 
                 </div>
@@ -64,7 +71,7 @@ function handleSuccess(res) {
         `);
     $('div.songs-row').append(songsHtml);
     $('.view-lyrics').on('click', viewLyric);
-    $('#delete').on('click', handleDeleteSong);
+    
   });
 };
 
@@ -91,21 +98,34 @@ function addSong(song) {
     // make this modal instead of alert
     alert('please choose correct genre');
   };
+  $('div.songs-row').append(songsHtml);
+
+
+
   $('.view-lyrics').on('click', viewLyric);
-  $('#delete').on('click', handleDeleteSong);
-}
-
-
+  
 //when user clicks on view lyrics
 function viewLyric(e) {
+ 
   console.log('view lyric clicked');
   console.log(genre);
   var currentSong = $(this).closest('.song-output').data('name');
   console.log(currentSong);
   window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
-  }
+}
+ 
+}
 
 
+// $('.delete-song') on.('click', deleteSong);
+
+// function deleteSong(e) {
+//   console.log('delete song clicked');
+//   console.log(genre);
+//   var currentSong = $(this).closest('.song-output').data('name');
+//   console.log(currentSong);
+//   window.location.href = '/genre/' + genre + '/' + currentSong + '/songs';
+//   }
 
 
 
