@@ -50,6 +50,8 @@ function destroy(req,res) {
   });
 };
 
+
+
 // EDIT api/genre/:genre/:song
 function update (req, res) {
   db.Song.findOne({name:req.params.song, genre: req.params.genre}, function(err, updateSong) {

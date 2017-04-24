@@ -22,6 +22,9 @@ $(document).ready(function() {
 
 }); // end of doc on ready
 
+
+
+
 var windowHref = window.location.href;
 var splitHref = windowHref.split('/');
 var genre = splitHref[splitHref.length-1]; // to make it available to below functions
@@ -32,6 +35,7 @@ function handleError(e) {
 
 function handleSuccess(res) {
   res.forEach(function(song) {
+
     var songsHtml = (
       `<div class="col s4 row song" data-song-id="${song._id}">
           <div class= "song-output" data-name="${song.name}">
@@ -42,17 +46,20 @@ function handleSuccess(res) {
                 <button class='btn btn-info blue-grey lighten-5 lyrics-options view-lyrics'> View </button>
                 <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options edit-song" href="#editModal">Edit</a>
                 <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options delete-song" href="#deleteModal">Delete</a>
+
             </div>
         </div>
       </div>
       <!-- end one song -->
       `);
     $('div.songs-row').append(songsHtml);
+
     // allows user to click on view button, song name & artist name text on song card to view lyrics
     $('.view-lyrics, .song-title, .artistname').on('click', viewLyric);
     $('.delete-song').on('click', deleteSong);
     $('.edit-song').on('click', editSong);
     // $('#delete').on('click', handleDeleteSong);
+
   });
 };
 
@@ -74,18 +81,23 @@ function addSong(song) {
       <!-- end one song -->
       `);
     $('div.songs-row').append(songsHtml);
-    $('.delete-song').on('click', deleteSong);
+
+   $('.delete-song').on('click', deleteSong);
     // $('.edit-song').on('click', editSong); // buggy
     // $('.add-lyrics').on('click', addLyric);
 };
 
+
 function viewLyric(e) {
+ 
   console.log('view lyric clicked');
   console.log(genre);
   var currentSong = $(this).closest('.song-output').data('name');
   console.log(currentSong);
   window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
+
 };
+
 
 // when user clicks on add lyrics
 function addLyric(e) {
