@@ -29,13 +29,14 @@ function handleSuccess(res) {
   console.log(res);
     var lyricsHtml = (`
         <div class="song-lyrics-output" data-name="${res.name}">
-          <span class="song-name">${res.name}</span>
-          <div class="song-details">
-            <span class="song-details">${res.artistName}</span>
-            <span class="song-details">, ${res.releaseDate}</span>
+          <h4 class="song-name">${res.name} </h4>
+            <span class="song-details">By: ${res.artistName},</span>
+            <span class="song-details"> ${res.releaseDate}</span>
+
+          <div class="submitted">
+            <span class="song-details"> Submitted By: </span> <span class="writtenby"> ${res.lyrics.writers} </span>
           </div>
           <div class="lyrics-output"> ${res.lyrics.verse} </div>
-          <div id="submittedby"> Submitted By: <span class="writtenby"> ${res.lyrics.writers} </span></div>
       </div>
       <!-- end one song -->
       `);

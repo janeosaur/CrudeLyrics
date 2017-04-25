@@ -5,10 +5,10 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>CrudeLyrics</title>
+    <title>CRUDE Songs</title>
 
     <!-- FONTS -->
-		<link href="https://fonts.googleapis.com/css?family=Bad+Script|Ranga|Shadows+Into+Light|Righteous|Fredoka+One|Quicksand" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Bad+Script|Ranga|Shadows+Into+Light|Righteous|Fredoka+One|Quicksand|Francois+One" rel="stylesheet">
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="/styles/styles.css">
@@ -28,7 +28,7 @@
 
 <body>
 
-		<!-- Dropdown Structure -->
+		<!-- Dropdown Structure hover? -->
 	<ul id="dropdown1" class="dropdown-content">
 		<li><a class="menulink" href="/genre/edm">EDM</a></li>
 		<li class="divider"></li>
@@ -50,18 +50,17 @@
 		</div>
 	</nav>
 
-	<div id="genre-banner"> <img src="darkwood.jpg">
-		<h1 class="header-main"> a </h1>
+	<div id="genre-banner">
+		<h1 class="header-main genre-name"> a </h1>
 		<div class="container">
 			<div class="row songs-row">
 						<!--  will be filled in from song data -->
 			</div>
 		</div>
-
 	</div>
 
 	<div class="col m4">
-		<a class="waves-effect btn-flat blue-grey lighten-5" id="add-songs-button" href="#addSongModal">Add Song</a>
+		<a class="waves-effect btn-flat light-blue lighten-3" id="add-songs-button" href="#addSongModal">Add Song</a>
 	</div>
 
 
@@ -136,6 +135,10 @@
 							 </select>
 						 <label class="formq" for="genre"> Genre </label>
 					 </div>
+					 <label class="formq">Lyrics: </label>
+					 <div class="col m4">
+						 <input id="lyrics" name="lyrics" type="text" required="" class="form-control input-md validate">
+					 </div>
 						 <!-- Button -->
 					 <div class="col m4">
 						 <a class="modal-action modal-close btn btn-default blue-grey lighten-4 edit-songs">Cancel</a>
@@ -177,47 +180,6 @@
       </div> <!-- /.modal-content -->
     </div> <!-- /.modal -->
 
-
-<!--  Below is the old working form to add new songs-->
-			<!-- Add Songs -->
-			<!-- <section>
-				 <div class="row submit-songs">
-					 <h5> Submit your favorite songs! </h5>
-						 <form class="col m12" id="song-form">
-							 <div class="row">
-								 <div class="input-field col s6">
-									 <input name="name" type="text" class="validate">
-									 <label for="name"> Song Name </label>
-								 </div>
-								 <div class="input-field col s6">
-									 <input name="artistName" type="text" class="validate">
-									 <label for="artistname"> Arist Name </label>
-								 </div>
-								 <div class="input-field col s6">
-									<input name="releaseDate" type="text" class="validate">
-									<label for="releasedate"> Release Date </label>
-								</div>
-
-
-								<div class="input-field col s6">
-									 <select name="genre" class="validate">>
-										 <option value="rnb"> R&B </option>
-										 <option value="edm"> EDM </option>
-										 <option value="kpop"> KPOP </option>
-									 </select>
-								 <label for="genre"> Genre </label>
-							 </div> -->
-
-								 <!-- Button -->
-								 <!-- <div class="form-group">
-									 <div class="col m4">
-										 <button type="submit" class="btn btn-default" id="submit">Submit</button>
-									 </div>
-								 </div>
-					 	 </div>
-					 </form>
-				 </div>
-		 </section> -->
 
 </body>
 </html>

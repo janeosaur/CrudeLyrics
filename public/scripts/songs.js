@@ -37,23 +37,20 @@ function handleSuccess(res) {
   res.forEach(function(song) {
 
     var songsHtml = (
-      `<div class="col s4 row song" data-song-id="${song._id}">
-          <div class= "song-output" data-name="${song.name}">
-            <span class="song-title">${song.name}</span>
-              <p id="song-details">By: <span class="artistname">${song.artistName}</span> </p>
-              <p id="song-details">Released: <span class="releaseDate">${song.releaseDate}</span> </p>
-            <div class='panel-footer valyrics'>
-                <button class='btn btn-info blue-grey lighten-5 lyrics-options view-lyrics'> View </button>
-                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options edit-song" href="#editModal">Edit</a>
-                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options delete-song" href="#deleteModal">Delete</a>
-
-            </div>
-        </div>
-      </div>
-      <!-- end one song -->
-      `);
+      `<div class="col m4 row song" data-song-id="${song._id}">
+           <div class= "song-output" data-name="${song.name}">
+             <h4 class="song-title">${song.name}</h4>
+             <p id="song-details">By: <span class="artistname">${song.artistName}</span> </p>
+             <a class="modal-trigger lyrics-options edit-song" href="#editModal"><i class="material-icons">mode_edit </i></a>
+             <a class="modal-trigger lyrics-options delete-song" href="#deleteModal"><i class="material-icons"> delete </i></a>
+             <div class='panel-footer valyrics'>
+                 <button class='btn btn-info blue-grey lighten-5 lyrics-options view-lyrics'> View Lyrics </button>
+             </div>
+         </div>
+       </div>
+       <!-- end one song -->
+       `);
     $('div.songs-row').append(songsHtml);
-
     // allows user to click on view button, song name & artist name text on song card to view lyrics
     $('.view-lyrics, .song-title, .artistname').on('click', viewLyric);
     $('.delete-song').on('click', deleteSong);
@@ -67,29 +64,26 @@ function addSong(song) {
   var songsHtml =
       (`<div class="col s4 row song" data-song-id="${song._id}">
           <div class="song-output" data-name="${song.name}">
-            <span class="song-title">${song.name}</span>
+            <h4 class="song-title">${song.name}</h4>
             <p id="song-details">By: <span class="artistname">${song.artistName}</span> </p>
-            <p id="song-details">Released: <span class="releaseDate">${song.releaseDate}</span> </p>
             <div class='panel-footer valyrics'>
-                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options delete-song" href="#deleteModal">Delete</a>
-                <!-- buggy features
-                <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options add-lyrics" href="#addLyricsModal">Add Lyrics</a>
-          		  <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options edit-song" href="#editModal">Edit</a> -->
+                <a class="modal-trigger lyrics-options edit-song" href="#editModal"><i class="material-icons">mode_edit </i></a>
+                <a class="modal-trigger lyrics-options delete-song" href="#deleteModal"><i class="material-icons"> delete </i></a>
+                <!-- <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options add-lyrics" href="#addLyricsModal">Add Lyrics</a> -->
             </div>
         </div>
       </div>
       <!-- end one song -->
       `);
     $('div.songs-row').append(songsHtml);
-
-   $('.delete-song').on('click', deleteSong);
-    // $('.edit-song').on('click', editSong); // buggy
-    // $('.add-lyrics').on('click', addLyric);
+    $('.delete-song').on('click', deleteSong);
+    $('.edit-song').on('click', editSong); // works for first edit, but not after
+    // $('.add-lyrics').on('click', addLyric); // feature not available
 };
 
 
 function viewLyric(e) {
- 
+
   console.log('view lyric clicked');
   console.log(genre);
   var currentSong = $(this).closest('.song-output').data('name');

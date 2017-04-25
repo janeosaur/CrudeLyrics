@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Lyrics</title>
+    <title>CRUDE Lyrics</title>
 
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Ranga|Shadows+Into+Light|Righteous|Fredoka+One|Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script|Ranga|Shadows+Into+Light|Righteous|Fredoka+One|Quicksand|Francois+One" rel="stylesheet">
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="/styles/styles.css">
@@ -46,47 +46,40 @@
       </div>
     </nav>
 
-    <div class="lyrics-container">
-
-      <!-- <h1> L<span id="y">y</span>rics </h1> -->
-
-      <div class="lyrics-output">
-
-        <!-- lyrics will be rendered here  -->
-
+    <div id="lyrics-banner">
+        <div class="lyrics-container">
+        <div class="lyrics-output">
+          <!-- lyrics will be rendered here  -->
+        </div>
+        <div class="lyrics-button">
+          <a class="waves-effect waves-light btn blue-grey" id="edit-lyrics" href="#editModal">edit lyrics</a>
+        </div>
       </div>
+    </div> <!-- end of lyrics banner -->
 
-      <div class="lyrics-button">
-        <a class="waves-effect waves-light btn blue-grey lighten-4" id="edit-lyrics" href="#editModal">edit</a></div>
-      </div>
-
-      <!-- Edit Modal Structure. Hidden until user clicks edit -->
-      <div id="editModal" class="modal">
-        <div class="modal-content">
-          <p> Please feel free to contribute any changes!</p>
+    <!-- Edit Modal Structure. Hidden until user clicks edit -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <p> Please feel free to contribute any changes!</p>
 
           <!-- Edit Writers -->
-            <div class="form-group">
-              <label>Add your own lyrical spin!</label>
-              <div class="col m4">
-                <input id="verse" name="verse" type="text" class="form-control input-md">
-              </div>
-              <label>Submitted By</label>
-              <div class="col m4">
-                <input id="submittedBy" name="writers" type="text" class="form-control input-md">
-              </div>
+          <div class="form-group">
+            <label>Add your own lyrical spin!</label>
+            <div class="col m4">
+              <input id="verse" name="verse" type="text" class="form-control input-md">
+            </div>
+            <label>Submitted By</label>
+            <div class="col m4">
+              <input id="submittedBy" name="writers" type="text" class="form-control input-md">
             </div>
           </div>
 
-          <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat edit-submit">Submit</a>
-            <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat submit-cancel">Cancel</a>
-          <div>
-        </div> <!-- /.modal-content -->
-      </div> <!-- /.modal -->
-
-
-    </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat edit-submit">Submit</a>
+          <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-3 btn-flat submit-cancel">Cancel</a>
+        </div>
+      </div> <!-- /.modal-content -->
+    </div> <!-- /.modal -->
 
   </body>
 </html>
