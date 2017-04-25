@@ -158,9 +158,9 @@ function addSongFromModal(e) {
       error: handleError
     });
     $('#addSongModal').modal('close');
-    $("song-form").trigger('reset'); 
+    $("song-form").trigger('reset');
+    window.location.reload(); // lyrics from new song aren't clickable until user refreshes pages 
   });
-
 }
 
 
