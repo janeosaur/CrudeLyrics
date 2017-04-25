@@ -55,8 +55,6 @@ function handleSuccess(res) {
     $('.view-lyrics, .song-title, .artistname').on('click', viewLyric);
     $('.delete-song').on('click', deleteSong);
     $('.edit-song').on('click', editSong);
-    // $('#delete').on('click', handleDeleteSong);
-
   });
 };
 
@@ -66,9 +64,10 @@ function addSong(song) {
           <div class="song-output" data-name="${song.name}">
             <h4 class="song-title">${song.name}</h4>
             <p id="song-details">By: <span class="artistname">${song.artistName}</span> </p>
+            <a class="modal-trigger lyrics-options edit-song" href="#editModal"><i class="material-icons">mode_edit </i></a>
+            <a class="modal-trigger lyrics-options delete-song" href="#deleteModal"><i class="material-icons"> delete </i></a>
             <div class='panel-footer valyrics'>
-                <a class="modal-trigger lyrics-options edit-song" href="#editModal"><i class="material-icons">mode_edit </i></a>
-                <a class="modal-trigger lyrics-options delete-song" href="#deleteModal"><i class="material-icons"> delete </i></a>
+                <button class='btn btn-info blue-grey lighten-5 lyrics-options view-lyrics'> View Lyrics </button>
                 <!-- <a class="modal-trigger waves-effect waves-light btn blue-grey lighten-5 lyrics-options add-lyrics" href="#addLyricsModal">Add Lyrics</a> -->
             </div>
         </div>
@@ -77,19 +76,16 @@ function addSong(song) {
       `);
     $('div.songs-row').append(songsHtml);
     $('.delete-song').on('click', deleteSong);
-    $('.edit-song').on('click', editSong); // works for first edit, but not after
-    // $('.add-lyrics').on('click', addLyric); // feature not available
+    $('.edit-song').on('click', editSong); // works for first edit, but buggy after
 };
 
 
 function viewLyric(e) {
-
   console.log('view lyric clicked');
   console.log(genre);
   var currentSong = $(this).closest('.song-output').data('name');
   console.log(currentSong);
   window.location.href = '/genre/' + genre + '/' + currentSong + '/lyrics';
-
 };
 
 
@@ -162,8 +158,10 @@ function addSongFromModal(e) {
       error: handleError
     });
     $('#addSongModal').modal('close');
+    $("song-form").trigger('reset'); // form still doesn't reset?
+    window.location.reload();
   });
-  $("song-form").trigger('reset'); // form still doesn't reset?
+
 }
 
 
