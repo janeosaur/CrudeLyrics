@@ -158,8 +158,7 @@ function addSongFromModal(e) {
       error: handleError
     });
     $('#addSongModal').modal('close');
-    $("song-form").trigger('reset'); // form still doesn't reset?
-    window.location.reload();
+    $("song-form").trigger('reset'); 
   });
 
 }
