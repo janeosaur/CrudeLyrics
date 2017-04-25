@@ -126,20 +126,24 @@
             <div class="col m4">
               <input id="releaseDate" name="releaseDate" type="text" required="" class="form-control input-md validate">
             </div>
-						<div class="input-field col s6">
-							 <select name="genre" class="validate">>
-								 <option value="rnb"> R&B </option>
-								 <option value="edm"> EDM </option>
-								 <option value="kpop"> K-POP </option>
-								 <option value="hiphop"> HIP-HOP </option>
-							 </select>
-						 <label class="formq" for="genre"> Genre </label>
-					 </div>
 					 <label class="formq">Lyrics: </label>
 					 <div class="col m4">
 						 <input id="lyrics" name="lyrics.verse" type="text" required="" class="form-control input-md validate">
 					 </div>
-						 <!-- Button -->
+					 <div class="input-field col s6">
+							<select name="genre" class="validate">>
+								<option value="rnb"> R&B </option>
+								<option value="edm"> EDM </option>
+								<option value="kpop"> K-POP </option>
+								<option value="hiphop"> HIP-HOP </option>
+							</select>
+						<label class="formq" for="genre"> Genre </label>
+					</div>
+					<label class="formq">Submitted By: </label>
+					<div class="col m4">
+						<input name="lyrics.writers" type="text" require="" class="form-control input-md validate">
+					</div> 
+					 <!-- Button -->
 					 <div class="col m4">
 						 <a class="modal-action modal-close btn btn-default blue-grey lighten-4 edit-songs">Cancel</a>
 						 <button type="submit" class="btn btn-default blue-grey lighten-4" id="submit">Submit</button>
